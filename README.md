@@ -12,6 +12,13 @@ Lern- und Übungsseite für Wirtschaftsprivatrecht (Hochschule München).
   - `wpr-loes-1.js` … `wpr-loes-6.js` – Lösungswege und Begründungen für alle Fälle
 - `support.js`, `compat.json` – Laufzeit und Seitenliste aus dem Claude-Artefakt
 
-Die `.dc.html`-Seiten laufen im Claude-Artefakt-Editor; außerhalb davon fehlt die Laufzeit.
+## Starten
+
+Die Seite braucht nur einen Browser mit Internet (React wird von unpkg.com geladen).
+
+- **Online:** GitHub Pages aktivieren (Settings → Pages → Branch `main`, Ordner `/`). `index.html` leitet auf die Hauptseite weiter.
+- **Lokal:** im Ordner `python3 -m http.server 8000` ausführen und `http://localhost:8000` öffnen. Direkt per Doppelklick geht es meist auch.
+
+Fortschritt (beantwortete Fälle, Lernplan) wird im Browser gespeichert (localStorage) – pro Browser und Adresse getrennt.
 
 Vorlesungsfolien, Probeklausuren und Übungsfälle der Dozenten sind bewusst nicht im Repository enthalten.
