@@ -1,0 +1,50 @@
+{
+  "v": 1,
+  "mode": "omelette",
+  "root": "project/",
+  "title": "Wirtschaftsprivatrecht Klausur-Vorbereitung",
+  "entry": "WPR Kompakt.dc.html",
+  "pages": [
+    {
+      "path": "WPR Kompakt.dc.html",
+      "title": "WPR Kompakt",
+      "kind": "page"
+    },
+    {
+      "path": "WPR Kompakt (offline).html",
+      "title": "Bundled Page",
+      "kind": "plain"
+    },
+    {
+      "path": "WPR Lernmaterial.html",
+      "title": "Bundled Page",
+      "kind": "plain"
+    },
+    {
+      "path": "WPR Lernmaterial.dc.html",
+      "title": "WPR Lernmaterial",
+      "kind": "page"
+    }
+  ],
+  "migratorVersion": "artifact-migrator (claude-design-backend ed667f7ac9c1)",
+  "createdAt": "2026-11-10T22:09:48.094Z",
+  "source": {
+    "v": 1,
+    "app": "claude-design",
+    "url": "https://claude.ai/design/p/e160b631-0101-4ecc-9851-44e0d959c525",
+    "projectId": "e160b631-0101-4ecc-9851-44e0d959c525",
+    "exportedAt": "2026-11-10T22:09:48.094Z"
+  },
+  "report": {
+    "itemsVersion": 2,
+    "pages": {
+      "total": 4,
+      "ok": 4,
+      "partial": 0,
+      "notMigrated": 0
+    },
+    "items": [],
+    "truncated": 0,
+    "truncatedLeftOut": 0
+  }
+}

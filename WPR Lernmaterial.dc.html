@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#141518;color:#e8e4dc;font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;color-scheme:dark}
+a{color:oklch(0.74 0.12 45)}a:hover{color:#e8e4dc}
+*{box-sizing:border-box}
+</style>
+<script src="./wpr-data-a.js"></script>
+<script src="./wpr-data-b.js"></script>
+<script src="./wpr-data-c.js"></script>
+<script src="./wpr-data-d.js"></script>
+<script src="./wpr-data-e.js"></script>
+<script src="./wpr-data-f.js"></script>
+<script src="./wpr-data-g.js"></script>
+</helmet>
+<div style="min-height:100vh;background:#141518">
+  <header style="border-bottom:1px solid #33363c;background:#1c1e22;position:sticky;top:0;z-index:5">
+    <div style="max-width:1280px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:220px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#9d988d">Wirtschaftsprivatrecht · HM München · WS 2026/27</div>
+        <div style="font-family:'Newsreader',serif;font-size:20px;font-weight:500">Klausurtraining: Skript Vorlesung 1 &amp; 52 Übungsfälle</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="font-size:13px;color:#a8a398">52 Übungsfälle</div>
+        <div style="width:140px;height:6px;background:#2e3137;border-radius:3px;overflow:hidden"><div style="height:100%;width:{{ progPct }};background:oklch(0.7 0.13 150)"></div></div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:13px">{{ progLabel }}</div>
+      </div>
+    </div>
+  </header>
+
+  <div style="max-width:1280px;margin:0 auto;padding:28px 24px 80px;display:flex;gap:32px;align-items:flex-start;flex-wrap:wrap">
+
+    <nav style="flex:0 1 220px;min-width:180px;display:flex;flex-direction:column;gap:2px;position:sticky;top:84px;max-height:calc(100vh - 100px);overflow-y:auto">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#9d988d;padding:0 10px 8px">Lernpfad · 16 Module</div>
+      <sc-for list="{{ modules }}" as="m" hint-placeholder-count="16">
+        <button onClick="{{ m.onPick }}" style="font:inherit;text-align:left;border:0;cursor:pointer;display:flex;gap:10px;align-items:baseline;padding:8px 10px;border-radius:4px;background:{{ m.bg }};color:{{ m.fg }}">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;min-width:20px">{{ m.n }}</span>
+          <span style="display:flex;flex-direction:column;gap:2px">
+            <span style="font-size:14px;line-height:1.35">{{ m.title }}</span>
+            <span style="font-size:11px;opacity:.75">{{ m.sub }}</span>
+          </span>
+        </button>
+      </sc-for>
+    </nav>
+
+    <main style="flex:999 1 0;min-width:min(100%, 480px);display:flex;flex-direction:column;gap:64px">
+      <sc-if value="{{ isM1 }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;flex-direction:column;gap:64px">
+
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.74 0.12 45)">Modul 1 von 16 · Skript S. 2–7</div>
+        <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(36px,5vw,58px);line-height:1.04;margin:0;text-wrap:balance">Grundlagen des Rechts &amp; Gerichtsbarkeit</h1>
+        <p style="font-size:18px;line-height:1.65;color:#c6c1b7;max-width:760px;margin:0;text-wrap:pretty">Dieses Modul schafft die Landkarte für alles Weitere. Sie lernen, in welchem Rechtsgebiet ein Fall spielt, was eine Rechtsnorm ausmacht, welche Norm sich bei einem Widerspruch durchsetzt, wer Recht setzt, ausführt und spricht, und welches Gericht über einen Streit entscheidet. Dazu gehört auch die Neuregelung der Zuständigkeiten ab dem 01.01.2026.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:6px">
+          <div style="background:#1c1e22;border:1px solid #33363c;border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:4px"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#9d988d;text-transform:uppercase;letter-spacing:.08em">Lernziel</div><div style="font-size:14px;line-height:1.5">Jeden Sachverhalt einem Rechtsgebiet und einem Gericht zuordnen können.</div></div>
+          <div style="background:#1c1e22;border:1px solid #33363c;border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:4px"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#9d988d;text-transform:uppercase;letter-spacing:.08em">Klausurrelevanz</div><div style="font-size:14px;line-height:1.5">Typischerweise MC-Fragen zu Rangordnung, Rechtsnorm und Instanzenzug.</div></div>
+          <div style="background:#1c1e22;border:1px solid #33363c;border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:4px"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#9d988d;text-transform:uppercase;letter-spacing:.08em">Übungsfälle</div><div style="font-size:14px;line-height:1.5">Keiner der 52 Fälle betrifft dieses Modul direkt. Die Fälle beginnen in Modul 2.</div></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px">
+          <a href="#m1-1" style="display:inline-flex;white-space:nowrap;font-size:13px;padding:6px 12px;border:1px solid #454950;border-radius:20px;text-decoration:none;color:#e8e4dc;background:#1c1e22">1.1 Arbeitsweise</a>
+          <a href="#m1-2" style="display:inline-flex;white-space:nowrap;font-size:13px;padding:6px 12px;border:1px solid #454950;border-radius:20px;text-decoration:none;color:#e8e4dc;background:#1c1e22">1.2 Rechtsgebiete</a>
+          <a href="#m1-3" style="display:inline-flex;white-space:nowrap;font-size:13px;padding:6px 12px;border:1px solid #454950;border-radius:20px;text-decoration:none;color:#e8e4dc;background:#1c1e22">1.3 Rechtsnorm</a>
+          <a href="#m1-4" style="display:inline-flex;white-space:nowrap;font-size:13px;padding:6px 12px;border:1px solid #454950;border-radius:20px;text-decoration:none;color:#e8e4dc;background:#1c1e22">1.4 Rangordnung</a>
+          <a href="#m1-5" style="display:inline-flex;white-space:nowrap;font-size:13px;padding:6px 12px;border:1px solid #454950;border-radius:20px;text-decoration:none;color:#e8e4dc;background:#1c1e22">1.5 Gewaltenteilung</a>
+          <a href="#m1-6" style="display:inline-flex;white-space:nowrap;font-size:13px;padding:6px 12px;border:1px solid #454950;border-radius:20px;text-decoration:none;color:#e8e4dc;background:#1c1e22">1.6 Gerichtsbarkeit</a>
+          <a href="#m1-7" style="display:inline-flex;white-space:nowrap;font-size:13px;padding:6px 12px;border:1px solid #454950;border-radius:20px;text-decoration:none;color:#e8e4dc;background:#1c1e22">1.7 Prüferfragen</a>
+          <a href="#m1-8" style="display:inline-flex;white-space:nowrap;font-size:13px;padding:6px 12px;border:1px solid #454950;border-radius:20px;text-decoration:none;color:#e8e4dc;background:#1c1e22">1.8 Karteikarten</a>
+          <a href="#m1-test" style="display:inline-flex;white-space:nowrap;font-size:13px;padding:6px 12px;border:1px solid oklch(0.74 0.12 45);border-radius:20px;text-decoration:none;color:oklch(0.74 0.12 45);background:#1c1e22">Abschlusstest</a>
+        </div>
+      </section>
+
+      <section id="m1-1" style="display:flex;flex-direction:column;gap:20px">
+        <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1px solid #33363c;padding-bottom:10px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:oklch(0.74 0.12 45)">1.1</span>
+          <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:32px;margin:0">Wie man Jura lernt: Struktur vor Detail</h2>
+        </div>
+        <p style="margin:0;line-height:1.7;color:#c6c1b7;max-width:780px">Das Skript betont: Jura heißt nicht in erster Linie Auswendiglernen, sondern <strong>Grundstrukturen verstehen</strong>. Wer ohne diese Struktur einfach drauflos lernt, dem bringt das laut Skript „NICHTS“. Der Grund: In der Klausur bekommen Sie fast nie eine Frage, die Sie wörtlich gelernt haben, sondern einen <em>Lebenssachverhalt</em>, den Sie selbst juristisch einordnen müssen.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+          <div style="background:#1c1e22;border:1px solid #33363c;border-radius:6px;padding:18px;display:flex;flex-direction:column;gap:8px"><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:oklch(0.74 0.12 45)">Schritt 1 · Verorten</div><div style="font-weight:600">In welchem Rechtsgebiet bin ich?</div><div style="font-size:14px;line-height:1.55;color:#c6c1b7">Privatrecht, öffentliches Recht oder Strafrecht? Innerhalb des BGB: Allgemeiner Teil, Schuldrecht oder Sachenrecht?</div></div>
+          <div style="background:#1c1e22;border:1px solid #33363c;border-radius:6px;padding:18px;display:flex;flex-direction:column;gap:8px"><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:oklch(0.74 0.12 45)">Schritt 2 · Struktur</div><div style="font-weight:600">Wie ist das Gebiet aufgebaut?</div><div style="font-size:14px;line-height:1.55;color:#c6c1b7">Zum Beispiel beim Kaufvertrag: Ist er entstanden, wirksam geblieben und durchsetzbar? Diesen Aufbau trainieren wir ab Modul 4.</div></div>
+          <div style="background:#1c1e22;border:1px solid #33363c;border-radius:6px;padding:18px;display:flex;flex-direction:column;gap:8px"><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:oklch(0.74 0.12 45)">Schritt 3 · Problem</div><div style="font-weight:600">Wo genau hakt es?</div><div style="font-size:14px;line-height:1.55;color:#c6c1b7">Erst jetzt suchen Sie das Problem, etwa ein fehlender Zugang (§ 130) oder ein Formmangel (§ 518). Dann lösen Sie es gezielt.</div></div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <h3 style="font-size:16px;font-weight:600;margin:0">Warum Jura für BWL und WIF?</h3>
+            <ul style="margin:0;padding-left:18px;line-height:1.7;color:#c6c1b7">
+              <li><strong>Allgegenwärtig:</strong> Brötchenkauf, Leasing, Arbeitsvertrag und Onlineshop sind alles Rechtsgeschäfte.</li>
+              <li><strong>Blick über den Tellerrand:</strong> Eine Führungskraft muss die rechtlichen Folgen ihrer Entscheidungen erkennen, etwa Haftung, Gewährleistung und AGB.</li>
+              <li><strong>Natürliche Autorität durch Wissen:</strong> Wer die Rechtslage kennt, verhandelt sicherer.</li>
+            </ul>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <h3 style="font-size:16px;font-weight:600;margin:0">Erfolgsfaktoren laut Skript</h3>
+            <ul style="margin:0;padding-left:18px;line-height:1.7;color:#c6c1b7">
+              <li>Struktur im Tagesablauf und Selbstdisziplin: „Von Anfang an Gas geben!“</li>
+              <li>Das Skript allein reicht nicht. Arbeiten Sie mit Lehrbüchern nach, z. B. Führich, Müssig oder Kallwass/Abels.</li>
+              <li>Lesen Sie die Einführung von Prof. Köhler in der dtv-Ausgabe des BGB.</li>
+              <li>Ergänzend empfiehlt das Skript „6 Minuten Jura“ (Lange), Videos von Fervers und Podcasts von Lorenz (LMU).</li>
+            </ul>
+          </div>
+        </div>
+        <div style="background:#e8e4dc;color:#141518;border-radius:6px;padding:22px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6a4e3c">Klausurregeln laut Skript</div>
+            <p style="margin:0;line-height:1.6">Zugelassen ist <strong>nur das BGB in Buchform</strong> (empfohlen: Beck-Texte im dtv, 98. Aufl. 2026). Markieren ist zulässig, aber <strong>handschriftlich dürfen keine Wörter hinzugefügt werden</strong>. Jede systematische Umgehung wird als Unterschleif sanktioniert.</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6a4e3c">Was das für Sie heißt</div>
+            <p style="margin:0;line-height:1.6">Normtexte müssen Sie nicht auswendig kennen. Sie müssen aber <strong>wissen, wo sie stehen</strong>, und sie schnell finden. Arbeiten Sie jeden Abschnitt dieses Materials mit dem aufgeschlagenen BGB durch. Das ProdHaftG steht in der dtv-Ausgabe unter Nr. 4 und wird für Fall 46 gebraucht.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="m1-2" style="display:flex;flex-direction:column;gap:20px">
+        <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1px solid #33363c;padding-bottom:10px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:oklch(0.74 0.12 45)">1.2</span>
+          <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:32px;margin:0">Die drei Rechtsgebiete</h2>
+        </div>
+        <p style="margin:0;line-height:1.7;color:#c6c1b7;max-width:780px">Die erste Frage bei jedem Fall lautet: <em>Wer steht wem wie gegenüber?</em> Davon hängt ab, welche Gesetze gelten und welches Gericht entscheidet. Begegnen sich zwei Seiten auf Augenhöhe, gilt Privatrecht. Tritt der Staat mit Befehlsgewalt auf, gilt öffentliches Recht.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:#33363c;border:1px solid #33363c;border-radius:6px;overflow:hidden">
+          <div style="background:#1c1e22;padding:20px;display:flex;flex-direction:column;gap:10px">
+            <div style="font-family:'Newsreader',serif;font-size:24px">Privatrecht</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9d988d">Gleichordnung</div>
+            <div style="font-size:14px;line-height:1.6;color:#c6c1b7">Rechtsbeziehungen zwischen Privatpersonen, die <strong>gleichberechtigt</strong> sind. Niemand kann dem anderen einseitig etwas befehlen. Rechtsfolgen entstehen durch übereinstimmenden Willen (Privatautonomie).</div>
+            <div style="font-size:14px;line-height:1.6;color:#c6c1b7">Zentrales Instrument: der <strong>Vertrag</strong>, <span style="font-family:'IBM Plex Mono',monospace">§§ 145 ff. BGB</span>.</div>
+            <div style="font-size:14px;line-height:1.6;color:#c6c1b7">Das <strong>Wirtschaftsprivatrecht</strong> umfasst insbesondere das BGB, das für alle Bürger gilt, das Handelsrecht im HGB („Recht der Kaufleute“) und das Gesellschaftsrecht (GmbHG, AktG, §§ 705 ff. BGB).</div>
+          </div>
+          <div style="background:#1c1e22;padding:20px;display:flex;flex-direction:column;gap:10px">
+            <div style="font-family:'Newsreader',serif;font-size:24px">Öffentliches Recht</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9d988d">Über- und Unterordnung</div>
+            <div style="font-size:14px;line-height:1.6;color:#c6c1b7">Rechtsbeziehungen zwischen dem Staat <strong>als Hoheitsträger</strong> und dem Bürger. Der Staat kann einseitig verbindlich regeln.</div>
+            <div style="font-size:14px;line-height:1.6;color:#c6c1b7">Zentrales Instrument: der <strong>Verwaltungsakt</strong>, <span style="font-family:'IBM Plex Mono',monospace">§ 35 VwVfG</span>.</div>
+            <div style="font-size:14px;line-height:1.6;color:#c6c1b7"><strong>Eingriffs- oder Ordnungsverwaltung:</strong> Der Staat greift in Rechte ein, z. B. mit einer Abrissverfügung oder einem Bußgeld.<br><strong>Leistungsverwaltung:</strong> Der Staat gewährt etwas, z. B. BAföG oder Subventionen.</div>
+          </div>
+          <div style="background:#1c1e22;padding:20px;display:flex;flex-direction:column;gap:10px">
+            <div style="font-family:'Newsreader',serif;font-size:24px">Strafrecht</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9d988d">Strafverfolgungsmonopol</div>
+            <div style="font-size:14px;line-height:1.6;color:#c6c1b7">Nur der Staat darf strafen. Das gilt insbesondere für die im <strong>StGB</strong> geregelten Straftaten wie Diebstahl (§ 242), Betrug (§ 263) und Körperverletzung (§ 223).</div>
+            <div style="font-size:14px;line-height:1.6;color:#c6c1b7">Systematisch gehört es zum öffentlichen Recht, wird aber als eigenes Gebiet behandelt. Es entscheiden die ordentlichen Gerichte (Strafsachen).</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px">
+          <div style="background:oklch(0.27 0.035 60);border-radius:6px;padding:16px 18px;display:flex;flex-direction:column;gap:6px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.8 0.1 65)">Klausurfalle: Der Staat als Käufer</div>
+            <div style="font-size:14px;line-height:1.6;color:#ecdccb">Dass der Staat beteiligt ist, macht einen Fall <strong>nicht automatisch</strong> öffentlich-rechtlich. Kauft die Stadt München Bürostühle, handelt sie wie jeder Private (sog. <em>fiskalisches Handeln</em>). Es gilt Kaufrecht, § 433 BGB, und zuständig sind die ordentlichen Gerichte.</div>
+          </div>
+          <div style="background:oklch(0.27 0.035 60);border-radius:6px;padding:16px 18px;display:flex;flex-direction:column;gap:6px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.8 0.1 65)">Klausurfalle: Ein Sachverhalt, mehrere Rechtsgebiete</div>
+            <div style="font-size:14px;line-height:1.6;color:#ecdccb">A schlägt B ins Gesicht (vgl. Fall 41). Strafrechtlich ist das eine Körperverletzung nach § 223 StGB. Privatrechtlich schuldet A Schadensersatz und Schmerzensgeld nach §§ 823 I, 253 II BGB. Beides läuft unabhängig nebeneinander.</div>
+          </div>
+        </div>
+
+        <details style="background:oklch(0.26 0.03 250);border-radius:6px;padding:14px 18px">
+          <summary style="cursor:pointer;font-weight:600;font-size:15px;color:#d3e0ef">Vertiefung (über das Skript hinaus): Abgrenzungstheorien</summary>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-top:12px;font-size:14px;line-height:1.65;color:#d3e0ef">
+            <p style="margin:0">In Grenzfällen arbeitet die Rechtswissenschaft mit drei Theorien:</p>
+            <p style="margin:0"><strong>Subordinationstheorie:</strong> Besteht ein Über- und Unterordnungsverhältnis, liegt öffentliches Recht vor. Sie passt zum Skript, versagt aber bei der Leistungsverwaltung.</p>
+            <p style="margin:0"><strong>Interessentheorie:</strong> Dient die Norm dem öffentlichen Interesse, ist sie öffentlich-rechtlich. Das Kriterium ist allerdings unscharf.</p>
+            <p style="margin:0"><strong>Modifizierte Subjektstheorie (Sonderrechtstheorie, herrschende Meinung):</strong> Öffentlich-rechtlich ist eine Norm, die <em>ausschließlich einen Hoheitsträger als solchen</em> berechtigt oder verpflichtet. Kann die Norm jeden treffen, wie § 433 BGB, ist sie privatrechtlich.</p>
+            <p style="margin:0">Für Ihre Klausur genügt meist die Formel des Skripts: „gleichberechtigt“ gegenüber „Über- und Unterordnung“.</p>
+          </div>
+        </details>
+
+        <div style="border:1px solid #33363c;border-radius:6px;background:#1c1e22;padding:20px;display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap">
+            <div style="display:flex;flex-direction:column;gap:2px">
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.74 0.12 45)">Übung 1</div>
+              <div style="font-weight:600;font-size:17px">Ordnen Sie jeden Sachverhalt einem Rechtsgebiet zu</div>
+            </div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#a8a398">{{ zuLabel }}</div>
+          </div>
+          <sc-for list="{{ zuItems }}" as="z" hint-placeholder-count="8">
+            <div style="display:flex;flex-direction:column;gap:8px;padding:14px 0;border-top:1px solid #2e3137">
+              <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:space-between">
+                <div style="flex:1;min-width:240px;line-height:1.5">{{ z.text }}</div>
+                <div style="display:flex;gap:6px;flex-wrap:wrap">
+                  <sc-for list="{{ z.btns }}" as="b" hint-placeholder-count="3">
+                    <button onClick="{{ b.onPick }}" style="font:inherit;font-size:13px;padding:7px 12px;border-radius:4px;cursor:pointer;border:1px solid {{ b.border }};background:{{ b.bg }};color:{{ b.fg }}">{{ b.label }}</button>
+                  </sc-for>
+                </div>
+              </div>
+              <sc-if value="{{ z.answered }}" hint-placeholder-val="{{ false }}">
+                <div style="font-size:14px;line-height:1.6;color:{{ z.fbColor }}"><strong>{{ z.verdict }}</strong> {{ z.why }}</div>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section id="m1-3" style="display:flex;flex-direction:column;gap:20px">
+        <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1px solid #33363c;padding-bottom:10px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:oklch(0.74 0.12 45)">1.3</span>
+          <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:32px;margin:0">Rechtsquellen: Was ist eine Rechtsnorm?</h2>
+        </div>
+        <p style="margin:0;font-family:'Newsreader',serif;font-size:24px;line-height:1.4;max-width:800px">Eine Rechtsnorm ist ein <em>verbindliches Gebot oder Verbot</em>. Sie muss alle fünf der folgenden Merkmale erfüllen:</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px">
+          <div style="border:1px solid #33363c;background:#1c1e22;border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:6px"><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:oklch(0.74 0.12 45)">01 · abstrakt</div><div style="font-size:14px;line-height:1.5">gilt für eine unbestimmte Vielzahl von <strong>Fällen</strong></div></div>
+          <div style="border:1px solid #33363c;background:#1c1e22;border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:6px"><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:oklch(0.74 0.12 45)">02 · generell</div><div style="font-size:14px;line-height:1.5">gilt für eine unbestimmte Vielzahl von <strong>Personen</strong></div></div>
+          <div style="border:1px solid #33363c;background:#1c1e22;border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:6px"><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:oklch(0.74 0.12 45)">03 · Erlass</div><div style="font-size:14px;line-height:1.5">durch verfassungsrechtlich befugte Organe in einem festgelegten Verfahren</div></div>
+          <div style="border:1px solid #33363c;background:#1c1e22;border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:6px"><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:oklch(0.74 0.12 45)">04 · Verkündung</div><div style="font-size:14px;line-height:1.5">Veröffentlichung in bestimmten Verkündungsorganen, z. B. im Bundesgesetzblatt</div></div>
+          <div style="border:1px solid #33363c;background:#1c1e22;border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:6px"><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:oklch(0.74 0.12 45)">05 · verbindlich</div><div style="font-size:14px;line-height:1.5">notfalls durch staatlichen Zwang durchsetzbar</div></div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <h3 style="font-size:16px;font-weight:600;margin:0">Die Vierfeldertafel: Was ist eine Norm, was nicht?</h3>
+            <div style="display:grid;grid-template-columns:auto minmax(0,1fr) minmax(0,1fr);border:1px solid #33363c;border-radius:6px;font-size:13px;background:#1c1e22;overflow-wrap:anywhere;hyphens:auto">
+              <div style="padding:10px;border-bottom:1px solid #33363c"></div>
+              <div style="padding:10px;border-bottom:1px solid #33363c;border-left:1px solid #33363c;font-weight:600">generell (alle Personen)</div>
+              <div style="padding:10px;border-bottom:1px solid #33363c;border-left:1px solid #33363c;font-weight:600">individuell (bestimmte Person)</div>
+              <div style="padding:10px;border-bottom:1px solid #33363c;font-weight:600">abstrakt (alle Fälle)</div>
+              <div style="padding:10px;border-bottom:1px solid #33363c;border-left:1px solid #33363c;background:oklch(0.3 0.05 150)"><strong>Rechtsnorm</strong><br>§ 433 II BGB: Jeder Käufer muss zahlen.</div>
+              <div style="padding:10px;border-bottom:1px solid #33363c;border-left:1px solid #33363c">Selten, z. B. eine Dauerauflage an einen bestimmten Betrieb</div>
+              <div style="padding:10px;font-weight:600">konkret (ein Fall)</div>
+              <div style="padding:10px;border-left:1px solid #33363c">Allgemeinverfügung, z. B. ein Verkehrsschild</div>
+              <div style="padding:10px;border-left:1px solid #33363c"><strong>Verwaltungsakt</strong> (§ 35 VwVfG) oder Vertrag: A muss B 500 € zahlen.</div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="background:oklch(0.27 0.035 60);border-radius:6px;padding:16px 18px;display:flex;flex-direction:column;gap:6px">
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.8 0.1 65)">Klausurfalle</div>
+              <div style="font-size:14px;line-height:1.6;color:#ecdccb">„Verbindlich“ allein reicht nicht. Auch ein Verwaltungsakt, ein Urteil und ein Vertrag sind verbindlich. Sie regeln aber nur einen <strong>konkreten Fall</strong> für <strong>bestimmte Personen</strong> und sind daher keine Rechtsnormen.</div>
+            </div>
+            <div style="background:#e8e4dc;color:#141518;border-radius:6px;padding:16px 18px;display:flex;flex-direction:column;gap:6px">
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6a4e3c">Merksatz</div>
+              <div style="font-size:15px;line-height:1.55"><strong>A</strong>bstrakt heißt: die <strong>A</strong>nzahl der Fälle ist offen. <strong>G</strong>enerell heißt: die <strong>G</strong>ruppe der Personen ist offen. Eine Rechtsnorm ist abstrakt-generell, ein Verwaltungsakt konkret-individuell.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="m1-4" style="display:flex;flex-direction:column;gap:20px">
+        <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1px solid #33363c;padding-bottom:10px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:oklch(0.74 0.12 45)">1.4</span>
+          <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:32px;margin:0">Rangordnung der Rechtsnormen</h2>
+        </div>
+        <p style="margin:0;line-height:1.7;color:#c6c1b7;max-width:780px"><strong>Grundsatz laut Skript:</strong> Rangniedrigere Normen dürfen nicht gegen ranghöhere verstoßen. Kollidieren sie, geht die <strong>ranghöhere Norm vor</strong>. Warum ist das so? Jede niedrigere Ebene leitet ihre Befugnis von der höheren ab. Eine Rechtsverordnung darf nur erlassen werden, wenn ein Gesetz dazu ermächtigt (Art. 80 GG). Sie kann dieses Gesetz deshalb nicht aushebeln.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;align-items:start">
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div style="font-size:13px;color:#a8a398;margin-bottom:4px">Klicken Sie eine Stufe an, um Erklärung und Beispiel zu sehen.</div>
+            <sc-for list="{{ ranks }}" as="r" hint-placeholder-count="8">
+              <button onClick="{{ r.onPick }}" style="font:inherit;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 14px;border-radius:4px;margin-left:{{ r.indent }};border:1px solid {{ r.border }};background:{{ r.bg }};color:{{ r.fg }}">
+                <span style="font-size:15px">{{ r.name }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.75">{{ r.group }}</span>
+              </button>
+            </sc-for>
+          </div>
+          <div style="border:1px solid #33363c;background:#1c1e22;border-radius:6px;padding:20px;display:flex;flex-direction:column;gap:12px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.74 0.12 45)">Stufe {{ rankSel.pos }} · {{ rankSel.group }}</div>
+            <div style="font-family:'Newsreader',serif;font-size:26px">{{ rankSel.name }}</div>
+            <p style="margin:0;line-height:1.65;color:#c6c1b7">{{ rankSel.text }}</p>
+            <p style="margin:0;line-height:1.65;color:#c6c1b7"><strong>Beispiele:</strong> {{ rankSel.ex }}</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px">
+          <div style="border-top:3px solid #e8e4dc;padding-top:12px;display:flex;flex-direction:column;gap:6px"><div style="font-weight:600">Lex superior</div><div style="font-size:14px;line-height:1.6;color:#c6c1b7">Die ranghöhere Norm geht vor. Eine Ausprägung ist <span style="font-family:'IBM Plex Mono',monospace">Art. 31 GG</span>: „Bundesrecht bricht Landesrecht.“</div></div>
+          <div style="border-top:3px solid #e8e4dc;padding-top:12px;display:flex;flex-direction:column;gap:6px"><div style="font-weight:600">Lex specialis (Skript)</div><div style="font-size:14px;line-height:1.6;color:#c6c1b7">Das speziellere Gesetz verdrängt bei <em>gleichem Rang</em> das allgemeine. Beispiel: Für Kaufmängel gelten zuerst §§ 434 ff. BGB, nicht direkt das allgemeine Leistungsstörungsrecht. Für Kaufleute gilt das HGB neben und vor dem BGB.</div></div>
+          <div style="border-top:3px solid oklch(0.76 0.09 250);padding-top:12px;display:flex;flex-direction:column;gap:6px"><div style="font-weight:600">Lex posterior <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:oklch(0.76 0.09 250)">ERGÄNZUNG</span></div><div style="font-size:14px;line-height:1.6;color:#c6c1b7">Steht nicht im Skript, ist aber Standardwissen: Bei gleichem Rang und gleicher Spezialität verdrängt das jüngere Gesetz das ältere.</div></div>
+        </div>
+        <div style="background:oklch(0.26 0.03 250);border-radius:6px;padding:16px 18px;font-size:14px;line-height:1.65;color:#d3e0ef"><strong>Feinheit für die 1,0:</strong> Das Skript stellt das supranationale Recht pauschal an die Spitze. Genau genommen hat <strong>EU-Recht einen Anwendungsvorrang</strong>: Widersprechendes nationales Recht wird nicht nichtig, sondern bleibt nur unangewendet. Die <em>allgemeinen Regeln</em> des Völkerrechts stehen nach <span style="font-family:'IBM Plex Mono',monospace">Art. 25 GG</span> über den Bundesgesetzen. Völkerrechtliche <em>Verträge</em> haben nach <span style="font-family:'IBM Plex Mono',monospace">Art. 59 II GG</span> nur den Rang eines Bundesgesetzes. Geben Sie in der MC-Klausur die Reihenfolge des Skripts wieder und erwähnen Sie die Feinheit nur bei einer offenen Frage.</div>
+
+        <div style="border:1px solid #33363c;border-radius:6px;background:#1c1e22;padding:20px;display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap">
+            <div style="display:flex;flex-direction:column;gap:2px">
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.74 0.12 45)">Übung 2</div>
+              <div style="font-weight:600;font-size:17px">Bringen Sie die Pyramide aus dem Gedächtnis in die richtige Reihenfolge</div>
+              <div style="font-size:13px;color:#a8a398">Klicken Sie die Stufen von oben (höchster Rang) nach unten an.</div>
+            </div>
+            <button onClick="{{ resetOrder }}" style="font:inherit;font-size:13px;padding:7px 12px;border-radius:4px;cursor:pointer;border:1px solid #454950;background:#23262b;color:#e8e4dc">Neu mischen</button>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ orderPool }}" as="o" hint-placeholder-count="8">
+              <button onClick="{{ o.onPick }}" style="font:inherit;font-size:14px;padding:8px 12px;border-radius:4px;cursor:pointer;border:1px solid #454950;background:#23262b;color:#e8e4dc">{{ o.name }}</button>
+            </sc-for>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <sc-for list="{{ orderChosen }}" as="o" hint-placeholder-count="0">
+              <div style="display:flex;gap:12px;align-items:center;padding:8px 12px;border-radius:4px;background:{{ o.bg }};color:{{ o.fg }}">
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;min-width:18px">{{ o.pos }}</span>
+                <span style="font-size:14px;flex:1">{{ o.name }}</span>
+                <span style="font-size:12px">{{ o.hint }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <sc-if value="{{ orderDone }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size:14px;line-height:1.6;font-weight:600;color:{{ orderColor }}">{{ orderMsg }}</div>
+          </sc-if>
+        </div>
+      </section>
+
+      <section id="m1-5" style="display:flex;flex-direction:column;gap:20px">
+        <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1px solid #33363c;padding-bottom:10px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:oklch(0.74 0.12 45)">1.5</span>
+          <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:32px;margin:0">Gewaltenteilung: Grundlage des Rechtsstaats</h2>
+        </div>
+        <p style="margin:0;line-height:1.7;color:#c6c1b7;max-width:780px">Nach <span style="font-family:'IBM Plex Mono',monospace">Art. 20 GG</span> ist Deutschland ein demokratischer und sozialer Rechtsstaat. Alle Staatsgewalt geht vom Volke aus und wird durch <em>besondere Organe</em> der Gesetzgebung, der vollziehenden Gewalt und der Rechtsprechung ausgeübt (Art. 20 II 2 GG). <span style="font-family:'IBM Plex Mono',monospace">Art. 28 GG</span> verpflichtet die Länder auf dieselben Grundsätze (Homogenitätsgebot). <strong>Sinn:</strong> Die Macht wird verteilt, damit sich die Gewalten gegenseitig kontrollieren und kein Organ zugleich Gesetze macht, vollzieht und über sie richtet.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+          <div style="background:#1c1e22;border:1px solid #33363c;border-radius:6px;padding:18px;display:flex;flex-direction:column;gap:8px"><div style="font-family:'Newsreader',serif;font-size:24px">Legislative</div><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9d988d">Gesetzgebung</div><div style="font-size:14px;line-height:1.55">Bundestag und Bundesrat, Landesparlamente (in Bayern der Landtag)</div><div style="font-size:13px;line-height:1.55;color:#a8a398">Beispiel: Der Bundestag beschließt die Änderung der Zuständigkeitsgrenze auf 10.000 €.</div></div>
+          <div style="background:#1c1e22;border:1px solid #33363c;border-radius:6px;padding:18px;display:flex;flex-direction:column;gap:8px"><div style="font-family:'Newsreader',serif;font-size:24px">Exekutive</div><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9d988d">vollziehende Gewalt</div><div style="font-size:14px;line-height:1.55">Bundes- und Landesregierung, Behörden</div><div style="font-size:13px;line-height:1.55;color:#a8a398">Beispiel: Das Landratsamt erlässt einen Bescheid. Die Regierung erlässt eine Rechtsverordnung.</div></div>
+          <div style="background:#1c1e22;border:1px solid #33363c;border-radius:6px;padding:18px;display:flex;flex-direction:column;gap:8px"><div style="font-family:'Newsreader',serif;font-size:24px">Judikative</div><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9d988d">Rechtsprechung</div><div style="font-size:14px;line-height:1.55">Richter und Gerichte, unabhängig und nur dem Gesetz unterworfen (Art. 97 GG)</div><div style="font-size:13px;line-height:1.55;color:#a8a398">Beispiel: Das Amtsgericht München entscheidet über eine Kaufpreisklage.</div></div>
+        </div>
+        <div style="background:oklch(0.27 0.035 60);border-radius:6px;padding:16px 18px;display:flex;flex-direction:column;gap:6px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.8 0.1 65)">Klausurfalle</div>
+          <div style="font-size:14px;line-height:1.6;color:#ecdccb">Der <strong>Bundesrat</strong> gehört zur Legislative, auch wenn dort Mitglieder der Landesregierungen sitzen. Die <strong>Bundesregierung</strong> gehört zur Exekutive, obwohl sie Gesetzentwürfe einbringt und Rechtsverordnungen erlässt.</div>
+        </div>
+      </section>
+
+      <section id="m1-6" style="display:flex;flex-direction:column;gap:20px">
+        <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1px solid #33363c;padding-bottom:10px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:oklch(0.74 0.12 45)">1.6</span>
+          <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:32px;margin:0">Rechtsschutzgarantie &amp; Gerichtsbarkeit</h2>
+        </div>
+        <p style="margin:0;line-height:1.7;color:#c6c1b7;max-width:780px"><span style="font-family:'IBM Plex Mono',monospace">Art. 19 IV 1 GG</span> garantiert: Wer durch die öffentliche Gewalt in seinen Rechten verletzt wird, dem steht der Rechtsweg offen. Für Streitigkeiten unter Privaten folgt der Justizgewährungsanspruch aus dem Rechtsstaatsprinzip. Weil Selbstjustiz verboten ist, muss der Staat Gerichte bereitstellen. Streitigkeiten des <strong>Wirtschaftsprivatrechts</strong> entscheiden die <strong>ordentlichen Gerichte</strong>, die für Zivil- und Strafsachen zuständig sind.</p>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:#33363c;border:1px solid #33363c;border-radius:6px;overflow:hidden">
+          <div style="background:#1c1e22;padding:20px;display:flex;flex-direction:column;gap:12px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.74 0.12 45)">Eingangsinstanz Amtsgericht</div>
+            <div style="font-family:'Newsreader',serif;font-size:26px">bis 10.000 €</div>
+            <div style="font-size:14px;line-height:1.6;color:#c6c1b7"><strong>Streitwertunabhängig</strong> zuständig z. B. für Mietsachen, Familiensachen und bestimmte Nachbarrechtsstreitigkeiten (Letztere neu ab 2026).</div>
+            <div style="display:flex;flex-direction:column;gap:6px;font-size:14px;line-height:1.5">
+              <div><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9d988d">1. Instanz</span> Amtsgericht</div>
+              <div style="color:#9d988d;font-size:13px">↓ Berufung: Tatsachen und Recht werden vollständig überprüft, i. d. R. nur bei einem Beschwerdewert über 1.000 €</div>
+              <div><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9d988d">2. Instanz</span> Landgericht</div>
+              <div style="color:#9d988d;font-size:13px">↓ Revision: nur mit Zulassung, nur rechtliche Überprüfung</div>
+              <div><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9d988d">3. Instanz</span> Bundesgerichtshof</div>
+            </div>
+          </div>
+          <div style="background:#1c1e22;padding:20px;display:flex;flex-direction:column;gap:12px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.74 0.12 45)">Eingangsinstanz Landgericht</div>
+            <div style="font-family:'Newsreader',serif;font-size:26px">über 10.000 €</div>
+            <div style="font-size:14px;line-height:1.6;color:#c6c1b7"><strong>Streitwertunabhängig</strong> zuständig z. B. für Wettbewerbssachen, Medienrechtsstreitigkeiten und Arzthaftungsprozesse.</div>
+            <div style="display:flex;flex-direction:column;gap:6px;font-size:14px;line-height:1.5">
+              <div><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9d988d">1. Instanz</span> Landgericht</div>
+              <div style="color:#9d988d;font-size:13px">↓ Berufung: Tatsachen und Recht werden vollständig überprüft, i. d. R. nur bei einem Beschwerdewert über 1.000 €</div>
+              <div><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9d988d">2. Instanz</span> Oberlandesgericht</div>
+              <div style="color:#9d988d;font-size:13px">↓ Revision: nur mit Zulassung, nur rechtliche Überprüfung</div>
+              <div><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9d988d">3. Instanz</span> Bundesgerichtshof</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <h3 style="font-size:16px;font-weight:600;margin:0">Berufung und Revision: der entscheidende Unterschied</h3>
+            <p style="margin:0;font-size:14px;line-height:1.65;color:#c6c1b7">Die <strong>Berufung</strong> ist eine zweite Tatsacheninstanz. Das Gericht prüft, ob der Sachverhalt richtig festgestellt <em>und</em> das Recht richtig angewendet wurde. Die <strong>Revision</strong> ist eine reine Rechtsinstanz. Der BGH nimmt die Tatsachen als gegeben hin und prüft nur, ob das Recht richtig angewendet wurde. Sie muss <strong>zugelassen</strong> werden, etwa wegen grundsätzlicher Bedeutung oder zur Sicherung einer einheitlichen Rechtsprechung.</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <h3 style="font-size:16px;font-weight:600;margin:0">Sachliche und örtliche Zuständigkeit</h3>
+            <p style="margin:0;font-size:14px;line-height:1.65;color:#c6c1b7"><strong>Sachlich</strong> bedeutet: Amtsgericht oder Landgericht? Das hängt vom Streitwert oder Sachgebiet ab. <strong>Örtlich</strong> bedeutet: welche Stadt? Maßgeblich ist grundsätzlich der <strong>Wohn- oder Geschäftssitz des Beklagten</strong> (§§ 12, 13, 17 ZPO). Ausnahmen gelten u. a. für Mietsachen (Ort der Wohnung, § 29a ZPO) und Familiensachen.</p>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px">
+          <div style="background:oklch(0.27 0.035 60);border-radius:6px;padding:16px 18px;display:flex;flex-direction:column;gap:6px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.8 0.1 65)">Klausurfalle: Gerichtsstandsvereinbarung</div>
+            <div style="font-size:14px;line-height:1.6;color:#ecdccb">Eine Klausel wie „Gerichtsstand ist Stuttgart“, z. B. in AGB, ist nach <span style="font-family:'IBM Plex Mono',monospace">§ 38 I ZPO</span> nur <strong>zwischen Kaufleuten</strong> wirksam (daneben für juristische Personen des öffentlichen Rechts). Gegenüber einem Verbraucher ist sie unwirksam. Dann gilt der allgemeine Gerichtsstand.</div>
+          </div>
+          <div style="background:oklch(0.27 0.035 60);border-radius:6px;padding:16px 18px;display:flex;flex-direction:column;gap:6px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.8 0.1 65)">Klausurfalle: Bundesverfassungsgericht</div>
+            <div style="font-size:14px;line-height:1.6;color:#ecdccb">Das BVerfG entscheidet nur <strong>verfassungsrechtliche Streitigkeiten</strong>. Es ist keine „4. Instanz“ nach dem BGH und prüft nicht, ob ein Kaufpreis geschuldet ist, sondern nur, ob spezifisches Verfassungsrecht verletzt wurde.</div>
+          </div>
+          <div style="background:oklch(0.26 0.03 250);border-radius:6px;padding:16px 18px;display:flex;flex-direction:column;gap:6px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.76 0.09 250)">Ergänzung: Anwaltszwang</div>
+            <div style="font-size:14px;line-height:1.6;color:#d3e0ef">Vor dem Landgericht und allen höheren Gerichten müssen sich die Parteien durch einen Rechtsanwalt vertreten lassen (<span style="font-family:'IBM Plex Mono',monospace">§ 78 ZPO</span>). Vor dem Amtsgericht ist das grundsätzlich nicht nötig. Die Grenze von 10.000 € entscheidet also auch über die Anwaltspflicht.</div>
+          </div>
+        </div>
+
+        <div style="border:1px solid #33363c;border-radius:6px;background:#1c1e22;padding:20px;display:flex;flex-direction:column;gap:16px">
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.74 0.12 45)">Übung 3 · Zuständigkeitsrechner</div>
+            <div style="font-weight:600;font-size:17px">Welches Gericht ist zuständig? Spielen Sie Fälle durch.</div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end">
+            <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:#a8a398">Streitwert in €
+              <input type="number" value="{{ amount }}" onChange="{{ onAmount }}" style="font:inherit;font-size:16px;padding:9px 12px;border:1px solid #454950;border-radius:4px;width:170px;background:#23262b;color:#e8e4dc">
+            </label>
+            <div style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:#a8a398">Sachgebiet
+              <div style="display:flex;flex-wrap:wrap;gap:6px">
+                <sc-for list="{{ sachOpts }}" as="s" hint-placeholder-count="7">
+                  <button onClick="{{ s.onPick }}" style="font:inherit;font-size:13px;padding:7px 11px;border-radius:4px;cursor:pointer;border:1px solid {{ s.border }};background:{{ s.bg }};color:{{ s.fg }}">{{ s.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px">
+            <div style="background:#e8e4dc;color:#141518;border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:4px"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#6a4e3c">1. Instanz</div><div style="font-family:'Newsreader',serif;font-size:22px">{{ court.first }}</div></div>
+            <div style="background:#23262b;border:1px solid #33363c;border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:4px"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#9d988d">2. Instanz</div><div style="font-family:'Newsreader',serif;font-size:22px">{{ court.second }}</div></div>
+            <div style="background:#23262b;border:1px solid #33363c;border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:4px"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#9d988d">3. Instanz</div><div style="font-family:'Newsreader',serif;font-size:22px">{{ court.third }}</div></div>
+            <div style="background:#23262b;border:1px solid #33363c;border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:4px"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#9d988d">Anwaltszwang</div><div style="font-family:'Newsreader',serif;font-size:22px">{{ court.anwalt }}</div></div>
+          </div>
+          <div style="font-size:14px;line-height:1.65;color:#c6c1b7">{{ court.why }}</div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <h3 style="font-size:16px;font-weight:600;margin:0">Gerichtliches Mahnverfahren (§§ 688 ff. ZPO): Geldforderungen ohne Klage durchsetzen</h3>
+          <p style="margin:0;font-size:14px;line-height:1.65;color:#c6c1b7;max-width:780px">Das Verfahren dient der <strong>vereinfachten Durchsetzung von Geldforderungen</strong>. Das Gericht prüft dabei <em>nicht</em>, ob die Forderung tatsächlich besteht. Ideal ist es, wenn der Schuldner einfach nicht zahlt, ohne zu bestreiten. Klicken Sie sich durch die Schritte:</p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <sc-for list="{{ mahnSteps }}" as="s" hint-placeholder-count="6">
+              <button onClick="{{ s.onPick }}" style="font:inherit;font-size:13px;padding:8px 12px;border-radius:4px;cursor:pointer;border:1px solid {{ s.border }};background:{{ s.bg }};color:{{ s.fg }}">{{ s.n }} · {{ s.title }}</button>
+            </sc-for>
+          </div>
+          <div style="background:#1c1e22;border:1px solid #33363c;border-radius:6px;padding:18px 20px;display:flex;flex-direction:column;gap:8px">
+            <div style="font-family:'Newsreader',serif;font-size:22px">{{ mahnSel.title }}</div>
+            <div style="font-size:14px;line-height:1.65;color:#c6c1b7">{{ mahnSel.text }}</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <h3 style="font-size:16px;font-weight:600;margin:0">Einstweiliger Rechtsschutz</h3>
+            <p style="margin:0;font-size:14px;line-height:1.65;color:#c6c1b7">Er schützt subjektive Rechte bei <strong>Dringlichkeit</strong> schon vor dem Urteil in der Hauptsache, weil ein Prozess Monate dauern kann. Das Gesetz kennt zwei Formen (Ergänzung): den <strong>Arrest</strong> (§§ 916 ff. ZPO), der künftige Geldforderungen sichert, z. B. wenn der Schuldner sein Vermögen ins Ausland schafft, und die <strong>einstweilige Verfügung</strong> (§§ 935, 940 ZPO) für andere Ansprüche, z. B. ein Unterlassen bei Wettbewerbsverstößen.</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <h3 style="font-size:16px;font-weight:600;margin:0">Andere Gerichtsbarkeiten</h3>
+            <p style="margin:0;font-size:14px;line-height:1.65;color:#c6c1b7">Neben der ordentlichen Gerichtsbarkeit nennt das Skript die <strong>Verwaltungsgerichtsbarkeit</strong> für öffentlich-rechtliche Streitigkeiten (VG, VGH/OVG, BVerwG; § 40 VwGO). Zur Vollständigkeit gibt es außerdem Arbeitsgerichte, Finanzgerichte und Sozialgerichte. Über allen steht für verfassungsrechtliche Fragen das <strong>Bundesverfassungsgericht</strong>.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="m1-7" style="display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1px solid #33363c;padding-bottom:10px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:oklch(0.74 0.12 45)">1.7</span>
+          <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:32px;margin:0">Prüferfragen mit Musterantwort</h2>
+        </div>
+        <p style="margin:0;font-size:14px;line-height:1.6;color:#a8a398">Formulieren Sie Ihre Antwort zuerst selbst, laut oder schriftlich. Erst dann aufdecken.</p>
+        <sc-for list="{{ pq }}" as="q" hint-placeholder-count="5">
+          <div style="border:1px solid #33363c;background:#1c1e22;border-radius:6px;padding:18px 20px;display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;gap:14px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap">
+              <div style="display:flex;gap:12px;flex:1;min-width:240px">
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:oklch(0.74 0.12 45)">F{{ q.n }}</span>
+                <span style="font-size:16px;line-height:1.5;font-weight:500">{{ q.q }}</span>
+              </div>
+              <button onClick="{{ q.onToggle }}" style="font:inherit;font-size:13px;padding:7px 12px;border-radius:4px;cursor:pointer;border:1px solid #e8e4dc;background:{{ q.btnBg }};color:{{ q.btnFg }}">{{ q.btnLabel }}</button>
+            </div>
+            <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}">
+              <div style="font-size:14px;line-height:1.7;color:#c6c1b7;border-top:1px solid #2e3137;padding-top:12px">{{ q.a }}</div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </section>
+
+      <section id="m1-8" style="display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1px solid #33363c;padding-bottom:10px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:oklch(0.74 0.12 45)">1.8</span>
+          <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:32px;margin:0">Karteikarten</h2>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;max-width:720px">
+          <button onClick="{{ flip }}" style="font:inherit;cursor:pointer;text-align:left;min-height:220px;border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:14px;justify-content:space-between;border:1px solid {{ cardBorder }};background:{{ cardBg }};color:{{ cardFg }}">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.7">{{ cardSide }} · Karte {{ cardPos }}</span>
+            <span style="font-family:'Newsreader',serif;font-size:24px;line-height:1.35">{{ cardText }}</span>
+            <span style="font-size:12px;opacity:.6">Klicken zum Umdrehen</span>
+          </button>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button onClick="{{ prevCard }}" style="font:inherit;font-size:14px;padding:8px 14px;border-radius:4px;cursor:pointer;border:1px solid #454950;background:#23262b;color:#e8e4dc">← Zurück</button>
+            <button onClick="{{ nextCard }}" style="font:inherit;font-size:14px;padding:8px 14px;border-radius:4px;cursor:pointer;border:1px solid #454950;background:#23262b;color:#e8e4dc">Weiter →</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="m1-tipps" style="display:flex;flex-direction:column;gap:20px">
+        <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1px solid #33363c;padding-bottom:10px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:oklch(0.74 0.12 45)">1.9</span>
+          <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:32px;margin:0">Klausur-Tipps &amp; Prüfungswissen</h2>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px">
+          <sc-for list="{{ m1Tips }}" as="tp" hint-placeholder-count="8">
+            <div style="background:#1c1e22;border:1px solid #33363c;border-radius:6px;padding:16px 18px;display:flex;flex-direction:column;gap:6px">
+              <div style="font-weight:600;font-size:15px">{{ tp.head }}</div>
+              <div style="font-size:14px;line-height:1.65;color:#c6c1b7;text-wrap:pretty">{{ tp.text }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section id="m1-test" style="display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1px solid #33363c;padding-bottom:10px;flex-wrap:wrap">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:oklch(0.74 0.12 45)">1.9</span>
+          <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:32px;margin:0;flex:1">Abschlusstest im Klausurformat</h2>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:14px">{{ testLabel }}</span>
+        </div>
+        <p style="margin:0;font-size:14px;line-height:1.6;color:#a8a398">Wie in der Klausur ist genau eine Antwort richtig. Nach Ihrer Wahl sehen Sie, warum jede Option richtig oder falsch ist.</p>
+        <sc-for list="{{ tests }}" as="t" hint-placeholder-count="12">
+          <div style="border:1px solid #33363c;background:#1c1e22;border-radius:6px;padding:20px;display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;gap:12px">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:oklch(0.74 0.12 45)">T{{ t.n }}</span>
+              <span style="font-size:16px;line-height:1.55;font-weight:500">{{ t.q }}</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <sc-for list="{{ t.opts }}" as="o" hint-placeholder-count="4">
+                <div style="display:flex;flex-direction:column;gap:4px">
+                  <button onClick="{{ o.onPick }}" style="font:inherit;text-align:left;cursor:pointer;display:flex;gap:12px;padding:10px 14px;border-radius:4px;font-size:14px;line-height:1.5;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.fg }}">
+                    <span style="font-family:'IBM Plex Mono',monospace">{{ o.letter }})</span><span>{{ o.text }}</span>
+                  </button>
+                  <sc-if value="{{ o.showWhy }}" hint-placeholder-val="{{ false }}">
+                    <div style="font-size:13px;line-height:1.6;color:{{ o.whyColor }};padding:2px 14px 6px 40px">{{ o.why }}</div>
+                  </sc-if>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+        <button onClick="{{ resetTest }}" style="align-self:flex-start;font:inherit;font-size:13px;padding:7px 12px;border-radius:4px;cursor:pointer;border:1px solid #454950;background:#23262b;color:#e8e4dc">Test zurücksetzen</button>
+      </section>
+
+      <section style="background:#e8e4dc;color:#141518;border-radius:8px;padding:28px 30px;display:flex;flex-direction:column;gap:14px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#6a4e3c">Ende Modul 1</div>
+        <div style="font-family:'Newsreader',serif;font-size:30px;line-height:1.2">Selbstcheck vor Modul 2</div>
+        <div style="font-size:15px;line-height:1.7">K (München) verklagt die X-GmbH (Sitz Köln) auf 12.000 € Schadensersatz. Welches Gericht ist sachlich und örtlich zuständig, und braucht K einen Anwalt?</div>
+        <details style="font-size:14px;line-height:1.65;color:#2e3137"><summary style="cursor:pointer;color:#6a4e3c">Lösung</summary><div style="margin-top:8px">Sachlich zuständig ist das Landgericht, weil der Streitwert 10.000 € übersteigt. Örtlich zuständig ist das Gericht am Sitz der beklagten GmbH (§ 17 ZPO), also das LG Köln. Vor dem LG besteht Anwaltszwang (§ 78 ZPO), K braucht also einen Anwalt.</div></details>
+        <button onClick="{{ goM2 }}" style="align-self:flex-start;font:inherit;font-size:15px;padding:10px 18px;border-radius:4px;cursor:pointer;border:0;background:#141518;color:#e8e4dc">Weiter zu Modul 2 →</button>
+      </section>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ isGen }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-direction:column;gap:60px">
+        <section style="display:flex;flex-direction:column;gap:18px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.74 0.12 45)">Modul {{ g.n }} von 16 · {{ g.src }}</div>
+          <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(34px,5vw,56px);line-height:1.04;margin:0;text-wrap:balance">{{ g.title }}</h1>
+          <p style="font-size:18px;line-height:1.65;color:#c6c1b7;max-width:760px;margin:0;text-wrap:pretty">{{ g.intro }}</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:6px">
+            <div style="background:#1c1e22;border:1px solid #33363c;border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:4px"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#9d988d;text-transform:uppercase;letter-spacing:.08em">Lernziel</div><div style="font-size:14px;line-height:1.5">{{ g.ziel }}</div></div>
+            <div style="background:#1c1e22;border:1px solid #33363c;border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:4px"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#9d988d;text-transform:uppercase;letter-spacing:.08em">Klausurrelevanz</div><div style="font-size:14px;line-height:1.5">{{ g.relevanz }}</div></div>
+            <div style="background:#1c1e22;border:1px solid #33363c;border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:4px"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#9d988d;text-transform:uppercase;letter-spacing:.08em">Übungsfälle</div><div style="font-size:14px;line-height:1.5">{{ g.faelle }}</div></div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px">
+            <sc-for list="{{ g.toc }}" as="t" hint-placeholder-count="6">
+              <a href="#{{ t.id }}" style="display:inline-flex;white-space:nowrap;font-size:13px;padding:6px 12px;border:1px solid {{ t.border }};border-radius:20px;text-decoration:none;color:{{ t.fg }};background:#1c1e22">{{ t.label }}</a>
+            </sc-for>
+          </div>
+        </section>
+
+        <sc-for list="{{ g.sections }}" as="sec" hint-placeholder-count="0">
+          <section id="{{ sec.id }}" style="display:flex;flex-direction:column;gap:20px">
+            <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1px solid #33363c;padding-bottom:10px">
+              <span style="font-family: 'IBM Plex Mono',monospace; font-size: 16px; color: oklch(0.74 0.12 45)">{{ sec.num }}</span>
+              <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:30px;margin:0">{{ sec.title }}</h2>
+            </div>
+            <sc-for list="{{ sec.blocks }}" as="bl" hint-placeholder-count="0">
+              <div style="display:flex;flex-direction:column">
+                <sc-if value="{{ bl.isP }}" hint-placeholder-val="{{ false }}">
+                  <p style="margin:0;line-height:1.7;color:#c6c1b7;max-width:800px;text-wrap:pretty">{{ bl.text }}</p>
+                </sc-if>
+                <sc-if value="{{ bl.isMerk }}" hint-placeholder-val="{{ false }}">
+                  <div style="background:#e8e4dc;color:#141518;border-radius:6px;padding:18px 22px;display:flex;flex-direction:column;gap:6px">
+                    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6a4e3c">Merksatz</div>
+                    <div style="font-family:'Newsreader',serif;font-size:21px;line-height:1.45">{{ bl.text }}</div>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ bl.isBsp }}" hint-placeholder-val="{{ false }}">
+                  <div style="background:#1c1e22;border:1px solid #33363c;border-radius:6px;padding:16px 18px;display:flex;flex-direction:column;gap:6px">
+                    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#9d988d">Beispiel · {{ bl.title }}</div>
+                    <div style="font-size:14px;line-height:1.65;color:#d8d3c9">{{ bl.text }}</div>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ bl.isFalle }}" hint-placeholder-val="{{ false }}">
+                  <div style="background:oklch(0.27 0.035 60);border-radius:6px;padding:16px 18px;display:flex;flex-direction:column;gap:6px">
+                    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.8 0.1 65)">⚠ {{ bl.title }}</div>
+                    <div style="font-size:14px;line-height:1.65;color:#ecdccb">{{ bl.text }}</div>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ bl.isVert }}" hint-placeholder-val="{{ false }}">
+                  <div style="background:oklch(0.26 0.03 250);border-radius:6px;padding:16px 18px;display:flex;flex-direction:column;gap:6px">
+                    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.76 0.09 250)">Vertiefung · {{ bl.title }}</div>
+                    <div style="font-size:14px;line-height:1.65;color:#d3e0ef">{{ bl.text }}</div>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ bl.isList }}" hint-placeholder-val="{{ false }}">
+                  <div style="display:flex;flex-direction:column;gap:10px">
+                    <h3 style="font-size:16px;font-weight:600;margin:0">{{ bl.title }}</h3>
+                    <div style="display:flex;flex-direction:column;gap:8px">
+                      <sc-for list="{{ bl.items }}" as="it" hint-placeholder-count="0">
+                        <div style="display:flex;gap:12px;align-items:baseline;line-height:1.6;font-size:15px;color:#c6c1b7">
+                          <span style="width:6px;height:6px;flex:0 0 6px;border-radius:50%;background:oklch(0.74 0.12 45);transform:translateY(-2px)"></span>
+                          <span><strong style="color:#e8e4dc">{{ it.head }}</strong>{{ it.sep }}{{ it.text }}</span>
+                        </div>
+                      </sc-for>
+                    </div>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ bl.isSchema }}" hint-placeholder-val="{{ false }}">
+                  <div style="border:1px solid #33363c;background:#1c1e22;border-radius:6px;padding:18px 20px;display:flex;flex-direction:column;gap:4px">
+                    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.74 0.12 45);margin-bottom:8px">Schema · {{ bl.title }}</div>
+                    <sc-for list="{{ bl.items }}" as="it" hint-placeholder-count="0">
+                      <div style="display:flex;gap:14px">
+                        <div style="display:flex;flex-direction:column;align-items:center;flex:0 0 28px">
+                          <div style="width:28px;height:28px;border-radius:50%;background:#e8e4dc;color:#141518;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12px">{{ it.num }}</div>
+                          <div style="flex:1;width:1px;background:{{ it.line }};min-height:10px"></div>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:3px;padding:3px 0 14px;flex:1;min-width:0">
+                          <div style="font-weight:600;font-size:15px">{{ it.head }}</div>
+                          <div style="font-size:14px;line-height:1.6;color:#c6c1b7">{{ it.text }}</div>
+                        </div>
+                      </div>
+                    </sc-for>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ bl.isFlow }}" hint-placeholder-val="{{ false }}">
+                  <div style="display:flex;flex-direction:column;gap:10px">
+                    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#9d988d">{{ bl.title }}</div>
+                    <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:stretch">
+                      <sc-for list="{{ bl.items }}" as="it" hint-placeholder-count="0">
+                        <div style="display:flex;gap:8px;align-items:center;flex:1 1 150px">
+                          <div style="flex:1;background:{{ it.bg }};color:{{ it.fg }};border:1px solid #e8e4dc;border-radius:6px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;min-height:74px;justify-content:center">
+                            <div style="font-weight:600;font-size:14px;line-height:1.3">{{ it.head }}</div>
+                            <div style="font-size:12px;line-height:1.45;opacity:.85">{{ it.text }}</div>
+                          </div>
+                          <div style="font-family:'IBM Plex Mono',monospace;font-size:18px;color:oklch(0.74 0.12 45);display:{{ it.arrow }}">→</div>
+                        </div>
+                      </sc-for>
+                    </div>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ bl.isCmp }}" hint-placeholder-val="{{ false }}">
+                  <div style="display:flex;flex-direction:column;gap:10px">
+                    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#9d988d">{{ bl.title }}</div>
+                    <div style="overflow-x:auto;border:1px solid #33363c;border-radius:6px;background:#23262b">
+                      <table style="border-collapse:collapse;width:100%;min-width:560px;font-size:13px;line-height:1.5">
+                        <thead><tr>
+                          <sc-for list="{{ bl.cols }}" as="col" hint-placeholder-count="0">
+                            <th style="text-align:left;padding:10px 12px;background:#e8e4dc;color:#141518;font-weight:600;vertical-align:bottom">{{ col.text }}</th>
+                          </sc-for>
+                        </tr></thead>
+                        <tbody>
+                          <sc-for list="{{ bl.rows }}" as="row" hint-placeholder-count="0">
+                            <tr>
+                              <sc-for list="{{ row.cells }}" as="cell" hint-placeholder-count="0">
+                                <td style="padding:10px 12px;border-top:1px solid #2e3137;vertical-align:top;font-weight:{{ cell.fw }};background:{{ cell.bg }}">{{ cell.text }}</td>
+                              </sc-for>
+                            </tr>
+                          </sc-for>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ bl.isRel }}" hint-placeholder-val="{{ false }}">
+                  <div style="display:flex;flex-direction:column;gap:10px">
+                    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#9d988d">{{ bl.title }}</div>
+                    <div style="display:flex;flex-direction:column;gap:10px;background:#1c1e22;border:1px solid #33363c;border-radius:6px;padding:16px">
+                      <sc-for list="{{ bl.items }}" as="it" hint-placeholder-count="0">
+                        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                          <div style="flex:0 1 180px;min-width:120px;background:#e8e4dc;color:#141518;border-radius:4px;padding:10px 12px;font-size:13px;font-weight:600;text-align:center">{{ it.a }}</div>
+                          <div style="flex:1 1 200px;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:160px">
+                            <div style="font-size:12px;line-height:1.4;color:#c6c1b7;text-align:center">{{ it.lab }}</div>
+                            <div style="width:100%;display:flex;align-items:center"><div style="flex:1;height:2px;background:oklch(0.74 0.12 45)"></div><div style="width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:9px solid oklch(0.74 0.12 45)"></div></div>
+                          </div>
+                          <div style="flex:0 1 180px;min-width:120px;background:#23262b;border:1px solid #e8e4dc;border-radius:4px;padding:10px 12px;font-size:13px;font-weight:600;text-align:center">{{ it.b }}</div>
+                        </div>
+                      </sc-for>
+                    </div>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ bl.isTf }}" hint-placeholder-val="{{ false }}">
+                  <div style="border:1px solid #33363c;background:#1c1e22;border-radius:6px;padding:18px 20px;display:flex;flex-direction:column;gap:4px">
+                    <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline">
+                      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.74 0.12 45)">✓/✗ {{ bl.title }}</div>
+                      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#a8a398">{{ bl.score }}</div>
+                    </div>
+                    <sc-for list="{{ bl.items }}" as="it" hint-placeholder-count="0">
+                      <div style="display:flex;flex-direction:column;gap:8px;padding:12px 0;border-top:1px solid #2e3137">
+                        <div style="display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap">
+                          <div style="flex:1;min-width:220px;font-size:15px;line-height:1.5">{{ it.s }}</div>
+                          <div style="display:flex;gap:6px">
+                            <button onClick="{{ it.onTrue }}" style="font:inherit;font-size:13px;padding:7px 12px;border-radius:4px;cursor:pointer;border:1px solid {{ it.tBorder }};background:{{ it.tBg }};color:{{ it.tFg }}">Stimmt</button>
+                            <button onClick="{{ it.onFalse }}" style="font:inherit;font-size:13px;padding:7px 12px;border-radius:4px;cursor:pointer;border:1px solid {{ it.fBorder }};background:{{ it.fBg }};color:{{ it.fFg }}">Stimmt nicht</button>
+                          </div>
+                        </div>
+                        <sc-if value="{{ it.answered }}" hint-placeholder-val="{{ false }}">
+                          <div style="font-size:14px;line-height:1.55;color:{{ it.fbColor }}"><strong>{{ it.verdict }}</strong> {{ it.why }}</div>
+                        </sc-if>
+                      </div>
+                    </sc-for>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ bl.isSteps }}" hint-placeholder-val="{{ false }}">
+                  <div style="border:1px solid #e8e4dc;background:#1c1e22;border-radius:6px;padding:18px 20px;display:flex;flex-direction:column;gap:12px">
+                    <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline">
+                      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.74 0.12 45)">▶ {{ bl.title }}</div>
+                      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#a8a398">Schritt {{ bl.stepLabel }}</div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:8px">
+                      <sc-for list="{{ bl.visible }}" as="it" hint-placeholder-count="0">
+                        <div style="display:flex;gap:12px;background:{{ it.bg }};color:{{ it.fg }};border-radius:4px;padding:12px 14px">
+                          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;min-width:20px;padding-top:2px">{{ it.num }}</span>
+                          <div style="display:flex;flex-direction:column;gap:3px">
+                            <div style="font-weight:600;font-size:14px">{{ it.head }}</div>
+                            <div style="font-size:14px;line-height:1.6">{{ it.text }}</div>
+                          </div>
+                        </div>
+                      </sc-for>
+                    </div>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap">
+                      <button onClick="{{ bl.onNext }}" style="font:inherit;font-size:13px;padding:8px 14px;border-radius:4px;cursor:pointer;border:0;background:#e8e4dc;color:#141518;opacity:{{ bl.nextOpacity }}">Nächster Schritt →</button>
+                      <button onClick="{{ bl.onAll }}" style="font:inherit;font-size:13px;padding:8px 14px;border-radius:4px;cursor:pointer;border:1px solid #454950;background:#23262b;color:#e8e4dc">Alle zeigen</button>
+                      <button onClick="{{ bl.onReset }}" style="font:inherit;font-size:13px;padding:8px 14px;border-radius:4px;cursor:pointer;border:1px solid #454950;background:#23262b;color:#e8e4dc">Von vorn</button>
+                    </div>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ bl.isCheck }}" hint-placeholder-val="{{ false }}">
+                  <div style="border:1px dashed oklch(0.74 0.12 45);border-radius:6px;padding:16px 18px;display:flex;flex-direction:column;gap:10px;background:#23262b">
+                    <div style="display:flex;gap:14px;justify-content:space-between;align-items:flex-start;flex-wrap:wrap">
+                      <div style="display:flex;flex-direction:column;gap:4px;flex:1;min-width:220px">
+                        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.74 0.12 45)">? Kurz-Check</div>
+                        <div style="font-size:15px;line-height:1.55;font-weight:500">{{ bl.q }}</div>
+                      </div>
+                      <button onClick="{{ bl.onToggle }}" style="font:inherit;font-size:13px;padding:7px 12px;border-radius:4px;cursor:pointer;border:1px solid #e8e4dc;background:{{ bl.btnBg }};color:{{ bl.btnFg }}">{{ bl.btnLabel }}</button>
+                    </div>
+                    <sc-if value="{{ bl.open }}" hint-placeholder-val="{{ false }}">
+                      <div style="font-size:14px;line-height:1.65;color:#c6c1b7;border-top:1px solid #2e3137;padding-top:10px">{{ bl.a }}</div>
+                    </sc-if>
+                  </div>
+                </sc-if>
+              </div>
+            </sc-for>
+          </section>
+        </sc-for>
+
+        <section id="{{ g.casesId }}" style="display:flex;flex-direction:column;gap:16px">
+          <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1px solid #33363c;padding-bottom:10px;flex-wrap:wrap">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:oklch(0.74 0.12 45)">{{ g.casesNum }}</span>
+            <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:30px;margin:0;flex:1">{{ g.casesTitle }}</h2>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:14px">{{ g.casesScore }}</span>
+          </div>
+          <p style="margin:0;font-size:14px;line-height:1.6;color:#a8a398">Lösen Sie den Fall erst selbst mit dem BGB. Nach Ihrer Wahl sehen Sie die Begründung zu jeder Option und den vollständigen Lösungsweg.</p>
+          <sc-for list="{{ g.cases }}" as="c" hint-placeholder-count="0">
+            <div style="border:1px solid #33363c;background:#1c1e22;border-radius:6px;padding:22px;display:flex;flex-direction:column;gap:14px">
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+                <div style="display:flex;gap:10px;align-items:center">
+                  <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:4px 10px;border-radius:20px;background:#e8e4dc;color:#141518">{{ c.label }}</span>
+                  <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:{{ c.statusColor }}">{{ c.status }}</span>
+                </div>
+                <button onClick="{{ c.onReset }}" style="font:inherit;font-size:12px;padding:5px 10px;border-radius:4px;cursor:pointer;border:1px solid #454950;background:#23262b;color:#a8a398">Neu versuchen</button>
+              </div>
+              <sc-if value="{{ c.hasSv }}" hint-placeholder-val="{{ false }}">
+                <div style="background:#23262b;border:1px solid #2e3137;border-radius:4px;padding:16px 18px;display:flex;flex-direction:column;gap:6px">
+                  <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#9d988d">Sachverhalt</div>
+                  <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.55;color:#e8e4dc;text-wrap:pretty">{{ c.sv }}</div>
+                </div>
+              </sc-if>
+              <div style="font-size:16px;line-height:1.55;font-weight:600">{{ c.q }}</div>
+              <div style="display:flex;flex-direction:column;gap:6px">
+                <sc-for list="{{ c.opts }}" as="o" hint-placeholder-count="4">
+                  <div style="display:flex;flex-direction:column;gap:4px">
+                    <button onClick="{{ o.onPick }}" style="font:inherit;text-align:left;cursor:pointer;display:flex;gap:12px;padding:11px 14px;border-radius:4px;font-size:14px;line-height:1.5;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.fg }}">
+                      <span style="font-family:'IBM Plex Mono',monospace">{{ o.letter }})</span><span style="flex:1">{{ o.text }}</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px">{{ o.mark }}</span>
+                    </button>
+                    <sc-if value="{{ o.showWhy }}" hint-placeholder-val="{{ false }}">
+                      <div style="font-size:13px;line-height:1.6;color:{{ o.whyColor }};padding:2px 14px 6px 40px">{{ o.why }}</div>
+                    </sc-if>
+                  </div>
+                </sc-for>
+              </div>
+              <sc-if value="{{ c.hasLsg }}" hint-placeholder-val="{{ true }}"><div style="display:flex;gap:8px;flex-wrap:wrap">
+                <button onClick="{{ c.onLsg }}" style="font:inherit;font-size:13px;padding:8px 14px;border-radius:4px;cursor:pointer;border:1px solid #e8e4dc;background:{{ c.lsgBg }};color:{{ c.lsgFg }}">{{ c.lsgLabel }}</button>
+              </div></sc-if>
+              <sc-if value="{{ c.showLsg }}" hint-placeholder-val="{{ false }}">
+                <div style="background:#e8e4dc;color:#141518;border-radius:6px;padding:18px 20px;display:flex;flex-direction:column;gap:10px">
+                  <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6a4e3c">Lösungsweg · richtige Antwort {{ c.correct }})</div>
+                  <sc-for list="{{ c.lsg }}" as="ls" hint-placeholder-count="0">
+                    <div style="display:flex;gap:12px;font-size:14px;line-height:1.6">
+                      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#6a4e3c;min-width:18px;padding-top:2px">{{ ls.num }}</span><span>{{ ls.text }}</span>
+                    </div>
+                  </sc-for>
+                </div>
+              </sc-if>
+            </div>
+          </sc-for>
+        </section>
+
+        <section id="{{ g.pqId }}" style="display:flex;flex-direction:column;gap:16px">
+          <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1px solid #33363c;padding-bottom:10px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:oklch(0.74 0.12 45)">{{ g.pqNum }}</span>
+            <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:30px;margin:0">Prüferfragen mit Musterantwort</h2>
+          </div>
+          <p style="margin:0;font-size:14px;line-height:1.6;color:#a8a398">Formulieren Sie Ihre Antwort zuerst selbst. Erst dann aufdecken.</p>
+          <sc-for list="{{ g.pq }}" as="q" hint-placeholder-count="0">
+            <div style="border:1px solid #33363c;background:#1c1e22;border-radius:6px;padding:18px 20px;display:flex;flex-direction:column;gap:12px">
+              <div style="display:flex;gap:14px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap">
+                <div style="display:flex;gap:12px;flex:1;min-width:240px">
+                  <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:oklch(0.74 0.12 45)">F{{ q.n }}</span>
+                  <span style="font-size:16px;line-height:1.5;font-weight:500">{{ q.q }}</span>
+                </div>
+                <button onClick="{{ q.onToggle }}" style="font:inherit;font-size:13px;padding:7px 12px;border-radius:4px;cursor:pointer;border:1px solid #e8e4dc;background:{{ q.btnBg }};color:{{ q.btnFg }}">{{ q.btnLabel }}</button>
+              </div>
+              <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}">
+                <div style="font-size:14px;line-height:1.7;color:#c6c1b7;border-top:1px solid #2e3137;padding-top:12px">{{ q.a }}</div>
+              </sc-if>
+            </div>
+          </sc-for>
+        </section>
+
+        <section id="{{ g.cardsId }}" style="display:flex;flex-direction:column;gap:16px">
+          <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1px solid #33363c;padding-bottom:10px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:oklch(0.74 0.12 45)">{{ g.cardsNum }}</span>
+            <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:30px;margin:0">Karteikarten</h2>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px;max-width:720px">
+            <button onClick="{{ g.flip }}" style="font:inherit;cursor:pointer;text-align:left;min-height:200px;border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:14px;justify-content:space-between;border:1px solid {{ g.cardBorder }};background:{{ g.cardBg }};color:{{ g.cardFg }}">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.7">{{ g.cardSide }} · Karte {{ g.cardPos }}</span>
+              <span style="font-family:'Newsreader',serif;font-size:24px;line-height:1.35">{{ g.cardText }}</span>
+              <span style="font-size:12px;opacity:.6">Klicken zum Umdrehen</span>
+            </button>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button onClick="{{ g.prevCard }}" style="font:inherit;font-size:14px;padding:8px 14px;border-radius:4px;cursor:pointer;border:1px solid #454950;background:#23262b;color:#e8e4dc">← Zurück</button>
+              <button onClick="{{ g.nextCard }}" style="font:inherit;font-size:14px;padding:8px 14px;border-radius:4px;cursor:pointer;border:1px solid #454950;background:#23262b;color:#e8e4dc">Weiter →</button>
+            </div>
+          </div>
+        </section>
+
+        <section style="display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap;border-top:1px solid #33363c;padding-top:24px">
+          <button onClick="{{ g.onPrev }}" style="font:inherit;font-size:15px;padding:12px 18px;border-radius:4px;cursor:pointer;border:1px solid #454950;background:#23262b;color:#e8e4dc;text-align:left">← {{ g.prevLabel }}</button>
+          <button onClick="{{ g.onNext }}" style="font:inherit;font-size:15px;padding:12px 18px;border-radius:4px;cursor:pointer;border:0;background:#e8e4dc;color:#141518;text-align:right;display:{{ g.nextDisplay }}">{{ g.nextLabel }} →</button>
+        </section>
+      </div>
+      </sc-if>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { zu: {}, rank: 0, order: [], seed: 1, amount: '8000', sach: 'allg', mahn: 0, open: {}, card: 0, flipped: false, test: {},
+    mod: 1, tfA: {}, stepN: {}, chk: {}, cases: {}, lsg: {}, gpq: {}, gcard: 0, gflip: false };
+  onData = () => this.forceUpdate();
+  componentWillUnmount() { window.removeEventListener('wpr-data', this.onData); }
+  setMod = (n) => { this.setState({ mod: n, gcard: 0, gflip: false }); try { localStorage.setItem('wpr_mod', String(n)); } catch (e) {} window.scrollTo(0, 0); };
+  persistCases = () => { try { localStorage.setItem('wpr_cases', JSON.stringify(this.state.cases)); } catch (e) {} };
+  split(s) { const i = s.indexOf(' :: '); return i < 0 ? { head: '', text: s } : { head: s.slice(0, i), text: s.slice(i + 4) }; }
+  genVals() {
+    const st = this.state, n = st.mod, D = (window.WPR || {})[n];
+    const GOOD = 'oklch(0.8 0.13 150)', BAD = 'oklch(0.74 0.15 25)', GOODBG = 'oklch(0.3 0.05 150)', BADBG = 'oklch(0.3 0.05 25)';
+    const base = { n, src: '', title: 'Lädt …', intro: '', ziel: '', relevanz: '', faelle: '', toc: [], sections: [], cases: [], pq: [] };
+    if (!D) return base;
+    const types = { p: 'P', merk: 'Merk', bsp: 'Bsp', falle: 'Falle', vert: 'Vert', list: 'List', schema: 'Schema', flow: 'Flow', cmp: 'Cmp', rel: 'Rel', tf: 'Tf', steps: 'Steps', check: 'Check' };
+    const TP = ((window.WPR || {}).tipps || {})[n], EX = ((window.WPR || {}).extra || {})[n] || []; const sections = D.sections.concat(EX).concat(TP ? [{ title: 'Klausur-Tipps & Prüfungswissen', blocks: TP }] : []).map((sec, si) => ({ id: 'm' + n + '-' + (si + 1), num: n + '.' + (si + 1), title: sec.title, blocks: sec.blocks.map((bl, bi) => {
+      const key = n + '-' + si + '-' + bi, o = { title: bl.title || '', text: bl.text || '' };
+      Object.values(types).forEach(t => o['is' + t] = false); o['is' + types[bl.t]] = true;
+      if (bl.t === 'list') o.items = bl.items.map(s => { const x = this.split(s); return { head: x.head, sep: x.head ? ': ' : '', text: x.text }; });
+      if (bl.t === 'schema') o.items = bl.items.map((s, i) => { const x = this.split(s); return { num: i + 1, head: x.head || x.text, text: x.head ? x.text : '', line: i < bl.items.length - 1 ? '#454950' : 'transparent' }; });
+      if (bl.t === 'flow') o.items = bl.items.map((s, i) => { const x = this.split(s); const last = i === bl.items.length - 1; return { head: x.head || x.text, text: x.head ? x.text : '', arrow: last ? 'none' : 'block', bg: last ? '#e8e4dc' : '#23262b', fg: last ? '#141518' : '#e8e4dc' }; });
+      if (bl.t === 'cmp') { o.cols = bl.cols.map(c => ({ text: c })); o.rows = bl.rows.map(r => ({ cells: r.map((c, i) => ({ text: c, fw: i === 0 ? '600' : '400', bg: i === 0 ? '#2a2d33' : '#23262b' })) })); }
+      if (bl.t === 'rel') o.items = bl.items.map(([a, lab, b]) => ({ a, lab, b }));
+      if (bl.t === 'tf') { let right = 0;
+        o.items = bl.items.map(([s, ok, why], i) => { const k = key + '-' + i, ans = st.tfA[k], answered = ans !== undefined, r = ans === ok; if (r) right++;
+          const sty = (val) => { const isPick = ans === val, isTruth = answered && val === ok; return { bg: isTruth ? GOODBG : isPick ? BADBG : '#23262b', bd: isTruth ? GOOD : isPick ? BAD : '#454950', fg: isTruth ? GOOD : isPick ? BAD : '#e8e4dc' }; };
+          const T = sty(true), F = sty(false);
+          return { s, why, answered, verdict: r ? 'Richtig.' : (ok ? 'Doch, die Aussage stimmt.' : 'Nein, die Aussage ist falsch.'), fbColor: r ? GOOD : BAD,
+            onTrue: () => this.setState(x => ({ tfA: { ...x.tfA, [k]: true } })), onFalse: () => this.setState(x => ({ tfA: { ...x.tfA, [k]: false } })),
+            tBg: T.bg, tBorder: T.bd, tFg: T.fg, fBg: F.bg, fBorder: F.bd, fFg: F.fg }; });
+        o.score = right + ' / ' + bl.items.length; }
+      if (bl.t === 'steps') { const cnt = Math.min(st.stepN[key] || 1, bl.items.length);
+        o.visible = bl.items.slice(0, cnt).map((s, i) => { const x = this.split(s); const cur = i === cnt - 1; return { num: i + 1, head: x.head, text: x.text, bg: cur ? '#e8e4dc' : '#23262b', fg: cur ? '#141518' : '#e8e4dc' }; });
+        o.stepLabel = cnt + ' / ' + bl.items.length; o.nextOpacity = cnt < bl.items.length ? '1' : '0.35';
+        o.onNext = () => this.setState(x => ({ stepN: { ...x.stepN, [key]: Math.min((x.stepN[key] || 1) + 1, bl.items.length) } }));
+        o.onAll = () => this.setState(x => ({ stepN: { ...x.stepN, [key]: bl.items.length } }));
+        o.onReset = () => this.setState(x => ({ stepN: { ...x.stepN, [key]: 1 } })); }
+      if (bl.t === 'check') { const op = !!st.chk[key]; Object.assign(o, { q: bl.q, a: bl.a, open: op, btnLabel: op ? 'Verbergen' : 'Antwort zeigen', btnBg: op ? '#e8e4dc' : '#23262b', btnFg: op ? '#141518' : '#e8e4dc', onToggle: () => this.setState(x => ({ chk: { ...x.chk, [key]: !x.chk[key] } })) }); }
+      return o; }) }));
+    let cRight = 0;
+    const cases = D.cases.map(c => {
+      const k = 'c' + c.n, pick = st.cases[k], answered = pick !== undefined, ok = pick === c.c; if (ok) cRight++;
+      const showLsg = !!st.lsg[k];
+      return { label: typeof c.n === 'number' ? 'Fall ' + c.n : c.n, hasSv: !!c.sv, sv: c.sv || '', q: c.q, correct: 'abcd'[c.c],
+        status: !answered ? 'offen' : ok ? '✓ richtig gelöst' : '✗ falsch, richtig ist ' + 'abcd'[c.c] + ')', statusColor: !answered ? '#9d988d' : ok ? GOOD : BAD,
+        opts: c.o.map((o, j) => { const right = j === c.c, isPick = pick === j;
+          return { letter: 'abcd'[j], text: o[0], why: o[1], showWhy: answered, whyColor: right ? GOOD : '#9d988d', mark: answered ? (right ? '✓' : isPick ? '✗' : '') : '',
+            onPick: () => { if (!answered) this.setState(x => ({ cases: { ...x.cases, [k]: j } }), this.persistCases); },
+            bg: answered && right ? GOODBG : isPick ? BADBG : '#23262b', border: answered && right ? GOOD : isPick ? BAD : '#33363c', fg: answered && right ? GOOD : isPick ? BAD : '#e8e4dc' }; }),
+        showLsg, hasLsg: (c.lsg || []).length > 0, lsg: (c.lsg || []).map((t, i) => ({ num: i + 1, text: t })), lsgLabel: showLsg ? 'Lösungsweg verbergen' : 'Lösungsweg anzeigen',
+        lsgBg: showLsg ? '#e8e4dc' : '#23262b', lsgFg: showLsg ? '#141518' : '#e8e4dc',
+        onLsg: () => this.setState(x => ({ lsg: { ...x.lsg, [k]: !x.lsg[k] } })),
+        onReset: () => this.setState(x => { const cs = { ...x.cases }; delete cs[k]; return { cases: cs, lsg: { ...x.lsg, [k]: false } }; }, this.persistCases) };
+    });
+    const ns = sections.length, isMc = D.cases.some(c => typeof c.n !== 'number');
+    const pq = D.pq.map((p, i) => { const k = n + '-' + i, op = !!st.gpq[k]; return { n: i + 1, q: p.q, a: p.a, open: op, btnLabel: op ? 'Verbergen' : 'Musterantwort zeigen', btnBg: op ? '#e8e4dc' : '#23262b', btnFg: op ? '#141518' : '#e8e4dc', onToggle: () => this.setState(x => ({ gpq: { ...x.gpq, [k]: !x.gpq[k] } })) }; });
+    const cards = D.cards, ci = st.gcard % cards.length, card = cards[ci];
+    const toc = sections.map(s => ({ id: s.id, label: s.num + ' ' + s.title, border: '#454950', fg: '#e8e4dc' }))
+      .concat([{ id: 'm' + n + '-cases', label: D.casesToc || (isMc ? 'Methodenfragen' : 'Übungsfälle'), border: 'oklch(0.74 0.12 45)', fg: 'oklch(0.74 0.12 45)' }, { id: 'm' + n + '-pq', label: 'Prüferfragen', border: '#454950', fg: '#e8e4dc' }, { id: 'm' + n + '-cards', label: 'Karteikarten', border: '#454950', fg: '#e8e4dc' }]);
+    const M = this.MODS;
+    return { ...D, n, sections, cases, pq, toc,
+      casesId: 'm' + n + '-cases', casesNum: n + '.' + (ns + 1), casesTitle: D.casesTitle || (isMc ? 'Methodenfragen im Klausurformat' : 'Übungsfälle aus der Fallsammlung'), casesScore: cRight + ' / ' + cases.length + ' richtig',
+      pqId: 'm' + n + '-pq', pqNum: n + '.' + (ns + 2), cardsId: 'm' + n + '-cards', cardsNum: n + '.' + (ns + 3),
+      cardText: st.gflip ? card[1] : card[0], cardSide: st.gflip ? 'Antwort' : 'Frage', cardPos: (ci + 1) + ' / ' + cards.length,
+      cardBg: st.gflip ? '#e8e4dc' : '#1c1e22', cardFg: st.gflip ? '#141518' : '#e8e4dc', cardBorder: st.gflip ? '#e8e4dc' : '#454950',
+      flip: () => this.setState(x => ({ gflip: !x.gflip })),
+      nextCard: () => this.setState(x => ({ gcard: (x.gcard + 1) % cards.length, gflip: false })),
+      prevCard: () => this.setState(x => ({ gcard: (x.gcard - 1 + cards.length) % cards.length, gflip: false })),
+      prevLabel: 'Modul ' + (n - 1) + ': ' + M[n - 2][0], onPrev: () => this.setMod(n - 1),
+      nextLabel: n < 16 ? 'Modul ' + (n + 1) + ': ' + M[n][0] : '', nextDisplay: n < 16 ? 'block' : 'none', onNext: () => { if (n < 16) this.setMod(n + 1); } };
+  }
+
+  MODS = [
+    ['Grundlagen & Gerichtsbarkeit', 'Skript I–II'],
+    ['Rechtssubjekte & Rechtsobjekte', 'Fall 1'],
+    ['Trennungs- & Abstraktionsprinzip', 'Fälle 2, 47'],
+    ['Methodenlehre & Gutachtenstil', 'Fallbearbeitung'],
+    ['Vertragsschluss & Willenserklärung', 'Fälle 3–6'],
+    ['Form & Schenkung', 'Fälle 7–8'],
+    ['Anfechtung & Widerruf', 'Fälle 9–12'],
+    ['culpa in contrahendo', 'Fälle 13–14'],
+    ['Unmöglichkeit & Gefahrtragung', 'Fälle 15–21, 25'],
+    ['Verzug & Annahmeverzug', 'Fälle 22–24, 26'],
+    ['Kaufgewährleistung & digitale Elemente', 'Fälle 27–33, 35'],
+    ['AGB, Fernabsatz & Fristen', 'Fälle 34, 36–40'],
+    ['Delikt & Produkthaftung', 'Fälle 41–46'],
+    ['Sachenrecht, Abtretung, Bereicherung', 'Fälle 48–52'],
+    ['Klausur-Crashkurs', 'Fristen, Fehler, Abschlusstest'],
+    ['Weiden-Klausurtraining', 'Altklausuren 2018–2025']
+  ];
+
+  ZU = [
+    { t: 'Mieter M verlangt von Vermieter V die Rückzahlung der Mietkaution.', a: 'P', why: 'Mieter und Vermieter stehen sich gleichberechtigt gegenüber. Die Grundlage ist ein Vertrag (Mietvertrag, §§ 535 ff. BGB). Zuständig ist das Amtsgericht (Mietsache).' },
+    { t: 'Die Stadt München ordnet gegenüber Eigentümer E den Abriss eines Schwarzbaus an.', a: 'O', why: 'Die Stadt handelt hoheitlich und regelt einseitig. Das ist ein Verwaltungsakt (§ 35 VwVfG) der Eingriffsverwaltung. Rechtsschutz gibt es vor dem Verwaltungsgericht.' },
+    { t: 'A stiehlt im Supermarkt eine Flasche Whisky, die Staatsanwaltschaft ermittelt.', a: 'S', why: 'Das ist Diebstahl nach § 242 StGB, und der Staat hat das Strafverfolgungsmonopol.' },
+    { t: 'Die Stadt München kauft bei Händler H 50 Bürostühle.', a: 'P', why: 'Das ist die Klausurfalle: fiskalisches Handeln. Die Stadt tritt wie ein Privater auf und schließt einen Kaufvertrag nach § 433 BGB. Für Streit sind die ordentlichen Gerichte zuständig.' },
+    { t: 'Studentin S erhält einen BAföG-Bescheid über 600 € monatlich.', a: 'O', why: 'Der Staat gewährt eine Leistung durch einen Verwaltungsakt. Das ist Leistungsverwaltung, die trotz Begünstigung öffentlich-rechtlich ist.' },
+    { t: 'Eine GmbH verklagt ihren Lieferanten wegen verspäteter Lieferung auf Schadensersatz.', a: 'P', why: 'Zwei Unternehmen stehen sich gleichgeordnet gegenüber. Es geht um Schuldrecht (Verzug, §§ 280, 286 BGB), ergänzt durch das HGB.' },
+    { t: 'Das Finanzamt setzt gegenüber einer OHG Gewerbesteuer-Vorauszahlungen fest.', a: 'O', why: 'Der Steuerbescheid ist hoheitlich. Damit ist es öffentliches Recht (Steuerrecht), und zuständig sind die Finanzgerichte.' },
+    { t: 'Der Supermarkt aus dem Whisky-Fall verlangt vom Dieb Schadensersatz.', a: 'P', why: 'Derselbe Lebenssachverhalt führt hier ins Privatrecht. Der Anspruch ergibt sich aus § 823 I BGB (Eigentumsverletzung) und steht neben dem Strafverfahren.' }
+  ];
+
+  RANKS = [
+    { name: 'Supranationales Recht', group: 'EU / Völkerrecht', ind: 0, text: 'Recht, das über den Nationalstaat hinausreicht: das Recht der EU (Verträge, Verordnungen, Richtlinien) und das Völkerrecht. EU-Verordnungen gelten unmittelbar in jedem Mitgliedstaat. EU-Richtlinien müssen erst in nationales Recht umgesetzt werden, und nationale Gerichte legen das umgesetzte Recht richtlinienkonform aus.', ex: 'DSGVO (Verordnung). Die Warenkaufrichtlinie (EU) 2019/771 wurde in §§ 434 ff., 474 ff. BGB umgesetzt. Die Digitale-Inhalte-Richtlinie wurde in §§ 327 ff. BGB umgesetzt (relevant für Fall 29).' },
+    { name: 'Grundgesetz', group: 'Bundesrecht', ind: 0, text: 'Die Verfassung der Bundesrepublik Deutschland und die höchste nationale Norm. Alle Bundes- und Landesgesetze müssen mit ihr vereinbar sein, sonst kann das BVerfG sie für nichtig erklären.', ex: 'Art. 2 I GG (allgemeine Handlungsfreiheit, daraus die Vertragsfreiheit), Art. 14 GG (Eigentum), Art. 19 IV GG (Rechtsschutzgarantie), Art. 20 GG (Rechtsstaat).' },
+    { name: 'Bundesgesetze', group: 'Bundesrecht', ind: 0, text: 'Gesetze im formellen Sinn, die der Bundestag unter Mitwirkung des Bundesrats im Gesetzgebungsverfahren beschließt. Hierhin gehört fast das gesamte Wirtschaftsprivatrecht.', ex: 'BGB, HGB, GmbHG, AktG, ZPO, GVG, ProdHaftG, UWG, StGB.' },
+    { name: 'Bundesrechtsverordnungen', group: 'Bundesrecht', ind: 1, text: 'Sie werden von der Exekutive (Bundesregierung, Bundesminister) erlassen, aber nur aufgrund einer gesetzlichen Ermächtigung, die Inhalt, Zweck und Ausmaß bestimmt (Art. 80 I GG). Deshalb stehen sie unter dem Gesetz.', ex: 'Straßenverkehrs-Ordnung (StVO), Preisangabenverordnung (PAngV), BGB-Informationspflichten-Verordnung.' },
+    { name: 'Landesverfassung', group: 'Landesrecht', ind: 0, text: 'Die Verfassung des jeweiligen Bundeslandes. Sie steht unter dem gesamten Bundesrecht (Art. 31 GG: „Bundesrecht bricht Landesrecht“) und muss den Grundsätzen des Art. 28 GG entsprechen.', ex: 'Verfassung des Freistaates Bayern (BV).' },
+    { name: 'Landesgesetze', group: 'Landesrecht', ind: 0, text: 'Vom Landesparlament beschlossene Gesetze in Bereichen, in denen die Länder die Gesetzgebungskompetenz haben (Art. 70 ff. GG), z. B. Polizei, Schule, Hochschule und Bauordnung.', ex: 'Bayerisches Hochschulinnovationsgesetz, Bayerische Bauordnung (BayBO), Polizeiaufgabengesetz (PAG).' },
+    { name: 'Landesrechtsverordnungen', group: 'Landesrecht', ind: 1, text: 'Von der Landesregierung oder einem Landesministerium aufgrund einer gesetzlichen Ermächtigung erlassen.', ex: 'Verordnungen der Bayerischen Staatsregierung, z. B. Zuständigkeitsverordnungen oder während der Pandemie die Infektionsschutzmaßnahmenverordnungen.' },
+    { name: 'Autonomes Recht (Satzungen)', group: 'Selbstverwaltung', ind: 0, text: 'Selbstverwaltungskörperschaften wie Gemeinden, Hochschulen und Kammern regeln damit ihre eigenen Angelegenheiten. Satzungen haben den niedrigsten Rang und müssen mit allen höheren Normen vereinbar sein.', ex: 'Gemeindesatzung (z. B. Hundesteuer- oder Friedhofssatzung), Studien- und Prüfungsordnung der HM.' }
+  ];
+
+  SACH = [
+    ['allg', 'Allgemeine Zivilsache'], ['miete', 'Wohnraummiete'], ['familie', 'Familiensache'], ['nachbar', 'Nachbarrechtsstreit'],
+    ['arzt', 'Arzthaftung'], ['medien', 'Medien-/Presserecht'], ['uwg', 'Wettbewerbssache (UWG)']
+  ];
+
+  MAHN = [
+    { title: 'Antrag auf Mahnbescheid', text: 'Der Gläubiger beantragt den Mahnbescheid beim zuständigen Mahngericht, heute in aller Regel online (§§ 688, 690 ZPO). In Bayern ist zentral das Amtsgericht Coburg zuständig. Zulässig ist das nur für Ansprüche auf Zahlung einer bestimmten Geldsumme in Euro (§ 688 I ZPO).' },
+    { title: 'Erlass & Zustellung', text: 'Das Gericht prüft nur formell und nicht, ob die Forderung tatsächlich besteht (§ 692 I Nr. 2 ZPO). Der Mahnbescheid wird dem Schuldner zugestellt und fordert ihn auf, zu zahlen oder Widerspruch einzulegen.' },
+    { title: 'Widerspruch (2 Wochen)', text: 'Bestreitet der Schuldner die Forderung, legt er innerhalb von zwei Wochen Widerspruch ein (§ 694 ZPO). Auf Antrag wird die Sache dann an das Prozessgericht abgegeben und läuft als normales streitiges Verfahren weiter (§ 696 ZPO).' },
+    { title: 'Vollstreckungsbescheid', text: 'Legt der Schuldner keinen Widerspruch ein, erlässt das Gericht auf Antrag einen Vollstreckungsbescheid (§ 699 ZPO). Er steht einem für vorläufig vollstreckbar erklärten Versäumnisurteil gleich (§ 700 I ZPO).' },
+    { title: 'Einspruch (2 Wochen)', text: 'Gegen den Vollstreckungsbescheid kann der Schuldner noch innerhalb von zwei Wochen Einspruch einlegen (§§ 700, 338, 339 ZPO). Auch dann geht es in das streitige Verfahren über.' },
+    { title: 'Zwangsvollstreckung', text: 'Wird der Vollstreckungsbescheid rechtskräftig, ist er ein Vollstreckungstitel. Der Gläubiger kann pfänden lassen, etwa durch den Gerichtsvollzieher oder per Kontopfändung. Das alles geht ohne mündliche Verhandlung und ist schnell und billig.' }
+  ];
+
+  PQ = [
+    { q: 'Grenzen Sie Privatrecht und öffentliches Recht voneinander ab und nennen Sie das jeweils zentrale Handlungsinstrument.', a: 'Das Privatrecht regelt die Rechtsbeziehungen zwischen gleichberechtigten Privatpersonen (Gleichordnung). Rechtsfolgen entstehen durch übereinstimmenden Willen, also durch den Vertrag (§§ 145 ff. BGB). Das öffentliche Recht regelt die Beziehungen zwischen dem Staat als Hoheitsträger und dem Bürger (Über- und Unterordnung). Der Staat kann einseitig verbindlich handeln, typischerweise durch Verwaltungsakt (§ 35 VwVfG), sowohl in der Eingriffs- als auch in der Leistungsverwaltung. Wichtig: Handelt der Staat fiskalisch, etwa beim Kauf von Büromaterial, gilt Privatrecht.' },
+    { q: 'Nennen Sie die Merkmale einer Rechtsnorm und erläutern Sie, warum ein Verwaltungsakt keine Rechtsnorm ist.', a: 'Eine Rechtsnorm ist ein verbindliches Gebot oder Verbot, das (1) abstrakt für eine unbestimmte Vielzahl von Fällen und (2) generell für eine unbestimmte Vielzahl von Personen gilt, (3) von verfassungsrechtlich befugten Organen in einem festgelegten Verfahren erlassen, (4) in Verkündungsorganen veröffentlicht und (5) notfalls durch staatlichen Zwang durchsetzbar ist. Ein Verwaltungsakt ist zwar verbindlich. Er regelt aber einen Einzelfall (konkret) gegenüber einer bestimmten Person (individuell), es fehlen also die Merkmale 1 und 2.' },
+    { q: 'Was gilt, wenn eine Landesrechtsverordnung einem Bundesgesetz widerspricht? Begründen Sie.', a: 'Das Bundesgesetz geht vor. Nach der Rangordnung dürfen rangniedrigere Normen nicht gegen ranghöhere verstoßen, und bei einer Kollision setzt sich die ranghöhere durch (lex superior). Das Bundesgesetz steht als Bundesrecht über dem gesamten Landesrecht (Art. 31 GG). Außerdem steht jede Rechtsverordnung unter dem Gesetz, weil sie nur aufgrund gesetzlicher Ermächtigung ergehen darf (Art. 80 GG).' },
+    { q: 'Skizzieren Sie den Instanzenzug einer Kaufpreisklage über 15.000 € und den Unterschied zwischen Berufung und Revision.', a: 'Seit dem 01.01.2026 ist bei einem Streitwert über 10.000 € in erster Instanz das Landgericht sachlich zuständig. Es besteht Anwaltszwang (§ 78 ZPO). Gegen das Urteil ist die Berufung zum Oberlandesgericht möglich, i. d. R. bei einem Beschwerdewert über 1.000 €. Die Berufung ist eine vollständige Überprüfung in tatsächlicher und rechtlicher Hinsicht. Gegen das Berufungsurteil ist die Revision zum Bundesgerichtshof möglich. Sie muss zugelassen werden und führt nur zu einer rechtlichen Überprüfung, die Tatsachen werden nicht neu festgestellt.' },
+    { q: 'Ein Onlinehändler will in seinen AGB festlegen, dass alle Streitigkeiten mit Kunden an seinem Sitz in Stuttgart verhandelt werden. Was raten Sie?', a: 'Eine solche Gerichtsstandsvereinbarung ist nach § 38 I ZPO nur zwischen Kaufleuten wirksam (daneben für juristische Personen des öffentlichen Rechts). Gegenüber Verbrauchern ist die Klausel unwirksam. Dort bleibt es beim allgemeinen Gerichtsstand des Beklagten, verklagt der Händler einen Kunden, also am Wohnsitz des Kunden (§§ 12, 13 ZPO). Für Geschäftskunden, die Kaufleute sind, kann die Klausel wirksam vereinbart werden. Die Einbeziehung von AGB behandeln wir in Modul 12.' }
+  ];
+
+  CARDS = [
+    ['Rechtsnorm: Definition?', 'Ein verbindliches Gebot oder Verbot. Es gilt abstrakt (für unbestimmt viele Fälle) und generell (für unbestimmt viele Personen), wird von befugten Organen im festgelegten Verfahren erlassen, verkündet und ist notfalls mit Zwang durchsetzbar.'],
+    ['Zentrales Instrument des Privatrechts?', 'Der Vertrag, §§ 145 ff. BGB.'],
+    ['Zentrales Instrument des öffentlichen Rechts?', 'Der Verwaltungsakt, § 35 VwVfG.'],
+    ['Eingriffs- vs. Leistungsverwaltung?', 'Bei der Eingriffsverwaltung greift der Staat in Rechte ein (Abrissverfügung). Bei der Leistungsverwaltung gewährt er etwas (BAföG).'],
+    ['Rangordnung: von oben nach unten?', 'Supranationales Recht, Grundgesetz, Bundesgesetze, Bundesrechtsverordnungen, Landesverfassung, Landesgesetze, Landesrechtsverordnungen, autonomes Recht (Satzungen).'],
+    ['Lex specialis?', 'Das speziellere Gesetz verdrängt das allgemeine.'],
+    ['Wo ist die Gewaltenteilung geregelt?', 'Art. 20 GG, für die Länder Art. 28 GG. Legislative, Exekutive und Judikative.'],
+    ['Rechtsschutzgarantie?', 'Art. 19 IV 1 GG: Gegen Rechtsverletzungen durch die öffentliche Gewalt steht der Rechtsweg offen.'],
+    ['AG oder LG? (seit 01.01.2026)', 'Das AG ist bis 10.000 € zuständig, darüber das LG. Streitwertunabhängig gehören zum AG u. a. Miet-, Familien- und bestimmte Nachbarsachen, zum LG u. a. Wettbewerbs-, Medien- und Arzthaftungssachen.'],
+    ['Berufung?', 'Vollständige Überprüfung in tatsächlicher und rechtlicher Hinsicht, i. d. R. nur bei einem Beschwerdewert über 1.000 €. Sie geht vom AG zum LG bzw. vom LG zum OLG.'],
+    ['Revision?', 'Nur mit Zulassung und nur rechtliche Überprüfung. Sie geht zum BGH.'],
+    ['Örtliche Zuständigkeit (Grundsatz)?', 'Wohn- oder Geschäftssitz des Beklagten (§§ 12, 13, 17 ZPO). Ausnahmen gelten u. a. für Miet- und Familiensachen.'],
+    ['Gerichtsstandsvereinbarung in AGB?', 'Nur zwischen Kaufleuten wirksam, § 38 I ZPO.'],
+    ['Mahnverfahren?', '§§ 688 ff. ZPO: vereinfachte Durchsetzung von Geldforderungen. Mahnbescheid, dann Widerspruch (2 Wochen) oder Vollstreckungsbescheid, dann Einspruch (2 Wochen) oder Vollstreckung.'],
+    ['Einstweiliger Rechtsschutz?', 'Schutz subjektiver Rechte bei Dringlichkeit schon vor der Entscheidung in der Hauptsache: Arrest (Geld) und einstweilige Verfügung.']
+  ];
+
+  TESTS = [
+    { q: 'Welche Aussage zur Rechtsnorm ist richtig?', c: 1, o: [
+      ['Ein Verwaltungsakt ist eine Rechtsnorm, weil er verbindlich ist.', 'Falsch. Verbindlichkeit ist nur eines von fünf Merkmalen. Der VA ist konkret-individuell, nicht abstrakt-generell.'],
+      ['Eine Rechtsnorm gilt für eine unbestimmte Vielzahl von Fällen und Personen.', 'Richtig. Das sind die Merkmale „abstrakt“ und „generell“.'],
+      ['Ein Kaufvertrag ist eine Rechtsnorm, weil er die Parteien bindet.', 'Falsch. Ein Vertrag bindet nur die konkreten Parteien in einem konkreten Fall.'],
+      ['Rechtsnormen werden nicht veröffentlicht, sie gelten ab Beschluss.', 'Falsch. Die Verkündung in bestimmten Verkündungsorganen ist ein Merkmal der Rechtsnorm.']] },
+    { q: 'K (Wohnsitz Hamburg) will V (Wohnsitz München) auf Zahlung eines Kaufpreises von 8.000 € verklagen. Welches Gericht ist zuständig?', c: 2, o: [
+      ['Landgericht Hamburg', 'Falsch, und zwar doppelt: sachlich ist bis 10.000 € das AG zuständig, örtlich zählt der Wohnsitz des Beklagten, nicht der des Klägers.'],
+      ['Amtsgericht Hamburg', 'Falsch. Der Wohnsitz des Klägers ist für die örtliche Zuständigkeit grundsätzlich unerheblich.'],
+      ['Amtsgericht München', 'Richtig. Sachlich ist das AG zuständig (≤ 10.000 €, Neuregelung ab 01.01.2026), örtlich das Gericht am Wohnsitz des Beklagten V (§§ 12, 13 ZPO).'],
+      ['Landgericht München I', 'Falsch. Das LG ist erst über 10.000 € zuständig.']] },
+    { q: 'In einem Rechtsstreit über 25.000 € legt der Beklagte gegen das erstinstanzliche Urteil Berufung ein. Welches Gericht entscheidet?', c: 1, o: [
+      ['Das Landgericht', 'Falsch. Das LG ist hier bereits die erste Instanz, weil der Streitwert über 10.000 € liegt.'],
+      ['Das Oberlandesgericht', 'Richtig. Hat das LG in erster Instanz entschieden, geht die Berufung zum OLG.'],
+      ['Der Bundesgerichtshof', 'Falsch. Der BGH ist Revisionsinstanz, keine Berufungsinstanz.'],
+      ['Das Bundesverfassungsgericht', 'Falsch. Das BVerfG entscheidet nur verfassungsrechtliche Streitigkeiten und ist keine Rechtsmittelinstanz im Zivilprozess.']] },
+    { q: 'Welche Aussage zur Revision ist richtig?', c: 2, o: [
+      ['Sie führt zu einer vollständigen Überprüfung in tatsächlicher und rechtlicher Hinsicht.', 'Falsch. Das beschreibt die Berufung.'],
+      ['Sie ist ab einem Beschwerdewert von 1.000 € ohne Weiteres zulässig.', 'Falsch. Die Wertgrenze von 1.000 € betrifft die Berufung. Die Revision muss zugelassen werden.'],
+      ['Sie bedarf der Zulassung und führt nur zu einer rechtlichen Überprüfung des Urteils.', 'Richtig, so steht es im Skript.'],
+      ['Über sie entscheidet das Oberlandesgericht.', 'Falsch. Revisionsgericht in Zivilsachen ist der BGH.']] },
+    { q: 'Die AGB eines Onlinehändlers enthalten gegenüber Verbrauchern die Klausel „Gerichtsstand ist Stuttgart“. Die Klausel ist …', c: 1, o: [
+      ['… wirksam, wenn die AGB wirksam einbezogen wurden.', 'Falsch. Auch eine wirksame Einbeziehung hilft nicht, denn § 38 I ZPO lässt eine solche Vereinbarung nur unter Kaufleuten zu.'],
+      ['… unwirksam, weil Gerichtsstandsvereinbarungen nur zwischen Kaufleuten wirksam sind.', 'Richtig, § 38 I ZPO.'],
+      ['… wirksam, wenn der Verbraucher ausdrücklich zustimmt.', 'Falsch. Die Zustimmung des Verbrauchers ändert nichts an § 38 I ZPO.'],
+      ['… nur bei Streitwerten über 10.000 € wirksam.', 'Falsch. Der Streitwert betrifft die sachliche Zuständigkeit, nicht die Zulässigkeit einer Gerichtsstandsvereinbarung.']] },
+    { q: 'Eine Landesrechtsverordnung widerspricht einem Bundesgesetz. Was gilt?', c: 3, o: [
+      ['Die Verordnung geht vor, weil sie spezieller ist (lex specialis).', 'Falsch. Lex specialis gilt nur zwischen Normen gleichen Rangs.'],
+      ['Die Verordnung geht vor, wenn sie jünger ist.', 'Falsch. Auch lex posterior gilt nur bei gleichem Rang.'],
+      ['Beide gelten nebeneinander, der Bürger kann wählen.', 'Falsch. Bei einer Kollision kann nur eine Norm gelten.'],
+      ['Das Bundesgesetz geht als ranghöhere Norm vor.', 'Richtig. Es gilt lex superior, und nach Art. 31 GG bricht Bundesrecht Landesrecht.']] },
+    { q: 'Die Stadt Augsburg kauft bei Händler H Büromöbel und zahlt nicht. Welche Aussage trifft zu?', c: 0, o: [
+      ['Es gilt Privatrecht. H muss vor den ordentlichen Gerichten klagen.', 'Richtig. Die Stadt handelt fiskalisch wie ein Privater, es geht um einen Kaufvertrag nach § 433 BGB.'],
+      ['Es gilt öffentliches Recht, weil eine Behörde beteiligt ist.', 'Falsch. Entscheidend ist nicht, wer beteiligt ist, sondern ob hoheitlich gehandelt wird.'],
+      ['Zuständig ist das Verwaltungsgericht.', 'Falsch. Das VG ist nur für öffentlich-rechtliche Streitigkeiten zuständig.'],
+      ['Die Stadt kann den Kaufpreis per Verwaltungsakt festsetzen.', 'Falsch. Im Gleichordnungsverhältnis gibt es keine einseitige Regelung.']] },
+    { q: 'Das gerichtliche Mahnverfahren (§§ 688 ff. ZPO) …', c: 3, o: [
+      ['… dient auch der Herausgabe von Sachen.', 'Falsch. Es ist nur für Ansprüche auf Zahlung einer bestimmten Geldsumme vorgesehen (§ 688 I ZPO).'],
+      ['… setzt voraus, dass das Gericht das Bestehen der Forderung prüft.', 'Falsch. Das Mahngericht prüft nicht, ob der Anspruch materiell besteht.'],
+      ['… steht nur Kaufleuten offen.', 'Falsch. Jeder Gläubiger einer Geldforderung kann es nutzen.'],
+      ['… dient der vereinfachten Durchsetzung von Geldforderungen.', 'Richtig, so steht es im Skript.']] },
+    { q: 'Welche Zuordnung zur Gewaltenteilung ist richtig?', c: 2, o: [
+      ['Bundesrat: Exekutive', 'Falsch. Der Bundesrat wirkt an der Gesetzgebung mit und gehört zur Legislative.'],
+      ['Behörden: Judikative', 'Falsch. Behörden gehören zur Exekutive.'],
+      ['Bundesregierung: Exekutive', 'Richtig. Regierung und Behörden sind die Exekutive.'],
+      ['Landesparlamente: Judikative', 'Falsch. Parlamente sind die Legislative.']] },
+    { q: 'Patientin P verklagt im März 2026 Arzt A wegen eines Behandlungsfehlers auf 6.000 €. Sachlich zuständig ist …', c: 1, o: [
+      ['… das Amtsgericht, weil der Streitwert unter 10.000 € liegt.', 'Falsch. Das ist die Falle: Arzthaftungsprozesse gehören streitwertunabhängig zum LG.'],
+      ['… das Landgericht, unabhängig vom Streitwert.', 'Richtig, laut Neuregelung ab 01.01.2026 (Skript S. 7).'],
+      ['… das Oberlandesgericht.', 'Falsch. Das OLG ist keine Eingangsinstanz in Zivilsachen.'],
+      ['… nach Wahl der Klägerin das AG oder das LG.', 'Falsch. Die sachliche Zuständigkeit ist gesetzlich festgelegt, es gibt kein Wahlrecht.']] },
+    { q: 'Was besagt der Grundsatz „lex specialis derogat legi generali“?', c: 0, o: [
+      ['Das speziellere Gesetz verdrängt das allgemeine Gesetz.', 'Richtig, so steht es im Skript: „Spezialgesetze heben das Allgemeingesetz auf“.'],
+      ['Das ranghöhere Gesetz verdrängt das rangniedrigere.', 'Falsch. Das ist lex superior.'],
+      ['Das jüngere Gesetz verdrängt das ältere.', 'Falsch. Das ist lex posterior.'],
+      ['Landesrecht verdrängt als spezielleres Recht das Bundesrecht.', 'Falsch. Lex specialis gilt nicht über Rangstufen hinweg (Art. 31 GG).']] },
+    { q: 'Das Amtsgericht hat B zur Zahlung von 800 € verurteilt und die Berufung nicht zugelassen. B legt Berufung ein.', c: 3, o: [
+      ['Die Berufung ist zulässig, gegen jedes Urteil ist Berufung möglich.', 'Falsch. Die Berufung setzt einen Mindest-Beschwerdewert oder die Zulassung voraus.'],
+      ['Über die Berufung entscheidet das Oberlandesgericht.', 'Falsch. Gegen AG-Urteile geht die Berufung zum LG.'],
+      ['B muss stattdessen Revision zum BGH einlegen.', 'Falsch. Die Revision setzt ein Berufungsurteil und eine Zulassung voraus.'],
+      ['Die Berufung ist i. d. R. unzulässig, weil der Beschwerdewert 1.000 € nicht übersteigt.', 'Richtig nach Skript: Die Berufung ist i. d. R. nur bei einem Beschwerdewert über 1.000 € möglich (§ 511 ZPO), sonst nur bei Zulassung.']] }
+  ];
+
+  componentDidMount() {
+    window.addEventListener('wpr-data', this.onData);
+    setTimeout(this.onData, 600); setTimeout(this.onData, 2000);
+    try { const m = parseInt(localStorage.getItem('wpr_mod') || '1', 10); const c = JSON.parse(localStorage.getItem('wpr_cases') || '{}'); this.setState({ mod: m >= 1 && m <= 16 ? m : 1, cases: c || {} }); } catch (e) {}
+    try { const s = JSON.parse(localStorage.getItem('wpr_m1') || 'null'); if (s) this.setState({ zu: s.zu || {}, test: s.test || {} }); } catch (e) {}
+  }
+  persist = () => { try { localStorage.setItem('wpr_m1', JSON.stringify({ zu: this.state.zu, test: this.state.test })); } catch (e) {} };
+
+  shuffled() {
+    const idx = this.RANKS.map((_, i) => i); let s = this.state.seed * 9301 + 49297;
+    for (let i = idx.length - 1; i > 0; i--) { s = (s * 9301 + 49297) % 233280; const j = Math.floor(s / 233280 * (i + 1)); [idx[i], idx[j]] = [idx[j], idx[i]]; }
+    return idx;
+  }
+
+  courtInfo() {
+    const v = parseFloat(this.state.amount) || 0, s = this.state.sach;
+    const fmt = n => n.toLocaleString('de-DE') + ' €';
+    const AG = { first: 'Amtsgericht', second: 'Landgericht', third: 'BGH', anwalt: 'Nein' };
+    const LG = { first: 'Landgericht', second: 'OLG', third: 'BGH', anwalt: 'Ja (§ 78 ZPO)' };
+    if (s === 'miete') return { ...AG, why: 'Wohnraummietsachen gehören streitwertunabhängig zum Amtsgericht. Örtlich ist ausschließlich das Gericht zuständig, in dessen Bezirk die Wohnung liegt (§ 29a ZPO). Das ist eine Ausnahme vom Grundsatz „Sitz des Beklagten“.' };
+    if (s === 'familie') return { first: 'AG (Familiengericht)', second: 'OLG', third: 'BGH', anwalt: 'Teilweise', why: 'Familiensachen gehören streitwertunabhängig zum Amtsgericht als Familiengericht. Hier gilt das FamFG, das Rechtsmittel ist die Beschwerde zum OLG. Anwaltszwang besteht z. B. bei Scheidungen. Für die Klausur genügt: streitwertunabhängig beim AG.' };
+    if (s === 'nachbar') return { ...AG, why: 'Bestimmte Nachbarrechtsstreitigkeiten sind seit der Neuregelung ab 01.01.2026 streitwertunabhängig dem Amtsgericht zugewiesen, auch wenn sie mehr als 10.000 € betreffen.' };
+    if (s === 'arzt') return { ...LG, why: 'Arzthaftungsprozesse sind seit der Neuregelung ab 01.01.2026 streitwertunabhängig dem Landgericht zugewiesen. Bei ' + fmt(v) + ' ist also das LG zuständig, auch unter 10.000 €. Das ist eine typische Klausurfalle.' };
+    if (s === 'medien') return { ...LG, why: 'Medienrechtsstreitigkeiten (Presse, Rundfunk, Online-Veröffentlichungen) gehören streitwertunabhängig zum Landgericht, wegen der Spezialisierung dortiger Kammern.' };
+    if (s === 'uwg') return { ...LG, why: 'Wettbewerbssachen (UWG) gehören streitwertunabhängig zum Landgericht (§ 14 UWG).' };
+    if (v <= 10000) return { ...AG, why: 'Streitwert ' + fmt(v) + ': Er übersteigt 10.000 € nicht, also ist sachlich das Amtsgericht zuständig (Neuregelung ab 01.01.2026, vorher lag die Grenze bei 5.000 €).' + (v === 10000 ? ' Genau 10.000 € liegen noch beim AG, denn das AG ist zuständig, solange der Wert 10.000 € nicht übersteigt. Das Skript schreibt „bis“ bzw. „ab“ 10.000 €.' : '') + (v <= 1000 ? ' Achtung: Bei einer Beschwer bis 1.000 € ist die Berufung i. d. R. nur bei Zulassung möglich.' : '') + ' Örtlich ist der Wohn- oder Geschäftssitz des Beklagten maßgeblich.' };
+    return { ...LG, why: 'Streitwert ' + fmt(v) + ': Er liegt über 10.000 €, also ist sachlich das Landgericht zuständig, und es besteht Anwaltszwang. Örtlich ist der Wohn- oder Geschäftssitz des Beklagten maßgeblich (§§ 12, 13, 17 ZPO).' };
+  }
+
+  renderVals() {
+    const st = this.state;
+    const GOOD = 'oklch(0.8 0.13 150)', BAD = 'oklch(0.74 0.15 25)', GOODBG = 'oklch(0.3 0.05 150)', BADBG = 'oklch(0.3 0.05 25)';
+    const labels = { P: 'Privatrecht', O: 'Öffentl. Recht', S: 'Strafrecht' };
+
+    const WD = window.WPR || {};
+    let allRight = 0, allDone = 0;
+    const modules = this.MODS.map((m, i) => {
+      const D = WD[i + 1], cs = D ? D.cases : [];
+      const r = cs.filter(c => st.cases['c' + c.n] === c.c).length, d = cs.filter(c => st.cases['c' + c.n] !== undefined).length;
+      cs.forEach(c => { if (typeof c.n === 'number') { if (st.cases['c' + c.n] !== undefined) allDone++; if (st.cases['c' + c.n] === c.c) allRight++; } });
+      const act = st.mod === i + 1;
+      return { n: String(i + 1).padStart(2, '0'), title: m[0], sub: m[1] + (cs.length ? ' · ' + r + '/' + cs.length + ' ✓' : ''), bg: act ? '#e8e4dc' : 'transparent', fg: act ? '#141518' : '#c6c1b7', onPick: () => this.setMod(i + 1) };
+    });
+
+    const zuItems = this.ZU.map((z, i) => {
+      const pick = st.zu[i], answered = pick !== undefined, ok = pick === z.a;
+      return {
+        text: z.t, answered, verdict: ok ? 'Richtig.' : 'Nicht ganz. Richtig ist: ' + labels[z.a] + '.', why: z.why, fbColor: ok ? GOOD : BAD,
+        btns: ['P', 'O', 'S'].map(k => {
+          const isPick = pick === k, isRight = answered && k === z.a;
+          return { label: labels[k], onPick: () => this.setState(s => ({ zu: { ...s.zu, [i]: k } }), this.persist),
+            bg: isRight ? GOODBG : isPick ? BADBG : '#23262b', border: isRight ? GOOD : isPick ? BAD : '#454950', fg: isRight ? GOOD : isPick ? BAD : '#e8e4dc' };
+        })
+      };
+    });
+    const zuDone = Object.keys(st.zu).length, zuRight = this.ZU.filter((z, i) => st.zu[i] === z.a).length;
+
+    const ranks = this.RANKS.map((r, i) => ({ name: r.name, group: r.group, indent: r.ind ? '28px' : '0px', onPick: () => this.setState({ rank: i }),
+      bg: st.rank === i ? '#e8e4dc' : '#1c1e22', fg: st.rank === i ? '#141518' : '#e8e4dc', border: st.rank === i ? '#e8e4dc' : '#33363c' }));
+    const rankSel = { ...this.RANKS[st.rank], pos: st.rank + 1 };
+
+    const sh = this.shuffled();
+    const orderPool = sh.filter(i => !st.order.includes(i)).map(i => ({ name: this.RANKS[i].name, onPick: () => this.setState(s => ({ order: [...s.order, i] })) }));
+    const orderChosen = st.order.map((i, p) => { const ok = i === p; return { pos: p + 1, name: this.RANKS[i].name, bg: ok ? GOODBG : BADBG, fg: ok ? GOOD : BAD, hint: ok ? '✓' : 'gehört auf Stufe ' + (i + 1) }; });
+    const orderDone = st.order.length === this.RANKS.length;
+    const orderOk = orderDone && st.order.every((v, p) => v === p);
+
+    const sachOpts = this.SACH.map(([k, l]) => ({ label: l, onPick: () => this.setState({ sach: k }),
+      bg: st.sach === k ? '#e8e4dc' : '#23262b', fg: st.sach === k ? '#141518' : '#e8e4dc', border: st.sach === k ? '#e8e4dc' : '#454950' }));
+
+    const mahnSteps = this.MAHN.map((m, i) => ({ n: i + 1, title: m.title, onPick: () => this.setState({ mahn: i }),
+      bg: st.mahn === i ? '#e8e4dc' : '#23262b', fg: st.mahn === i ? '#141518' : '#e8e4dc', border: st.mahn === i ? '#e8e4dc' : '#454950' }));
+
+    const pq = this.PQ.map((p, i) => ({ n: i + 1, q: p.q, a: p.a, open: !!st.open[i], btnLabel: st.open[i] ? 'Verbergen' : 'Musterantwort zeigen',
+      btnBg: st.open[i] ? '#e8e4dc' : '#23262b', btnFg: st.open[i] ? '#141518' : '#e8e4dc', onToggle: () => this.setState(s => ({ open: { ...s.open, [i]: !s.open[i] } })) }));
+
+    const card = this.CARDS[st.card];
+    const tests = this.TESTS.map((t, i) => {
+      const pick = st.test[i], answered = pick !== undefined;
+      return { n: i + 1, q: t.q, opts: t.o.map((o, j) => {
+        const right = j === t.c, isPick = pick === j;
+        return { letter: 'abcd'[j], text: o[0], why: o[1], showWhy: answered, whyColor: right ? GOOD : '#9d988d',
+          onPick: () => { if (!answered) this.setState(s => ({ test: { ...s.test, [i]: j } }), this.persist); },
+          bg: answered && right ? GOODBG : isPick ? BADBG : '#23262b', border: answered && right ? GOOD : isPick ? BAD : '#33363c', fg: answered && right ? GOOD : isPick ? BAD : '#e8e4dc' };
+      }) };
+    });
+    const tDone = Object.keys(st.test).length, tRight = this.TESTS.filter((t, i) => st.test[i] === t.c).length;
+    const total = this.ZU.length + this.TESTS.length, done = zuDone + tDone;
+
+    return {
+      modules, isM1: st.mod === 1, isGen: st.mod !== 1, g: st.mod !== 1 ? this.genVals() : { toc: [], sections: [], cases: [], pq: [] }, goM2: () => this.setMod(2), zuItems, zuLabel: zuRight + ' / ' + this.ZU.length + ' richtig',
+      ranks, rankSel, orderPool, orderChosen, orderDone,
+      orderMsg: orderOk ? 'Perfekt, die Rangordnung sitzt.' : 'Noch nicht ganz. Prägen Sie sich die markierten Stufen ein und mischen Sie neu.',
+      orderColor: orderOk ? GOOD : BAD,
+      resetOrder: () => this.setState(s => ({ order: [], seed: s.seed + 1 })),
+      m1Tips: ((window.WPR || {}).tipps1 || []).concat((window.WPR || {}).extra1 || []).map(([head, text]) => ({ head, text })), amount: st.amount, onAmount: e => this.setState({ amount: e.target.value }), sachOpts, court: this.courtInfo(),
+      mahnSteps, mahnSel: this.MAHN[st.mahn], pq,
+      cardText: st.flipped ? card[1] : card[0], cardSide: st.flipped ? 'Antwort' : 'Frage', cardPos: (st.card + 1) + ' / ' + this.CARDS.length,
+      cardBg: st.flipped ? '#e8e4dc' : '#1c1e22', cardFg: st.flipped ? '#141518' : '#e8e4dc', cardBorder: st.flipped ? '#e8e4dc' : '#454950',
+      flip: () => this.setState(s => ({ flipped: !s.flipped })),
+      nextCard: () => this.setState(s => ({ card: (s.card + 1) % this.CARDS.length, flipped: false })),
+      prevCard: () => this.setState(s => ({ card: (s.card - 1 + this.CARDS.length) % this.CARDS.length, flipped: false })),
+      tests, testLabel: tRight + ' / ' + this.TESTS.length + ' richtig',
+      resetTest: () => this.setState({ test: {} }, this.persist),
+      progPct: Math.round(allDone / 52 * 100) + '%', progLabel: allRight + ' / 52 richtig'
+    };
+  }
+}
+</script>
+</body>
+</html>

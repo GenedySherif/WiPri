@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#1f2228;color:#e8e4dc;font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;color-scheme:dark}
+a{color:oklch(0.74 0.12 45)}a:hover{color:#e8e4dc}
+*{box-sizing:border-box}
+</style>
+<template id="__bundler_thumbnail" data-bg-color="#1f2228"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="#1f2228"></rect><text x="50" y="64" text-anchor="middle" font-family="serif" font-size="44" fill="#e0905c">§</text></svg></template>
+<script src="./wpr-normen.js"></script>
+<script src="./wpr-kompakt.js"></script>
+<script src="./wpr-vorlesung.js"></script>
+<script src="./wpr-vorlesung-2.js"></script>
+<script src="./wpr-holztrattner.js"></script>
+<script src="./wpr-uebung-rh.js"></script>
+<script src="./wpr-fallbuch-1.js"></script>
+<script src="./wpr-fallbuch-2.js"></script>
+<script src="./wpr-fallbuch-3.js"></script>
+<script src="./wpr-fallbuch-4.js"></script>
+<script src="./wpr-fallbuch-mc-1.js"></script>
+<script src="./wpr-fallbuch-mc-2.js"></script>
+<script src="./wpr-fallbuch-mc-3.js"></script>
+<script src="./wpr-vorlesungen.js"></script>
+<script src="./wpr-weiden.js"></script>
+<script src="./wpr-schwer.js"></script>
+<script src="./wpr-lang-1.js"></script>
+<script src="./wpr-lang-2.js"></script>
+<script src="./wpr-lang-3.js"></script>
+<script src="./wpr-lang-4.js"></script>
+<script src="./wpr-data-g.js"></script>
+<script src="./wpr-pk-neu.js"></script>
+<script src="./wpr-mc6.js"></script>
+<script src="./wpr-plus-1.js"></script>
+<script src="./wpr-plus-2.js"></script>
+<script src="./wpr-plus-3.js"></script>
+<script src="./wpr-plus-4.js"></script>
+<script src="./wpr-plus-5.js"></script>
+<script src="./wpr-loes-1.js"></script>
+<script src="./wpr-loes-2.js"></script>
+<script src="./wpr-loes-3.js"></script>
+<script src="./wpr-loes-4.js"></script>
+<script src="./wpr-loes-5.js"></script>
+<script src="./wpr-loes-6.js"></script>
+</helmet>
+<div style="min-height:100vh;background:radial-gradient(1100px 520px at 12% -8%, oklch(0.34 0.05 45 / 0.45), transparent 62%), radial-gradient(900px 480px at 100% 0%, oklch(0.32 0.04 230 / 0.35), transparent 60%), #1f2228">
+  <header style="position: sticky; top: 0; z-index: 5; background: rgba(38,42,50,0.86); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid #434954; width: 100%; height: 96px">
+    <div style="max-width:1100px;margin:0 auto;padding:12px 20px 0;display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;justify-content:space-between">
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#aba69c">WPR · Prof. Weiden · Kompaktfassung</div>
+          <div style="font-family:'Newsreader',serif;font-size:21px;font-weight:500">Nur was in der Klausur zählt</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:#b6b1a7">
+          <span>{{ statLabel }}</span>
+          <div style="width:120px;height:6px;background:#3b414b;border-radius:3px;overflow:hidden"><div style="height:100%;width:{{ statPct }};background:oklch(0.7 0.13 150)"></div></div>
+        </div>
+      </div>
+      <nav style="display:flex;gap:2px;overflow-x:auto">
+        <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="6">
+          <button onClick="{{ t.on }}" style="font:inherit;font-size:14px;border:0;cursor:pointer;padding:10px 14px;white-space:nowrap;background:transparent;color:{{ t.fg }};border-bottom:2px solid {{ t.bd }}">{{ t.label }}</button>
+        </sc-for>
+      </nav>
+      <sc-if value="{{ showSub }}" hint-placeholder-val="{{ false }}"><div style="display:flex;gap:6px;flex-wrap:wrap;padding-bottom:6px"><sc-for list="{{ subTabs }}" as="st" hint-placeholder-count="2"><button onClick="{{ st.on }}" style="font:inherit;font-size:13px;cursor:pointer;padding:5px 12px;border-radius:999px;border:1px solid {{ st.bd }};background:{{ st.bg }};color:{{ st.fg }}">{{ st.label }}</button></sc-for></div></sc-if>
+    </div>
+  </header>
+
+  <main style="max-width:1100px;margin:0 auto;padding:32px 20px 80px;display:flex;flex-direction:column;gap:40px">
+
+    <sc-if value="{{ isStart }}" hint-placeholder-val="{{ true }}">
+      <section style="display:flex;flex-direction:column;gap:16px">
+        <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(32px,5vw,50px);line-height:1.05;margin:0;text-wrap:balance">20 Fragen, 60 Minuten, nur das BGB.</h1>
+        <p style="margin:0;font-size:17px;line-height:1.6;color:#c6c1b7;max-width:720px;text-wrap:pretty">Die Klausur prüft keine Definitionen, sondern ob du in 3 Minuten pro Fall die richtige Norm findest und die Falle in den Antworten erkennst. Darauf ist diese Fassung gekürzt.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px">
+          <div style="background:#2a2e36;border:1px solid #434954;border-radius:9px;padding:14px 16px;display:flex;flex-direction:column;gap:4px"><div style="font-family:'IBM Plex Mono',monospace;font-size:24px">20</div><div style="font-size:13px;color:#b6b1a7">MC-Aufgaben, genau eine richtig</div></div>
+          <div style="background:#2a2e36;border:1px solid #434954;border-radius:9px;padding:14px 16px;display:flex;flex-direction:column;gap:4px"><div style="font-family:'IBM Plex Mono',monospace;font-size:24px">3 min</div><div style="font-size:13px;color:#b6b1a7">pro Aufgabe</div></div>
+          <div style="background:#2a2e36;border:1px solid #434954;border-radius:9px;padding:14px 16px;display:flex;flex-direction:column;gap:4px"><div style="font-family:'IBM Plex Mono',monospace;font-size:24px">50 %</div><div style="font-size:13px;color:#b6b1a7">zum Bestehen, kein Minus für Fehler</div></div>
+          <div style="background:#2a2e36;border:1px solid #434954;border-radius:9px;padding:14px 16px;display:flex;flex-direction:column;gap:4px"><div style="font-family:'IBM Plex Mono',monospace;font-size:24px">BGB</div><div style="font-size:13px;color:#b6b1a7">dtv, markiert, ohne Wörter</div></div>
+        </div>
+      </section>
+
+      <details style="background:#262a31;border:1px solid #434954;border-radius:9px;padding:12px 16px"><summary style="cursor:pointer;font-size:14px;color:#c6c1b7">Was gekürzt wurde und was bewusst bleibt</summary><div style="margin-top:12px"><section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
+        <div style="background:#2a2e36;border:1px solid #434954;border-radius:9px;padding:18px 20px;display:flex;flex-direction:column;gap:10px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.65 0.15 25)">Gestrichen – nicht klausurrelevant</div>
+          <ul style="margin:0;padding-left:18px;line-height:1.65;color:#c6c1b7;font-size:14px">
+            <li>Lernmethodik, Literaturtipps, „Warum Jura?“</li>
+            <li>Gewaltenteilung, Rangordnung, Gesetzgebung</li>
+            <li>Abgrenzungstheorien öffentliches/privates Recht</li>
+            <li>Alle „Vertiefungen“ und Vergleichstabellen</li>
+            <li>Familienrecht, Erbrecht bis auf zwei Normen</li>
+            <li>Lange Fließtexte – ersetzt durch Normketten</li>
+            <li>Details zu Minderjährigen (§§ 104 ff.) – laut Vorlesung 2 kein Klausurstoff im Detail</li>
+          </ul>
+        </div>
+        <div style="background:#2a2e36;border:1px solid #434954;border-radius:9px;padding:18px 20px;display:flex;flex-direction:column;gap:10px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.7 0.13 150)">Bleibt – auch wenn es trocken wirkt</div>
+          <ul style="margin:0;padding-left:18px;line-height:1.65;color:#c6c1b7;font-size:14px">
+            <li>AG oder LG? Lernpaket 17, kam in Altklausuren</li>
+            <li>Buzzwords „grundsätzlich“, „im Zweifel“ – Weiden lässt sie markieren</li>
+            <li>Testament ab 16 und Erbfähigkeit – je eine Altklausur-Aufgabe</li>
+            <li>Verbraucher/Unternehmer – entscheidet fast jede Kaufrechtsfrage</li>
+          </ul>
+        </div>
+      </section></div></details>
+
+      <section style="display:flex;flex-direction:column;gap:14px">
+        <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:28px;margin:0">So arbeitest du damit</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px">
+          <button onClick="{{ goMark }}" style="font:inherit;text-align:left;cursor:pointer;background:#2a2e36;border:1px solid #434954;border-radius:9px;padding:16px;display:flex;flex-direction:column;gap:6px;color:#e8e4dc"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:oklch(0.74 0.12 45)">1 · einmalig, 2 h</span><span style="font-weight:600">BGB markieren</span><span style="font-size:13px;line-height:1.5;color:#b6b1a7">Vier Farben, 60 Stellen, Reiter kleben.</span></button>
+          <button onClick="{{ goWissen }}" style="font:inherit;text-align:left;cursor:pointer;background:#2a2e36;border:1px solid #434954;border-radius:9px;padding:16px;display:flex;flex-direction:column;gap:6px;color:#e8e4dc"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:oklch(0.74 0.12 45)">2 · je 10 min</span><span style="font-weight:600">Lernen</span><span style="font-size:13px;line-height:1.5;color:#b6b1a7">Pro Vorlesung oder Thema, BGB daneben.</span></button>
+          <button onClick="{{ goUeben }}" style="font:inherit;text-align:left;cursor:pointer;background:#2a2e36;border:1px solid #434954;border-radius:9px;padding:16px;display:flex;flex-direction:column;gap:6px;color:#e8e4dc"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:oklch(0.74 0.12 45)">3 · täglich</span><span style="font-weight:600">Fälle üben</span><span style="font-size:13px;line-height:1.5;color:#b6b1a7">{{ poolLabel }}</span></button>
+          <button onClick="{{ goProbe }}" style="font:inherit;text-align:left;cursor:pointer;background:#2a2e36;border:1px solid #434954;border-radius:9px;padding:16px;display:flex;flex-direction:column;gap:6px;color:#e8e4dc"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:oklch(0.74 0.12 45)">4 · letzte Woche</span><span style="font-weight:600">Probeklausur</span><span style="font-size:13px;line-height:1.5;color:#b6b1a7">20 Fragen auf Zeit, gewichtet wie die echte Klausur.</span></button>
+        </div>
+      </section>
+
+      <section style="display:flex;flex-direction:column;gap:14px">
+        <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:28px;margin:0">Was Weiden am häufigsten fragt</h2>
+        <div style="display:flex;flex-direction:column;border:1px solid #434954;border-radius:9px;overflow:hidden">
+          <sc-for list="{{ topicRows }}" as="r" hint-placeholder-count="12">
+            <button onClick="{{ r.on }}" style="font:inherit;cursor:pointer;border:0;border-bottom:1px solid #3a3f49;background:#2a2e36;color:#e8e4dc;display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:14px;align-items:center;padding:11px 16px;text-align:left">
+              <span style="font-size:15px">{{ r.t }}</span>
+              <span style="font-size:12px;font-family:'IBM Plex Mono',monospace;color:{{ r.fc }}">{{ r.freq }}</span>
+              <span style="font-size:12px;color:#aba69c;min-width:64px;text-align:right">{{ r.n }} Fragen</span>
+            </button>
+          </sc-for>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ isVl }}" hint-placeholder-val="{{ false }}">
+      <section style="display:flex;flex-direction:column;gap:10px">
+        <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(30px,4.5vw,44px);margin:0">Vorlesungen kompakt</h1>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#c6c1b7;max-width:780px;text-wrap:pretty">Ein Lernzettel pro Vorlesung (Holztrattner), ausgerichtet auf die Klausur bei Weiden/Wende: Prüfreihenfolge, Fallen, Klausurhäufigkeit.</p>
+      </section>
+
+      <nav aria-label="Vorlesungen" style="display:flex;gap:6px;flex-wrap:wrap;padding:12px 0;border-top:1px solid #434954;border-bottom:1px solid #434954">
+        <sc-for list="{{ vlChips }}" as="x" hint-placeholder-count="11">
+          <button onClick="{{ x.on }}" style="font:inherit;font-size:12px;cursor:pointer;background:{{ x.bg }};color:{{ x.fg }};border:1px solid {{ x.bd }};border-radius:999px;padding:5px 11px">{{ x.t }}</button>
+        </sc-for>
+      </nav>
+
+      <sc-if value="{{ vlHas }}" hint-placeholder-val="{{ true }}">
+        <article style="display:flex;flex-direction:column;gap:22px">
+          <header style="display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:oklch(0.75 0.11 150)">{{ vlC.vl }}</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:{{ vlC.kc }};border:1px solid {{ vlC.kc }};border-radius:3px;padding:2px 8px">{{ vlC.klausur }}</span>
+            </div>
+            <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(28px,4vw,38px);line-height:1.1;margin:0;text-wrap:balance">{{ vlC.t }}</h2>
+            <div style="font-size:13px;line-height:1.5;color:#b6b1a7">{{ vlC.lp }}</div>
+            <div style="font-size:14px;line-height:1.6;color:#c6c1b7;max-width:780px;text-wrap:pretty">{{ vlC.klausurD }}</div>
+            <div style="background:#2a2e36;border:1px solid #434954;border-left:3px solid oklch(0.74 0.12 45);border-radius:0 6px 6px 0;padding:10px 14px;font-size:15px;line-height:1.5;color:#e8e4dc;max-width:780px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#aba69c;display:block;margin-bottom:2px">Kurzformel</span>{{ vlC.merk }}</div>
+          </header>
+
+          <section style="display:flex;flex-direction:column;gap:8px">
+            <h3 style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.74 0.12 45);margin:0">Überblick</h3>
+            <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:5px;font-size:15px;line-height:1.6;color:#d8d3c9;max-width:820px">
+              <sc-for list="{{ vlC.ueber }}" as="x" hint-placeholder-count="4"><li style="text-wrap:pretty">{{ x.t }}</li></sc-for>
+            </ul>
+          </section>
+
+          <section style="display:flex;flex-direction:column;gap:10px">
+            <h3 style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.74 0.12 45);margin:0">Prüfungsreihenfolge</h3>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,460px),1fr));gap:12px">
+              <sc-for list="{{ vlC.reihen }}" as="r" hint-placeholder-count="3">
+                <div style="background:#2a2e36;border:1px solid #434954;border-radius:9px;padding:14px 16px;display:flex;flex-direction:column;gap:8px">
+                  <div style="font-weight:600;font-size:15px;line-height:1.4">{{ r.t }}</div>
+                  <ol style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px;font-size:14px;line-height:1.55;color:#d8d3c9">
+                    <sc-for list="{{ r.s }}" as="x" hint-placeholder-count="4"><li style="text-wrap:pretty">{{ x.t }}</li></sc-for>
+                  </ol>
+                </div>
+              </sc-for>
+            </div>
+          </section>
+
+          <section style="display:flex;flex-direction:column;gap:8px">
+            <h3 style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.74 0.12 45);margin:0">Definitionen</h3>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:8px">
+              <sc-for list="{{ vlC.defs }}" as="d" hint-placeholder-count="4">
+                <div style="background:#2a2e36;border:1px solid #3a3f49;border-radius:9px;padding:10px 12px;display:flex;flex-direction:column;gap:3px">
+                  <div style="font-weight:600;font-size:14px;color:#e8e4dc">{{ d.a }}</div>
+                  <div style="font-size:13px;line-height:1.5;color:#c6c1b7;text-wrap:pretty">{{ d.b }}</div>
+                </div>
+              </sc-for>
+            </div>
+          </section>
+
+          <section style="background:oklch(0.31 0.035 150);border:1px solid oklch(0.45 0.08 150);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:8px">
+            <h3 style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.82 0.1 150);margin:0">Darauf achten Weiden/Wende</h3>
+            <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:14px;line-height:1.6;color:#e8e4dc">
+              <sc-for list="{{ vlC.weiden }}" as="x" hint-placeholder-count="4"><li style="text-wrap:pretty">{{ x.t }}</li></sc-for>
+            </ul>
+          </section>
+
+          <section style="display:flex;flex-direction:column;gap:8px">
+            <h3 style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.78 0.11 25);margin:0">Typische Fallen</h3>
+            <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:5px;font-size:14px;line-height:1.6;color:oklch(0.85 0.06 25)">
+              <sc-for list="{{ vlC.fallen }}" as="x" hint-placeholder-count="4"><li style="text-wrap:pretty">{{ x.t }}</li></sc-for>
+            </ul>
+          </section>
+
+          <section style="display:flex;gap:8px;flex-wrap:wrap;padding-top:14px;border-top:1px solid #434954">
+            <sc-if value="{{ vlHasFb }}" hint-placeholder-val="{{ true }}">
+              <button onClick="{{ vlGoFb }}" style="font:inherit;font-size:13px;cursor:pointer;background:oklch(0.74 0.12 45);color:#141518;border:0;border-radius:6px;padding:8px 14px;font-weight:600">{{ vlFbLabel }}</button>
+            </sc-if>
+            <button onClick="{{ vlGoUeben }}" style="font:inherit;font-size:13px;cursor:pointer;background:transparent;color:oklch(0.74 0.12 45);border:1px solid #555d69;border-radius:6px;padding:8px 14px">MC-Fragen zum Thema</button>
+            <button onClick="{{ vlGoPauken }}" style="font:inherit;font-size:13px;cursor:pointer;background:transparent;color:#e8e4dc;border:1px solid #555d69;border-radius:6px;padding:8px 14px">Schemata pauken</button>
+          </section>
+          <section style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap">
+            <button onClick="{{ vlPrev }}" style="font:inherit;font-size:13px;cursor:pointer;background:transparent;color:#c6c1b7;border:1px solid #434954;border-radius:6px;padding:8px 12px;text-align:left">{{ vlPrevLabel }}</button>
+            <button onClick="{{ vlNext }}" style="font:inherit;font-size:13px;cursor:pointer;background:transparent;color:#c6c1b7;border:1px solid #434954;border-radius:6px;padding:8px 12px;text-align:right">{{ vlNextLabel }}</button>
+          </section>
+          <p style="margin:0;font-size:12px;line-height:1.6;color:#aba69c;max-width:780px">Quellen: Holztrattner, Skript VL 1–6 (PDF) und PowerPoint VL 1–9 (WiSe 2026/27); Weiden/Wende, Folien Lernpakete 1–17 und Altklausuren SS 2018 – WS 2024/25. Zu VL 7–9 lagen von Holztrattner nur Stichpunkte vor.</p>
+        </article>
+      </sc-if>
+    </sc-if>
+
+    <sc-if value="{{ isPlan }}" hint-placeholder-val="{{ false }}">
+      <section style="display:flex;flex-direction:column;gap:14px">
+        <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(30px,4.5vw,44px);margin:0">Lernplan in 30 Schritten</h1>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#c6c1b7;max-width:720px;text-wrap:pretty">Drei Wochen, 60–90 Minuten pro Tag. Abhaken erst, wenn „Fertig, wenn“ erfüllt ist. Wenig Zeit? Phase 2 nur mit Themen „sehr oft“.</p>
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+          <div style="flex:1;min-width:200px;max-width:420px;height:8px;background:#3b414b;border-radius:6px;overflow:hidden"><div style="height:100%;width:{{ planPct }};background:oklch(0.7 0.13 150)"></div></div>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#b6b1a7">{{ planLabel }}</span>
+          <button onClick="{{ planNext }}" style="font:inherit;font-size:13px;cursor:pointer;background:oklch(0.74 0.12 45);color:#141518;border:0;border-radius:6px;padding:7px 12px;font-weight:600">Zum nächsten offenen Schritt</button>
+        </div>
+      </section>
+
+      <section style="background:#2a2e36;border:1px solid #434954;border-radius:9px;padding:18px 20px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.74 0.12 45)">Jede Lerneinheit läuft gleich ab</div>
+        <ol style="margin:0;padding-left:20px;line-height:1.7;color:#c6c1b7;font-size:14px;display:flex;flex-direction:column;gap:2px">
+          <li><b style="color:#e8e4dc">5 min Aufwärmen:</b> „Nur falsche wiederholen“ – die Fehler von gestern.</li>
+          <li><b style="color:#e8e4dc">Hauptteil 40–60 min:</b> der Schritt aus diesem Plan, an dem du gerade bist.</li>
+          <li><b style="color:#e8e4dc">10 min Normfinder:</b> Karten aufdecken, Norm im BGB suchen, Zeit grob schätzen.</li>
+          <li><b style="color:#e8e4dc">2 min Abschluss:</b> Schritt abhaken, notieren, welche Norm heute neu war.</li>
+        </ol>
+      </section>
+
+      <sc-for list="{{ phases }}" as="p" hint-placeholder-count="6">
+        <section style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;justify-content:space-between;border-bottom:1px solid #434954;padding-bottom:8px">
+            <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:oklch(0.74 0.12 45)">{{ p.when }}</span>
+              <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:26px;margin:0">{{ p.title }}</h2>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:{{ p.cntFg }}">{{ p.cnt }}</span>
+          </div>
+          <p style="margin:0;font-size:14px;line-height:1.6;color:#b6b1a7;max-width:760px;text-wrap:pretty">{{ p.goal }}</p>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <sc-for list="{{ p.steps }}" as="st" hint-placeholder-count="4">
+              <div id="{{ st.anchor }}" style="background:#2a2e36;border:1px solid {{ st.bd }};border-radius:9px;padding:14px 16px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;opacity:{{ st.op }}">
+                <button onClick="{{ st.toggle }}" aria-label="Schritt abhaken" style="cursor:pointer;width:26px;height:26px;border-radius:6px;border:1.5px solid {{ st.boxBd }};background:{{ st.boxBg }};color:#141518;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0;margin-top:1px">{{ st.mark }}</button>
+                <div style="display:flex;flex-direction:column;gap:6px;min-width:0">
+                  <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">
+                    <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#aba69c">{{ st.n }}</span>
+                    <span style="font-weight:600;font-size:15px;text-decoration:{{ st.dec }}">{{ st.t }}</span>
+                    <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#aba69c;border:1px solid #434954;border-radius:3px;padding:1px 6px">{{ st.dur }}</span>
+                  </div>
+                  <div style="font-size:14px;line-height:1.6;color:#c6c1b7;text-wrap:pretty">{{ st.d }}</div>
+                  <div style="font-size:13px;line-height:1.5;color:oklch(0.75 0.11 150)">Fertig, wenn: {{ st.ok }}</div>
+                  <sc-if value="{{ st.hasGo }}" hint-placeholder-val="{{ false }}">
+                    <button onClick="{{ st.go }}" style="align-self:flex-start;font:inherit;font-size:13px;cursor:pointer;background:transparent;color:oklch(0.74 0.12 45);border:1px solid #555d69;border-radius:6px;padding:5px 10px">{{ st.goLabel }} →</button>
+                  </sc-if>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </section>
+      </sc-for>
+
+      <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
+        <div style="background:#2a2e36;border:1px solid #434954;border-radius:9px;padding:18px 20px;display:flex;flex-direction:column;gap:10px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.65 0.15 25)">Wenn du hängst</div>
+          <ul style="margin:0;padding-left:18px;line-height:1.65;color:#c6c1b7;font-size:14px">
+            <li>Unter 50 % in einem Thema: Kompaktwissen erneut, dann nur dessen Fälle.</li>
+            <li>Norm nicht gefunden: Suchweg im Tab „BGB markieren“ nachschlagen, Reiter ergänzen.</li>
+            <li>Zeit reicht nicht: Frage zuerst lesen, Sachverhalt danach gezielt.</li>
+            <li>Gleicher Fehler dreimal: Falle in einem Satz aufschreiben und an den Monitor kleben.</li>
+          </ul>
+        </div>
+        <div style="background:#2a2e36;border:1px solid #434954;border-radius:9px;padding:18px 20px;display:flex;flex-direction:column;gap:10px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.7 0.13 150)">Bereit für die Klausur, wenn</div>
+          <ul style="margin:0;padding-left:18px;line-height:1.65;color:#c6c1b7;font-size:14px">
+            <li>zwei Probeklausuren in Folge ≥ 70 % mit Zeitreserve</li>
+            <li>„Nur falsche wiederholen“ ist leer</li>
+            <li>jede Normfinder-Karte in unter 30 Sekunden im BGB</li>
+          </ul>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ isSchema }}" hint-placeholder-val="{{ false }}">
+      <section style="display:flex;flex-direction:column;gap:14px">
+        <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(30px,4.5vw,44px);margin:0">Kaltes Wasser oder Schemata?</h1>
+        <p style="margin:0;font-size:18px;line-height:1.55;color:#e8e4dc;max-width:760px;text-wrap:pretty"><b>Kurz:</b> Schema einmal an einem gelösten Fall ansehen, dann sofort Fälle lösen und das Schema nach und nach weglassen. Merken musst du nur die <b>Reihenfolge</b> und <b>wo die Norm steht</b> – der Gesetzestext liegt in der Klausur vor dir.</p>
+      </section>
+
+      <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px">
+        <sc-for list="{{ stages }}" as="g" hint-placeholder-count="4">
+          <div style="background:#2a2e36;border:1px solid #434954;border-radius:9px;padding:16px 18px;display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;align-items:baseline;gap:10px">
+              <span style="font-family:'Newsreader',serif;font-size:30px;line-height:1;color:oklch(0.74 0.12 45)">{{ g.n }}</span>
+              <span style="font-weight:600;font-size:15px">{{ g.t }}</span>
+            </div>
+            <div style="font-size:14px;line-height:1.6;color:#c6c1b7;text-wrap:pretty">{{ g.d }}</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#aba69c;margin-top:auto">{{ g.why }}</div>
+          </div>
+        </sc-for>
+      </section>
+
+      <section style="background:#2a2e36;border:1px solid #434954;border-radius:9px;padding:18px 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.74 0.12 45)">Dein erster Tag mit dieser Methode</div>
+          <ol style="margin:0;padding-left:20px;line-height:1.7;color:#c6c1b7;font-size:14px">
+            <li>Unten das <b style="color:#e8e4dc">Grundgerüst</b> lesen und einmal laut aufsagen.</li>
+            <li>Schema <b style="color:#e8e4dc">Vertragsschluss</b> öffnen, jede Norm im BGB aufschlagen.</li>
+            <li>In „Fälle üben“ 3 Fälle zum Thema lösen, Schema offen daneben.</li>
+            <li>Abrufmodus an, Schritte auf Papier aus dem Kopf, aufdecken, vergleichen.</li>
+            <li>Stufe auf der Karte setzen. Morgen beginnst du mit Schritt 4 für dieses Schema.</li>
+          </ol>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.7 0.13 150)">Schema in der MC-Klausur</div>
+          <ol style="margin:0;padding-left:20px;line-height:1.7;color:#c6c1b7;font-size:14px">
+            <li>Frage lesen: Welche Anspruchsgrundlage? → Schema im Kopf aufrufen.</li>
+            <li>Jede Antwortoption einem Schemaschritt zuordnen.</li>
+            <li>Nur diesen Schritt im Sachverhalt und im BGB prüfen.</li>
+            <li>Optionen, die einen Schritt überspringen (z. B. Rücktritt ohne Frist), sind meist falsch.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 0;border-bottom:1px solid #434954">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#b6b1a7">{{ schLabel }}</span>
+        <div style="flex:1;min-width:120px;max-width:300px;height:6px;background:#3b414b;border-radius:3px;overflow:hidden"><div style="height:100%;width:{{ schPct }};background:oklch(0.7 0.13 150)"></div></div>
+        <button onClick="{{ toggleRecall }}" style="font:inherit;font-size:13px;cursor:pointer;background:{{ recallBg }};color:{{ recallFg }};border:1px solid #555d69;border-radius:6px;padding:7px 12px;font-weight:600">{{ recallLabel }}</button>
+        <button onClick="{{ goUeben }}" style="font:inherit;font-size:13px;cursor:pointer;background:transparent;color:oklch(0.74 0.12 45);border:1px solid #555d69;border-radius:6px;padding:7px 12px">Fälle üben →</button>
+      </section>
+
+      <sc-for list="{{ schGroups }}" as="grp" hint-placeholder-count="5">
+        <section style="display:flex;flex-direction:column;gap:12px">
+          <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:26px;margin:0;border-bottom:1px solid #434954;padding-bottom:8px">{{ grp.t }}</h2>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,440px),1fr));gap:12px">
+            <sc-for list="{{ grp.cards }}" as="c" hint-placeholder-count="3">
+              <article style="background:#2a2e36;border:1px solid {{ c.bd }};border-radius:9px;padding:16px 18px;display:flex;flex-direction:column;gap:10px">
+                <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap">
+                  <h3 style="margin:0;font-size:17px;font-weight:600">{{ c.t }}</h3>
+                  <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:{{ c.srcFg }};border:1px solid #434954;border-radius:3px;padding:2px 6px">{{ c.src }}</span>
+                </div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:oklch(0.74 0.12 45)">{{ c.n }}</div>
+                <sc-if value="{{ c.hasKurz }}" hint-placeholder-val="{{ true }}">
+                  <div style="font-size:13px;line-height:1.5;color:#b6b1a7;text-wrap:pretty"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#aba69c">Kurzformel</span> {{ c.kurz }}</div>
+                </sc-if>
+                <sc-if value="{{ c.hidden }}" hint-placeholder-val="{{ false }}">
+                  <button onClick="{{ c.reveal }}" style="font:inherit;font-size:14px;cursor:pointer;background:#323741;color:#c6c1b7;border:1px dashed #656d79;border-radius:6px;padding:18px 14px;text-align:left;line-height:1.5">{{ c.cnt }} Schritte: erst auf Papier aufschreiben, dann hier aufdecken</button>
+                </sc-if>
+                <sc-if value="{{ c.shown }}" hint-placeholder-val="{{ true }}">
+                  <ol style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:5px;font-size:14px;line-height:1.55;color:#d8d3c9">
+                    <sc-for list="{{ c.steps }}" as="x" hint-placeholder-count="4">
+                      <li style="text-wrap:pretty">{{ x }}</li>
+                    </sc-for>
+                  </ol>
+                  <div style="font-size:13px;line-height:1.55;color:oklch(0.78 0.11 25);text-wrap:pretty">Falle: {{ c.trap }}</div>
+                </sc-if>
+                <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;padding-top:6px;border-top:1px solid #3a3f49">
+                  <sc-for list="{{ c.levels }}" as="l" hint-placeholder-count="4">
+                    <button onClick="{{ l.on }}" style="font:inherit;font-size:12px;cursor:pointer;background:{{ l.bg }};color:{{ l.fg }};border:1px solid {{ l.bd }};border-radius:3px;padding:4px 8px">{{ l.t }}</button>
+                  </sc-for>
+                </div>
+              </article>
+            </sc-for>
+          </div>
+        </section>
+      </sc-for>
+
+      <section style="font-size:12px;line-height:1.6;color:#aba69c;max-width:760px;display:flex;flex-direction:column;gap:4px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase">Quellen</div>
+        <div>Mit „Skript“ markierte Schemata stammen aus den Vorlesungsfolien Weiden/Wende (S. 36, 116, 183, 188, 218); die übrigen wurden nach dem BGB ergänzt, vergleiche sie mit deinen Vorlesungsunterlagen.</div>
+        <div>Methode: Lernen an gelösten Beispielen (Nievelstein u. a. 2013, Jurastudierende), Abrufübung statt Wiederlesen (Roediger/Karpicke 2006), gemischtes Üben (Taylor/Rohrer 2010), verteiltes Wiederholen (Cepeda u. a. 2006).</div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ isPauken }}" hint-placeholder-val="{{ false }}">
+      <section style="display:flex;flex-direction:column;gap:12px">
+        <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(30px,4.5vw,44px);margin:0">Schemata pauken</h1>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#c6c1b7;max-width:760px;text-wrap:pretty">Schemata aus dem Kopf abrufen. Was sitzt, kommt nach 1 → 3 → 7 → 14 → 30 Tagen wieder, was nicht sitzt, noch in derselben Runde.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px">
+          <div style="background:#2a2e36;border:1px solid #434954;border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.55;color:#b6b1a7"><b style="color:#e8e4dc;display:block;margin-bottom:2px">1 · Aufdecken</b>Jeden Schritt erst laut oder auf Papier nennen, dann aufdecken.</div>
+          <div style="background:#2a2e36;border:1px solid #434954;border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.55;color:#b6b1a7"><b style="color:#e8e4dc;display:block;margin-bottom:2px">2 · Reihenfolge</b>Die Schritte sind gemischt. Tippe sie in der Prüfungsreihenfolge an.</div>
+          <div style="background:#2a2e36;border:1px solid #434954;border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.55;color:#b6b1a7"><b style="color:#e8e4dc;display:block;margin-bottom:2px">3 · Normen-Lücken</b>Die Paragrafen fehlen. Nennen, im BGB aufschlagen, dann aufdecken.</div>
+        </div>
+      </section>
+
+      <section style="display:flex;flex-direction:column;gap:10px;padding:14px 0;border-top:1px solid #434954;border-bottom:1px solid #434954">
+        <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#aba69c;margin-right:4px">Modus</span>
+          <sc-for list="{{ pkModes }}" as="m" hint-placeholder-count="3">
+            <button onClick="{{ m.on }}" style="font:inherit;font-size:13px;cursor:pointer;background:{{ m.bg }};color:{{ m.fg }};border:1px solid {{ m.bd }};border-radius:6px;padding:6px 12px;font-weight:600">{{ m.t }}</button>
+          </sc-for>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#aba69c;margin-right:4px">Auswahl</span>
+          <sc-for list="{{ pkFilters }}" as="f" hint-placeholder-count="6">
+            <button onClick="{{ f.on }}" style="font:inherit;font-size:12px;cursor:pointer;background:{{ f.bg }};color:{{ f.fg }};border:1px solid {{ f.bd }};border-radius:999px;padding:4px 10px">{{ f.t }}</button>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#3b414b">
+            <sc-for list="{{ pkBoxes }}" as="b" hint-placeholder-count="6">
+              <div style="width:{{ b.w }};background:{{ b.c }}"></div>
+            </sc-for>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:#b6b1a7;align-items:center">
+            <sc-for list="{{ pkBoxes }}" as="b" hint-placeholder-count="6">
+              <span style="display:inline-flex;align-items:center;gap:5px"><span style="width:9px;height:9px;border-radius:2px;background:{{ b.c }}"></span>{{ b.t }}: {{ b.n }}</span>
+            </sc-for>
+            <span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;color:#e8e4dc">{{ pkDueLabel }}</span>
+          </div>
+        </div>
+      </section>
+
+      <sc-if value="{{ pkHasCard }}" hint-placeholder-val="{{ true }}">
+        <section style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:center;gap:12px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#b6b1a7">Karte {{ pkPos }}</span>
+            <div style="flex:1;max-width:320px;height:4px;background:#3b414b;border-radius:2px;overflow:hidden"><div style="height:100%;width:{{ pkPct }};background:oklch(0.74 0.12 45)"></div></div>
+          </div>
+          <article style="background:#2a2e36;border:1px solid #434954;border-radius:12px;padding:20px 22px;display:flex;flex-direction:column;gap:14px;max-width:820px">
+            <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline">
+              <span style="font-size:12px;color:#aba69c">{{ pkCard.g }}</span>
+              <span style="display:inline-flex;gap:6px">
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#141518;background:{{ pkCard.boxC }};border-radius:3px;padding:2px 6px">{{ pkCard.boxLabel }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:oklch(0.75 0.11 150);border:1px solid #434954;border-radius:3px;padding:2px 6px">{{ pkCard.src }}</span>
+              </span>
+            </div>
+            <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:30px;line-height:1.15;margin:0">{{ pkCard.t }}</h2>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:oklch(0.74 0.12 45)">{{ pkCard.n }} · {{ pkCard.cnt }} Schritte</div>
+
+            <sc-if value="{{ pkIsReveal }}" hint-placeholder-val="{{ true }}">
+              <ol style="margin:0;padding-left:24px;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.55;color:#e8e4dc">
+                <sc-for list="{{ pkRevSteps }}" as="x" hint-placeholder-count="2">
+                  <li style="text-wrap:pretty">{{ x.t }}</li>
+                </sc-for>
+              </ol>
+              <sc-if value="{{ pkRevOpen }}" hint-placeholder-val="{{ true }}">
+                <div style="display:flex;gap:8px;flex-wrap:wrap">
+                  <button onClick="{{ pkRevNext }}" style="font:inherit;flex:1 1 320px;font-size:14px;cursor:pointer;background:#323741;color:#c6c1b7;border:1px dashed #8d949f;border-radius:6px;padding:16px 14px;text-align:left;line-height:1.5">{{ pkRevNextLabel }}</button>
+                  <button onClick="{{ pkRevAll }}" style="font:inherit;font-size:13px;cursor:pointer;background:transparent;color:#b6b1a7;border:1px solid #555d69;border-radius:6px;padding:8px 12px">Alle aufdecken</button>
+                </div>
+              </sc-if>
+            </sc-if>
+
+            <sc-if value="{{ pkIsOrder }}" hint-placeholder-val="{{ false }}">
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#b6b1a7">{{ pkOrdLabel }}</div>
+              <sc-if value="{{ pkOrdHasPicked }}" hint-placeholder-val="{{ false }}">
+                <ol style="margin:0;padding-left:24px;display:flex;flex-direction:column;gap:6px;font-size:14px;line-height:1.5;color:oklch(0.8 0.1 150)">
+                  <sc-for list="{{ pkOrdPicked }}" as="x" hint-placeholder-count="2">
+                    <li style="text-wrap:pretty">{{ x.t }}</li>
+                  </sc-for>
+                </ol>
+              </sc-if>
+              <sc-if value="{{ pkOrdOpen }}" hint-placeholder-val="{{ true }}">
+                <div style="display:flex;flex-direction:column;gap:6px">
+                  <div style="font-size:13px;color:#aba69c">Welcher Schritt kommt als Nächstes?</div>
+                  <sc-for list="{{ pkOrdPool }}" as="o" hint-placeholder-count="4">
+                    <button onClick="{{ o.on }}" style="font:inherit;font-size:14px;cursor:pointer;text-align:left;line-height:1.5;background:{{ o.bg }};color:#e8e4dc;border:1px solid {{ o.bd }};border-radius:6px;padding:10px 12px;text-wrap:pretty">{{ o.t }}</button>
+                  </sc-for>
+                </div>
+              </sc-if>
+            </sc-if>
+
+            <sc-if value="{{ pkIsGap }}" hint-placeholder-val="{{ false }}">
+              <ol style="margin:0;padding-left:24px;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.7;color:#e8e4dc">
+                <sc-for list="{{ pkGapSteps }}" as="x" hint-placeholder-count="4">
+                  <li style="text-wrap:pretty"><sc-for list="{{ x.parts }}" as="p" hint-placeholder-count="3"><sc-if value="{{ p.txt }}" hint-placeholder-val="{{ true }}"><span>{{ p.t }}</span></sc-if><sc-if value="{{ p.gap }}" hint-placeholder-val="{{ false }}"><button onClick="{{ p.on }}" style="font-family:'IBM Plex Mono',monospace;font-size:13px;cursor:pointer;background:#323741;color:{{ p.fg }};border:1px dashed {{ p.bd }};border-radius:3px;padding:0 6px;margin:0 1px">{{ p.t }}</button></sc-if></sc-for></li>
+                </sc-for>
+              </ol>
+              <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#b6b1a7">{{ pkGapLabel }}</span>
+                <button onClick="{{ pkGapAll }}" style="font:inherit;font-size:13px;cursor:pointer;background:transparent;color:#b6b1a7;border:1px solid #555d69;border-radius:6px;padding:6px 12px">Alle aufdecken</button>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ pkDone }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;gap:6px;padding-top:12px;border-top:1px solid #3a3f49">
+                <sc-if value="{{ pkCard.hasKurz }}" hint-placeholder-val="{{ true }}">
+                  <div style="font-size:14px;line-height:1.55;color:#e8e4dc;text-wrap:pretty"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#aba69c">Kurzformel</span> {{ pkCard.kurz }}</div>
+                </sc-if>
+                <div style="font-size:13px;line-height:1.55;color:oklch(0.78 0.11 25);text-wrap:pretty">Falle: {{ pkCard.trap }}</div>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px">
+                <sc-for list="{{ pkRates }}" as="r" hint-placeholder-count="3">
+                  <button onClick="{{ r.on }}" style="font:inherit;cursor:pointer;background:#323741;color:#e8e4dc;border:1px solid {{ r.c }};border-radius:9px;padding:10px 12px;text-align:left;display:flex;flex-direction:column;gap:2px"><span style="font-weight:600;font-size:14px;color:{{ r.c }}">{{ r.t }}</span><span style="font-size:12px;color:#b6b1a7">{{ r.d }}</span></button>
+                </sc-for>
+              </div>
+            </sc-if>
+          </article>
+        </section>
+      </sc-if>
+
+      <sc-if value="{{ pkEnd }}" hint-placeholder-val="{{ false }}">
+        <section style="background:#2a2e36;border:1px solid #434954;border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:12px;max-width:820px">
+          <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:28px;margin:0">{{ pkEndLabel }}</h2>
+          <p style="margin:0;font-size:14px;line-height:1.6;color:#b6b1a7">Die gewussten Schemata kommen erst wieder, wenn sie fällig sind. Jetzt am besten in „Fälle üben“ anwenden.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button onClick="{{ pkRestart }}" style="font:inherit;font-size:14px;cursor:pointer;background:oklch(0.74 0.12 45);color:#141518;border:0;border-radius:6px;padding:9px 14px;font-weight:600">Neue Runde</button>
+            <button onClick="{{ goUeben }}" style="font:inherit;font-size:14px;cursor:pointer;background:transparent;color:oklch(0.74 0.12 45);border:1px solid #555d69;border-radius:6px;padding:9px 14px">Fälle üben →</button>
+          </div>
+        </section>
+      </sc-if>
+
+      <section style="display:flex;justify-content:flex-end">
+        <button onClick="{{ pkReset }}" style="font:inherit;font-size:12px;cursor:pointer;background:transparent;color:#aba69c;border:1px solid #434954;border-radius:6px;padding:5px 10px">{{ pkResetLabel }}</button>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ isFall }}" hint-placeholder-val="{{ false }}">
+      <section style="display:flex;flex-direction:column;gap:12px">
+        <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(30px,4.5vw,44px);margin:0">Fallbuch</h1>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#c6c1b7;max-width:760px;text-wrap:pretty">Fälle im Gutachtenstil zu Holztrattners Vorlesungen 1–9, mit Ergebnis, Lösungsweg und typischem Denkfehler. Dieselben Fälle gibt es auch unter „Multiple Choice“.</p>
+        <ol style="margin:0;padding-left:20px;line-height:1.7;color:#b6b1a7;font-size:14px;max-width:760px">
+          <li>Sachverhalt lesen, Frage zerlegen: <b style="color:#e8e4dc">Wer will was von wem woraus?</b></li>
+          <li>Lösung auf Papier skizzieren, mit Normen, und die Normen im BGB aufschlagen.</li>
+          <li>Erst dann Denkanstoß oder Lösung öffnen und ehrlich bewerten. „Nochmal“-Fälle nach 2–3 Tagen wiederholen.</li>
+        </ol>
+      </section>
+
+      <section style="display:flex;flex-direction:column;gap:10px;padding:14px 0;border-top:1px solid #434954;border-bottom:1px solid #434954">
+        <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#aba69c;margin-right:4px">Vorlesung</span>
+          <sc-for list="{{ fbVlChips }}" as="f" hint-placeholder-count="10">
+            <button onClick="{{ f.on }}" style="font:inherit;font-size:12px;cursor:pointer;background:{{ f.bg }};color:{{ f.fg }};border:1px solid {{ f.bd }};border-radius:999px;padding:4px 10px">{{ f.t }}</button>
+          </sc-for>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#aba69c;margin-right:4px">Status</span>
+          <sc-for list="{{ fbStChips }}" as="f" hint-placeholder-count="4">
+            <button onClick="{{ f.on }}" style="font:inherit;font-size:12px;cursor:pointer;background:{{ f.bg }};color:{{ f.fg }};border:1px solid {{ f.bd }};border-radius:999px;padding:4px 10px">{{ f.t }}</button>
+          </sc-for>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#b6b1a7">{{ fbLabel }}</span>
+          <div style="flex:1;min-width:120px;max-width:300px;height:6px;background:#3b414b;border-radius:3px;overflow:hidden"><div style="height:100%;width:{{ fbPct }};background:oklch(0.7 0.13 150)"></div></div>
+        </div>
+      </section>
+
+      <sc-if value="{{ fbHas }}" hint-placeholder-val="{{ true }}">
+        <section id="fb-card" style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+            <button onClick="{{ fbPrev }}" style="font:inherit;font-size:13px;cursor:pointer;background:transparent;color:#e8e4dc;border:1px solid #555d69;border-radius:6px;padding:6px 12px">← Zurück</button>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#b6b1a7">{{ fbPos }}</span>
+            <button onClick="{{ fbNext }}" style="font:inherit;font-size:13px;cursor:pointer;background:transparent;color:#e8e4dc;border:1px solid #555d69;border-radius:6px;padding:6px 12px">Weiter →</button>
+          </div>
+          <article style="background:#2a2e36;border:1px solid #434954;border-radius:12px;padding:20px 22px;display:flex;flex-direction:column;gap:14px;max-width:860px">
+            <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline">
+              <span style="font-size:12px;color:#aba69c"><span style="font-family:'IBM Plex Mono',monospace;color:oklch(0.75 0.11 150)">{{ fbC.vl }}</span> · {{ fbC.b }}</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:{{ fbC.statusC }};border:1px solid #434954;border-radius:3px;padding:2px 6px">{{ fbC.status }}</span>
+            </div>
+            <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:28px;line-height:1.15;margin:0">{{ fbC.t }}</h2>
+            <p style="margin:0;font-size:15px;line-height:1.7;color:#e8e4dc;white-space:pre-line;text-wrap:pretty">{{ fbC.sv }}</p>
+            <p style="margin:0;font-size:15px;line-height:1.6;font-weight:600;color:oklch(0.8 0.1 60);text-wrap:pretty">{{ fbC.q }}</p>
+
+            <sc-if value="{{ fbHasMc }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex;flex-direction:column;gap:10px;padding-top:12px;border-top:1px solid #3a3f49">
+                <sc-if value="{{ fbHasSt }}" hint-placeholder-val="{{ false }}">
+                  <ol style="margin:0;padding:12px 16px 12px 36px;display:flex;flex-direction:column;gap:6px;font-size:14px;line-height:1.55;color:#d8d3c9;background:#323741;border-radius:9px">
+                    <sc-for list="{{ fbMc.st }}" as="x" hint-placeholder-count="5">
+                      <li style="text-wrap:pretty">{{ x.t }}</li>
+                    </sc-for>
+                  </ol>
+                </sc-if>
+                <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap">
+                  <span style="font-weight:600;font-size:15px">{{ fbMc.q }}</span>
+                  <sc-if value="{{ fbPicked }}" hint-placeholder-val="{{ false }}">
+                    <button onClick="{{ fbRepick }}" style="font:inherit;font-size:12px;cursor:pointer;background:transparent;color:#b6b1a7;border:1px solid #555d69;border-radius:6px;padding:4px 10px">Neu wählen</button>
+                  </sc-if>
+                </div>
+                <sc-for list="{{ fbMc.opts }}" as="o" hint-placeholder-count="6">
+                  <button onClick="{{ o.on }}" style="font:inherit;cursor:pointer;text-align:left;display:flex;flex-direction:column;gap:6px;padding:11px 14px;border-radius:9px;border:1px solid {{ o.bd }};background:{{ o.bg }};color:#e8e4dc">
+                    <span style="display:flex;gap:12px;font-size:15px;line-height:1.5"><span style="font-family:'IBM Plex Mono',monospace;color:{{ o.lc }}">{{ o.l }}</span><span>{{ o.text }}</span></span>
+                    <sc-if value="{{ o.show }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;line-height:1.5;color:{{ o.ec }};padding-left:26px"><b>{{ o.verdict }}</b> {{ o.reason }}</span></sc-if>
+                  </button>
+                </sc-for>
+                <sc-if value="{{ fbPicked }}" hint-placeholder-val="{{ false }}">
+                  <div style="font-size:14px;line-height:1.5;color:{{ fbPickC }}">{{ fbPickMsg }}</div>
+                </sc-if>
+              </div>
+            </sc-if>
+
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <sc-if value="{{ fbHintClosed }}" hint-placeholder-val="{{ true }}">
+                <button onClick="{{ fbShowHint }}" style="font:inherit;font-size:13px;cursor:pointer;background:transparent;color:#c6c1b7;border:1px dashed #8d949f;border-radius:6px;padding:8px 12px">Denkanstoß zeigen</button>
+              </sc-if>
+              <sc-if value="{{ fbSolClosed }}" hint-placeholder-val="{{ true }}">
+                <button onClick="{{ fbShowSol }}" style="font:inherit;font-size:13px;cursor:pointer;background:oklch(0.74 0.12 45);color:#141518;border:0;border-radius:6px;padding:8px 14px;font-weight:600">Lösung zeigen</button>
+              </sc-if>
+            </div>
+            <sc-if value="{{ fbHintOpen }}" hint-placeholder-val="{{ false }}">
+              <div style="font-size:14px;line-height:1.6;color:#c6c1b7;background:#323741;border-left:3px solid #8d949f;padding:10px 14px;border-radius:0 4px 4px 0;text-wrap:pretty"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#aba69c;display:block;margin-bottom:2px">Denkanstoß</span>{{ fbC.hint }}</div>
+            </sc-if>
+
+            <sc-if value="{{ fbSolOpen }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;gap:12px;padding-top:12px;border-top:1px solid #3a3f49">
+                <div style="font-size:15px;line-height:1.6;color:#e8e4dc;background:oklch(0.32 0.04 150);border-left:3px solid oklch(0.7 0.13 150);padding:10px 14px;border-radius:0 4px 4px 0;text-wrap:pretty"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:oklch(0.8 0.1 150);display:block;margin-bottom:2px">Ergebnis</span>{{ fbC.erg }}</div>
+                <div style="display:flex;flex-direction:column;gap:6px">
+                  <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:oklch(0.74 0.12 45)">Lösungsweg</div>
+                  <ol style="margin:0;padding-left:24px;display:flex;flex-direction:column;gap:8px;font-size:14px;line-height:1.6;color:#d8d3c9">
+                    <sc-for list="{{ fbC.weg }}" as="w" hint-placeholder-count="4">
+                      <li style="text-wrap:pretty">{{ w.t }}</li>
+                    </sc-for>
+                  </ol>
+                </div>
+                <div style="font-size:14px;line-height:1.6;color:oklch(0.8 0.1 25);text-wrap:pretty"><b>Warum die naheliegende Antwort falsch ist:</b> {{ fbC.falle }}</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px">
+                  <sc-for list="{{ fbRates }}" as="r" hint-placeholder-count="2">
+                    <button onClick="{{ r.on }}" style="font:inherit;cursor:pointer;background:#323741;color:#e8e4dc;border:1px solid {{ r.c }};border-radius:9px;padding:10px 12px;text-align:left;display:flex;flex-direction:column;gap:2px"><span style="font-weight:600;font-size:14px;color:{{ r.c }}">{{ r.t }}</span><span style="font-size:12px;color:#b6b1a7">{{ r.d }}</span></button>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-if>
+          </article>
+        </section>
+      </sc-if>
+      <sc-if value="{{ fbNone }}" hint-placeholder-val="{{ false }}">
+        <p style="margin:0;font-size:15px;color:#b6b1a7">Keine Fälle in dieser Auswahl. Wähle einen anderen Status oder eine andere Vorlesung.</p>
+      </sc-if>
+
+      <section style="display:flex;flex-direction:column;gap:8px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#aba69c">Alle Fälle dieser Auswahl</div>
+        <div style="display:flex;gap:4px;flex-wrap:wrap">
+          <sc-for list="{{ fbNav }}" as="x" hint-placeholder-count="20">
+            <button onClick="{{ x.on }}" aria-label="{{ x.label }}" title="{{ x.label }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;cursor:pointer;min-width:34px;height:30px;background:{{ x.bg }};color:{{ x.fg }};border:1px solid {{ x.bd }};border-radius:6px">{{ x.n }}</button>
+          </sc-for>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ isMark }}" hint-placeholder-val="{{ false }}">
+      <section style="display:flex;flex-direction:column;gap:14px">
+        <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(30px,4.5vw,44px);margin:0">BGB markieren &amp; zurechtfinden</h1>
+        <div style="background:#e8e4dc;color:#141518;border-radius:9px;padding:18px 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px">
+          <div style="display:flex;flex-direction:column;gap:6px"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6a4e3c">Erlaubt</div><div style="font-size:14px;line-height:1.55">Textmarker, Unterstreichen, Einkreisen. Keine handschriftlichen Wörter. Ob Reiter mit §-Nummern erlaubt sind, steht in Weidens Moodle-Hinweis „zulässige Markierungen“ – vorher prüfen.</div></div>
+          <div style="display:flex;flex-direction:column;gap:6px"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6a4e3c">Prinzip</div><div style="font-size:14px;line-height:1.55">Nicht ganze Paragraphen anmalen. Markiere nur das Wort, an dem die MC-Antwort kippt: die Zahl, die Ausnahme, „es sei denn“.</div></div>
+        </div>
+      </section>
+
+      <section style="display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+          <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:28px;margin:0">Markierplan · 4 Farben</h2>
+          <span style="font-size:13px;color:#b6b1a7">{{ markLabel }} abgehakt</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;align-items:start">
+          <sc-for list="{{ markGroups }}" as="g" hint-placeholder-count="4">
+            <div style="background:#2a2e36;border:1px solid #434954;border-radius:9px;overflow:hidden">
+              <div style="display:flex;gap:10px;align-items:center;padding:12px 16px;border-bottom:1px solid #434954">
+                <span style="width:14px;height:14px;border-radius:3px;background:{{ g.color }};flex:none"></span>
+                <span style="font-weight:600">{{ g.name }}</span>
+                <span style="font-size:13px;color:#b6b1a7">{{ g.what }}</span>
+              </div>
+              <sc-for list="{{ g.items }}" as="it" hint-placeholder-count="8">
+                <button onClick="{{ it.on }}" style="font:inherit;cursor:pointer;width:100%;border:0;border-bottom:1px solid #2f343d;background:transparent;color:#e8e4dc;display:grid;grid-template-columns:18px 104px minmax(0,1fr);gap:10px;align-items:baseline;padding:8px 16px;text-align:left;opacity:{{ it.op }}">
+                  <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:oklch(0.7 0.13 150)">{{ it.box }}</span>
+                  <span style="font-family:'IBM Plex Mono',monospace;font-size:13px">{{ it.p }}</span>
+                  <span style="font-size:13px;color:#c6c1b7;text-decoration:{{ it.dec }}">{{ it.w }}</span>
+                </button>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="display:flex;flex-direction:column;gap:14px">
+        <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:28px;margin:0">So findest du dich im BGB zurecht</h2>
+        <div style="display:flex;flex-direction:column;border:1px solid #434954;border-radius:9px;overflow:hidden">
+          <sc-for list="{{ buecher }}" as="b" hint-placeholder-count="5">
+            <div style="display:grid;grid-template-columns:40px minmax(120px,170px) 120px minmax(0,1fr);gap:12px;padding:11px 16px;background:#2a2e36;border-bottom:1px solid #3a3f49;align-items:baseline;opacity:{{ b.op }}">
+              <span style="font-family:'IBM Plex Mono',monospace;color:oklch(0.74 0.12 45)">{{ b.n }}</span>
+              <span style="font-weight:600">{{ b.t }}</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:13px">{{ b.r }}</span>
+              <span style="font-size:13px;color:#b6b1a7;line-height:1.5">{{ b.d }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px">
+          <div style="background:#2a2e36;border:1px solid #434954;border-radius:9px;padding:14px 16px;font-size:14px;line-height:1.55;color:#c6c1b7"><strong style="color:#e8e4dc">Kopfzeile lesen.</strong> Oben auf jeder Seite stehen die §§ der Seite – blättere nach Nummer wie im Wörterbuch.</div>
+          <div style="background:#2a2e36;border:1px solid #434954;border-radius:9px;padding:14px 16px;font-size:14px;line-height:1.55;color:#c6c1b7"><strong style="color:#e8e4dc">Sachverzeichnis hinten.</strong> Stichwort suchen („Verzug“, „Prokura“), dort steht Gesetzesnummer + §. Das BGB ist Nr. 1, ProdHaftG Nr. 4.</div>
+          <div style="background:#2a2e36;border:1px solid #434954;border-radius:9px;padding:14px 16px;font-size:14px;line-height:1.55;color:#c6c1b7"><strong style="color:#e8e4dc">Überschriften nutzen.</strong> Jeder § hat einen Titel in Klammern. Bei Unsicherheit 2–3 §§ davor und danach überfliegen – Ausnahmen stehen oft direkt dahinter.</div>
+        </div>
+      </section>
+
+      <section style="display:flex;flex-direction:column;gap:12px">
+        <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:28px;margin:0">Reiter-Vorschlag · 26 Stück</h2>
+        <p style="margin:0;font-size:14px;color:#b6b1a7;line-height:1.55">Reihenfolge = Reihenfolge im BGB. Oben am Rand AT, seitlich Schuldrecht, unten Sachenrecht – dann siehst du den Bereich, ohne zu lesen.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px">
+          <sc-for list="{{ reiter }}" as="r" hint-placeholder-count="26">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:5px 10px;border:1px solid #555d69;border-radius:6px;background:#2a2e36">{{ r }}</span>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="display:flex;flex-direction:column;gap:12px">
+        <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:28px;margin:0">Suchwege: Sachverhalt → Einstiegsnorm → Kette</h2>
+        <div style="display:flex;flex-direction:column;border:1px solid #434954;border-radius:9px;overflow:hidden">
+          <sc-for list="{{ wege }}" as="w" hint-placeholder-count="15">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:4px 14px;padding:10px 16px;background:#2a2e36;border-bottom:1px solid #3a3f49;align-items:baseline">
+              <span style="font-size:14px">{{ w.q }}</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:oklch(0.74 0.12 45)">{{ w.e }} → {{ w.k }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ isWissen }}" hint-placeholder-val="{{ false }}">
+      <section style="display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;flex-wrap:wrap;gap:6px">
+          <sc-for list="{{ topicChips }}" as="c" hint-placeholder-count="12">
+            <button onClick="{{ c.on }}" style="font:inherit;font-size:13px;cursor:pointer;white-space:nowrap;flex:none;padding:6px 12px;border-radius:20px;border:1px solid {{ c.bd }};background:{{ c.bg }};color:{{ c.fg }}">{{ c.t }}</button>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.74 0.12 45)">Häufigkeit: {{ tp.freq }}</div>
+          <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(30px,4.5vw,44px);margin:0">{{ tp.t }}</h1>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px">
+          <sc-for list="{{ tp.norms }}" as="n" hint-placeholder-count="10">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:4px 9px;border-radius:6px;background:#2f343d">{{ n }}</span>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;border-top:1px solid #434954">
+          <sc-for list="{{ tp.kern }}" as="k" hint-placeholder-count="6">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:4px 20px;padding:12px 0;border-bottom:1px solid #3a3f49">
+              <div style="font-weight:600;font-size:15px">{{ k.a }}</div>
+              <div style="font-size:15px;line-height:1.6;color:#c6c1b7;grid-column:span 2;text-wrap:pretty">{{ k.b }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px">
+          <div style="background:#2a2e36;border:1px solid #434954;border-radius:9px;padding:16px 18px;display:flex;flex-direction:column;gap:10px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#aba69c">Prüfreihenfolge</div>
+            <sc-for list="{{ tp.schema }}" as="s" hint-placeholder-count="4">
+              <div style="display:flex;gap:10px;font-size:14px;line-height:1.5"><span style="font-family:'IBM Plex Mono',monospace;color:oklch(0.74 0.12 45)">{{ s.i }}</span><span>{{ s.t }}</span></div>
+            </sc-for>
+          </div>
+          <div style="background:oklch(0.34 0.035 60);border-radius:9px;padding:16px 18px;display:flex;flex-direction:column;gap:10px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.8 0.1 65)">Klausurfallen</div>
+            <sc-for list="{{ tp.fallen }}" as="f" hint-placeholder-count="2">
+              <div style="font-size:14px;line-height:1.55;color:#ecdccb">{{ f }}</div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button onClick="{{ practiceTopic }}" style="font:inherit;cursor:pointer;padding:11px 18px;border-radius:6px;border:0;background:oklch(0.74 0.12 45);color:#141518;font-weight:600">{{ tp.n }} Fragen zu diesem Thema üben</button>
+          <button onClick="{{ nextTopic }}" style="font:inherit;cursor:pointer;padding:11px 18px;border-radius:6px;border:1px solid #555d69;background:transparent;color:#e8e4dc">Nächstes Thema →</button>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ isUeben }}" hint-placeholder-val="{{ false }}">
+      <section style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;flex-wrap:wrap;gap:6px">
+          <sc-for list="{{ filterChips }}" as="c" hint-placeholder-count="13">
+            <button onClick="{{ c.on }}" style="font:inherit;font-size:13px;cursor:pointer;white-space:nowrap;flex:none;padding:6px 12px;border-radius:20px;border:1px solid {{ c.bd }};background:{{ c.bg }};color:{{ c.fg }}">{{ c.t }}</button>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center">
+          <sc-for list="{{ srcChips }}" as="c" hint-placeholder-count="3">
+            <button onClick="{{ c.on }}" style="font:inherit;font-size:13px;cursor:pointer;white-space:nowrap;flex:none;padding:6px 12px;border-radius:6px;border:1px solid {{ c.bd }};background:{{ c.bg }};color:{{ c.fg }}">{{ c.t }}</button>
+          </sc-for>
+          <button onClick="{{ toggleWrong }}" style="font:inherit;font-size:13px;cursor:pointer;white-space:nowrap;flex:none;padding:6px 12px;border-radius:6px;border:1px solid {{ wrongBd }};background:transparent;color:{{ wrongFg }}">{{ wrongLabel }}</button>
+          <button onClick="{{ toggleDone }}" style="font:inherit;font-size:13px;cursor:pointer;white-space:nowrap;flex:none;padding:6px 12px;border-radius:6px;border:1px solid {{ doneBd }};background:transparent;color:{{ doneFg }}">{{ doneLabel }}</button>
+        </div>
+      </section>
+      <sc-if value="{{ hasQ }}" hint-placeholder-val="{{ true }}">
+        <section style="display:flex;flex-direction:column;gap:16px;max-width:820px">
+          <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#aba69c">
+            <span>{{ cq.tag }} · {{ cq.topicT }}</span><span>{{ posLabel }}</span>
+          </div>
+          <div style="font-size: 19px; line-height: 1.65; text-wrap: pretty; white-space: pre-line">{{ cq.sv }}</div>
+          <div style="font-weight:600;font-size:17px">{{ cq.q }}</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <sc-for list="{{ cq.opts }}" as="o" hint-placeholder-count="4">
+              <button onClick="{{ o.on }}" style="font:inherit;cursor:pointer;text-align:left;display:flex;flex-direction:column;gap:6px;padding:12px 16px;border-radius:9px;border:1px solid {{ o.bd }};background:{{ o.bg }};color:#e8e4dc">
+                <span style="display:flex;gap:12px;font-size:15px;line-height:1.5"><span style="font-family:'IBM Plex Mono',monospace;color:{{ o.lc }}">{{ o.l }}</span><span>{{ o.text }}</span></span>
+                <sc-if value="{{ o.show }}" hint-placeholder-val="{{ false }}"><span style="display:flex;flex-direction:column;gap:8px;padding-left:26px"><span style="font-size:13px;line-height:1.5;color:{{ o.ec }}"><b>{{ o.verdict }}</b> {{ o.reason }}</span><sc-for list="{{ o.norms }}" as="nm" hint-placeholder-count="1"><span style="display:flex;flex-direction:column;gap:2px;border-top:1px solid #434954;padding-top:6px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:oklch(0.74 0.12 45)">{{ nm.n }} · Gesetzestext</span><span style="font-family:'Newsreader',serif;font-size:14px;line-height:1.5;color:#c6c1b7;font-style:italic">{{ nm.t }}</span></span></sc-for></span></sc-if>
+              </button>
+            </sc-for>
+          </div>
+          <sc-if value="{{ cq.hasLw }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:8px;padding:14px 16px;border-radius:9px;border:1px solid #434954;background:#262a31"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:oklch(0.74 0.12 45)">LÖSUNGSWEG</div><sc-for list="{{ cq.lw }}" as="st" hint-placeholder-count="4"><div style="display:flex;gap:10px;font-size:14.5px;line-height:1.6"><span style="font-family:'IBM Plex Mono',monospace;color:#aba69c;flex:none">{{ st.n }}.</span><span>{{ st.t }}</span></div></sc-for></div></sc-if>
+          <div style="display:flex;gap:10px;justify-content:space-between">
+            <button onClick="{{ prevQ }}" style="font:inherit;cursor:pointer;padding:10px 16px;border-radius:6px;border:1px solid #555d69;background:transparent;color:#e8e4dc">← Zurück</button>
+            <button onClick="{{ nextQ }}" style="font:inherit;cursor:pointer;padding:10px 18px;border-radius:6px;border:0;background:oklch(0.74 0.12 45);color:#141518;font-weight:600">Weiter →</button>
+          </div>
+        </section>
+      </sc-if>
+      <sc-if value="{{ noQ }}" hint-placeholder-val="{{ false }}">
+        <div style="color:#b6b1a7;font-size:15px">Keine Fragen für diese Auswahl. Bei „Nur falsche“ oder ausgeblendeten bearbeiteten Fällen: alles erledigt – zum Einblenden den Button erneut tippen.</div>
+      </sc-if>
+    </sc-if>
+
+    <sc-if value="{{ isProbe }}" hint-placeholder-val="{{ false }}">
+      <sc-if value="{{ noExam }}" hint-placeholder-val="{{ true }}">
+        <section style="display:flex;flex-direction:column;gap:14px;max-width:640px">
+          <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(30px,4.5vw,44px);margin:0">Probeklausur</h1>
+          <p style="margin:0;font-size:16px;line-height:1.6;color:#c6c1b7">{{ examIntro }} Lösungen erst nach Abgabe.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:10px"><button onClick="{{ startExam }}" style="font:inherit;cursor:pointer;padding:12px 22px;border-radius:6px;border:0;background:oklch(0.74 0.12 45);color:#141518;font-weight:600">Gemischt starten</button><button onClick="{{ startHard }}" style="font:inherit;cursor:pointer;padding:12px 22px;border-radius:6px;border:1px solid oklch(0.74 0.12 45);background:transparent;color:oklch(0.8 0.1 45);font-weight:600">Nur neue Klausurfälle</button></div>
+          <p style="margin:0;font-size:14px;line-height:1.5;color:#b6b1a7">{{ hardIntro }}</p>
+        </section>
+      </sc-if>
+      <sc-if value="{{ hasExam }}" hint-placeholder-val="{{ false }}">
+        <div style="position:sticky;top:104px;z-index:4;background:rgba(38,42,50,0.94);backdrop-filter:blur(8px);border:1px solid #434954;border-radius:9px;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:18px;color:{{ timerColor }}">{{ timerLabel }}</span>
+          <span style="font-size:14px;color:#c6c1b7">{{ examStatus }}</span>
+          <div style="display:flex;gap:8px">
+            <button onClick="{{ submitExam }}" style="font:inherit;cursor:pointer;padding:8px 14px;border-radius:6px;border:0;background:oklch(0.74 0.12 45);color:#141518;font-weight:600">{{ submitLabel }}</button>
+          </div>
+        </div>
+        <sc-for list="{{ examQs }}" as="q" hint-placeholder-count="20">
+          <section style="display:flex;flex-direction:column;gap:10px;max-width:820px;padding-bottom:20px;border-bottom:1px solid #3a3f49">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#aba69c">Aufgabe {{ q.nr }} · {{ q.tag }}</div>
+            <div style="font-size:16px;line-height:1.6;white-space:pre-line">{{ q.sv }}</div>
+            <div style="font-weight:600">{{ q.q }}</div>
+            <sc-for list="{{ q.opts }}" as="o" hint-placeholder-count="4">
+              <button onClick="{{ o.on }}" style="font:inherit;cursor:pointer;text-align:left;display:flex;flex-direction:column;gap:6px;padding:10px 14px;border-radius:9px;border:1px solid {{ o.bd }};background:{{ o.bg }};color:#e8e4dc">
+                <span style="display:flex;gap:12px;font-size:15px;line-height:1.5"><span style="font-family:'IBM Plex Mono',monospace;color:{{ o.lc }}">{{ o.l }}</span><span>{{ o.text }}</span></span>
+                <sc-if value="{{ o.show }}" hint-placeholder-val="{{ false }}"><span style="display:flex;flex-direction:column;gap:8px;padding-left:26px"><span style="font-size:13px;line-height:1.5;color:{{ o.ec }}"><b>{{ o.verdict }}</b> {{ o.reason }}</span><sc-for list="{{ o.norms }}" as="nm" hint-placeholder-count="1"><span style="display:flex;flex-direction:column;gap:2px;border-top:1px solid #434954;padding-top:6px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:oklch(0.74 0.12 45)">{{ nm.n }} · Gesetzestext</span><span style="font-family:'Newsreader',serif;font-size:14px;line-height:1.5;color:#c6c1b7;font-style:italic">{{ nm.t }}</span></span></sc-for></span></sc-if>
+              </button>
+            </sc-for>
+            <sc-if value="{{ q.hasLw }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:8px;padding:14px 16px;border-radius:9px;border:1px solid #434954;background:#262a31"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:oklch(0.74 0.12 45)">LÖSUNGSWEG</div><sc-for list="{{ q.lw }}" as="st" hint-placeholder-count="4"><div style="display:flex;gap:10px;font-size:14.5px;line-height:1.6"><span style="font-family:'IBM Plex Mono',monospace;color:#aba69c;flex:none">{{ st.n }}.</span><span>{{ st.t }}</span></div></sc-for></div></sc-if>
+          </section>
+        </sc-for>
+        <button onClick="{{ resetExam }}" style="font:inherit;cursor:pointer;align-self:flex-start;padding:10px 16px;border-radius:6px;border:1px solid #555d69;background:transparent;color:#e8e4dc">Neue Probeklausur</button>
+      </sc-if>
+    </sc-if>
+
+    <sc-if value="{{ isNf }}" hint-placeholder-val="{{ false }}">
+      <section style="display:flex;flex-direction:column;gap:14px">
+        <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(30px,4.5vw,44px);margin:0">Normfinder</h1>
+        <p style="margin:0;font-size:15px;line-height:1.6;color:#c6c1b7;max-width:700px">Situation lesen, Norm im BGB finden, aufdecken. Ziel: unter 30 Sekunden pro Karte.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button onClick="{{ nfAll }}" style="font:inherit;font-size:13px;cursor:pointer;white-space:nowrap;flex:none;padding:7px 14px;border-radius:6px;border:1px solid #555d69;background:transparent;color:#e8e4dc">{{ nfAllLabel }}</button>
+          <button onClick="{{ nfShuffle }}" style="font:inherit;font-size:13px;cursor:pointer;white-space:nowrap;flex:none;padding:7px 14px;border-radius:6px;border:1px solid #555d69;background:transparent;color:#e8e4dc">Mischen</button>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px">
+          <sc-for list="{{ nfCards }}" as="c" hint-placeholder-count="40">
+            <button onClick="{{ c.on }}" style="font:inherit;cursor:pointer;text-align:left;min-height:96px;display:flex;flex-direction:column;justify-content:space-between;gap:10px;padding:14px 16px;border-radius:9px;border:1px solid #434954;background:#2a2e36;color:#e8e4dc">
+              <span style="font-size:14px;line-height:1.45">{{ c.s }}</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:{{ c.fc }}">{{ c.a }}</span>
+            </button>
+          </sc-for>
+        </div>
+      </section>
+    </sc-if>
+
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;examSize&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:20,&quot;min&quot;:5,&quot;max&quot;:40,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Probeklausur&quot;},&quot;examMinutes&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:60,&quot;min&quot;:10,&quot;max&quot;:120,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Probeklausur&quot;},&quot;shuffle&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Üben&quot;}}">
+const PLAN = [
+  { when: 'Tag 1', t: 'Startklar machen', g: 'Material besorgen und wissen, wo du stehst. Noch nichts lernen.', s: [
+    ['Klausurtermin eintragen', '5 min', 'Datum in den Kalender, Tage bis dahin zählen. Feste Lernzeit pro Tag blocken (60–90 min, immer zur gleichen Uhrzeit).', 'die Lernblöcke bis zur Klausur im Kalender stehen.'],
+    ['Material besorgen', '15 min', 'Aktuelle dtv-Ausgabe BGB (Auflage mit dem zulässigen Stand vergleichen), vier Textmarker (gelb, grün, blau, rot), 26 Klebereiter, ein Blatt für Fehlernotizen.', 'alles auf dem Schreibtisch liegt.'],
+    ['Prüfungsformat verstehen', '5 min', 'Startseite lesen: 20 MC-Aufgaben, 60 Minuten, genau eine Antwort richtig, 50 % zum Bestehen, kein Abzug für Fehler.', 'du das Format ohne nachzusehen aufsagen kannst.'],
+    ['Einstiegstest', '30 min', 'In „Fälle üben“ 8 Fälle aus „Alle Quellen“ lösen – ohne Vorbereitung, nur mit BGB. Ergebnis auf dem Fehlerblatt notieren.', 'dein Ausgangswert notiert ist. Er darf schlecht sein.', 'ueben'],
+  ] },
+  { when: 'Tag 2–3', t: 'BGB vorbereiten', g: 'Das markierte BGB ist dein einziges Hilfsmittel. Einmal sauber gemacht, spart es in jeder Aufgabe eine Minute.', s: [
+    ['Farbsystem lernen', '10 min', 'Im Tab „BGB markieren“ die vier Farben und ihre Bedeutung lesen. Nur Markierungen, keine Wörter oder Notizen ins Gesetz.', 'du jede Farbe einer Bedeutung zuordnen kannst.', 'mark'],
+    ['Markierungen Teil 1', '60 min', 'Die erste Hälfte der Stellen markieren. Jede Stelle erst aufschlagen, Satz lesen, dann markieren und in der App abhaken.', 'die Hälfte der Markierungen in der App abgehakt ist.', 'mark'],
+    ['Markierungen Teil 2', '60 min', 'Restliche Stellen genauso. Bei Unsicherheit lieber weniger markieren – zu viel Farbe macht das Suchen langsamer.', 'alle Markierungen abgehakt sind.', 'mark'],
+    ['Reiter kleben', '30 min', 'Die 26 Klebereiter laut Liste anbringen, Beschriftung mit Paragraphennummer, nicht mit Stichworten.', 'alle Reiter kleben und das BGB an jeder Stelle aufgeht.', 'mark'],
+    ['Suchwege testen', '20 min', 'Die 15 Suchwege einmal durchspielen: Frage lesen, BGB zu, dann die Norm finden.', 'du jede Norm in unter einer Minute findest.', 'mark'],
+  ] },
+  { when: 'Tag 4–10', t: 'Themen erarbeiten', g: 'Zwei Themen pro Tag, Reihenfolge nach Häufigkeit (Startseite: „sehr oft“ zuerst). Pro Thema immer dieselben vier Schritte. Minderjährige nur überfliegen – laut Dozent im Detail kein Klausurstoff.', s: [
+    ['Kompaktwissen lesen', '10 min / Thema', 'Thema im Tab „Kompaktwissen“ öffnen, BGB daneben. Jede genannte Norm aufschlagen und den Wortlaut lesen – nicht nur die Zusammenfassung.', 'du jede Norm des Themas einmal im Original gelesen hast.', 'wissen'],
+    ['Normkette aufsagen', '3 min / Thema', 'App zu, BGB auf. Die Prüfungsreihenfolge laut sagen, z. B. Mangel → Vorrang Nacherfüllung → Frist → Rücktritt/Minderung/Schadensersatz.', 'du die Kette ohne Hilfe vollständig aufsagen kannst.'],
+    ['Themenfälle lösen', '25 min / Thema', 'In „Fälle üben“ den Themenfilter setzen und alle Fälle des Themas lösen. Erst entscheiden, dann prüfen – nicht zwischen zwei Antworten raten und nachsehen.', 'alle Fälle des Themas beantwortet sind.', 'ueben'],
+    ['Fehler auswerten', '10 min / Thema', 'Zu jeder falschen Antwort auf dem Fehlerblatt: richtige Norm + warum deine Antwort falsch war (falscher Paragraph? Frist? Verbraucher übersehen? absolute Formulierung?).', 'jeder Fehler einen Satz auf dem Blatt hat.'],
+    ['Vorlesungsfälle', '30 min', 'In „Fälle üben“ die 34 Fälle aus Holztrattners Vorlesungen 1–9 (WiSe 2026/27), seine 52 Übungsfälle (Filter „Übungsfälle Holztrattner“) und die 24 Fälle aus den Weiden/Wende-Folien lösen (Zuwinken bei der Versteigerung, Haakjöringsköd, Salatblatt, Unterverbriefung, Haferernte, Oldtimer-Versicherung …). Sie prüfen genau die Beispiele des Dozenten.', 'jedes Dozentenbeispiel einer Norm zugeordnet ist.', 'ueben'],
+    ['Alle Themen abgeschlossen', 'Tag 10', 'Kontrolle: Gibt es ein Thema mit weniger als 50 % richtig? Dann Schritte 10–13 für dieses Thema wiederholen, bevor du weitergehst.', 'jedes Thema mindestens 50 % hat.', 'ueben'],
+  ] },
+  { when: 'Tag 11–14', t: 'Fallmethode trainieren', g: 'Ab jetzt nur noch lange Klausurfälle mit 6 Optionen. Ziel ist eine feste Leseroutine, die auch unter Zeitdruck hält.', s: [
+    ['Leseroutine einüben', '5 min', 'Bei jedem Fall in dieser Reihenfolge: 1) Frage am Ende zuerst lesen. 2) Sachverhalt lesen, Rollen (Verbraucher/Unternehmer), Daten und Fristen merken. 3) Norm aufschlagen. 4) Antworten mit falschem Paragraphen, falscher Frist und „immer/nie“ streichen. 5) Zwischen dem Rest entscheiden.', 'du die fünf Schritte auswendig kannst.'],
+    ['10 Fälle mit Stoppuhr', '45 min / Tag', 'Quelle „Klausurfälle (lang, 6 Optionen)“. Pro Fall 4 Minuten Stoppuhr; danach entscheiden, auch wenn unsicher.', 'du an vier Tagen je 10 Fälle in der Zeit gelöst hast.', 'ueben'],
+    ['Fehler am selben Tag wiederholen', '15 min / Tag', '„Nur falsche wiederholen“ einschalten und die Fehler des Tages nochmal lösen – mit Begründung, nicht aus dem Gedächtnis.', 'die Liste am Tagesende leer ist.', 'ueben'],
+    ['Normfinder täglich', '10 min / Tag', 'Karten mischen, Frage lesen, Norm im BGB suchen, erst dann aufdecken.', 'du 80 % der Karten ohne Aufdecken triffst.', 'nf'],
+    ['Fehlermuster erkennen', '15 min', 'Fehlerblatt durchgehen und zählen: Welche Fallenart erwischt dich am häufigsten? Diese eine Falle oben auf das Blatt schreiben.', 'du deine häufigste Falle benennen kannst.'],
+  ] },
+  { when: 'Tag 15–20', t: 'Probeklausuren', g: 'Unter echten Bedingungen: nur das BGB, Handy in einen anderen Raum, 60 Minuten am Stück.', s: [
+    ['Probeklausur 1', '60 min', 'Erst alle Fälle beantworten, bei denen du sicher bist. Schwere mit Nummer notieren und am Ende lösen. Nichts leer lassen.', 'die Klausur abgegeben ist.', 'probe'],
+    ['Auswertung 1', '30 min', 'Jeden Fehler einer Ursache zuordnen: Norm nicht gefunden / Falle übersehen / Zeit gefehlt / Stoff unbekannt. Die größte Gruppe bestimmt, was du morgen übst.', 'jeder Fehler eine Ursache hat.'],
+    ['Lücken schließen', '1–2 Tage', 'Stoff unbekannt → Phase 2 für das Thema. Norm nicht gefunden → Reiter und Suchwege. Falle → 10 Fälle mit Leseroutine. Zeit → Stoppuhr auf 3 Minuten.', 'die Ursache aus der Auswertung bearbeitet ist.', 'wissen'],
+    ['Probeklausur 2', '60 min', 'Gleiche Bedingungen, anderer Tag, gleiche Uhrzeit wie die echte Klausur.', 'du ≥ 60 % erreichst.', 'probe'],
+    ['Probeklausur 3', '60 min', 'Zum Abschluss. Wenn noch Zeit ist, eine vierte nur mit langen Fällen („nur Klausurfälle“).', 'du zweimal in Folge ≥ 70 % mit Zeitreserve hast.', 'probe'],
+    ['Fehlerliste leeren', '30 min', '„Nur falsche wiederholen“ über alle Fragen, bis nichts mehr übrig ist.', 'die Liste leer ist.', 'ueben'],
+  ] },
+  { when: 'Vortag & Klausurtag', t: 'Abschluss', g: 'Kein neuer Stoff. Ruhe und ein einsatzbereites BGB bringen jetzt mehr als eine weitere Stunde Lernen.', s: [
+    ['Leichte Wiederholung', '30 min', 'Nur Normfinder und das Fehlerblatt lesen. Keine neuen Fälle.', 'du das Fehlerblatt einmal durchgelesen hast.', 'nf'],
+    ['BGB-Kontrolle', '10 min', 'Durchblättern: keine Notizen, keine losen Zettel, nur Markierungen und Reiter. Prüfen, ob die Auflage zugelassen ist.', 'das BGB prüfungskonform ist.'],
+    ['Tasche packen', '5 min', 'BGB, Personal- und Studierendenausweis, zwei Stifte, Armbanduhr ohne Smartfunktionen, Wasser.', 'die Tasche gepackt an der Tür steht.'],
+    ['In der Klausur', '60 min', 'Erst alle Aufgaben überfliegen und die sicheren lösen. Pro Fall die Leseroutine. Nach 45 Minuten: alles Offene ankreuzen – kein Abzug für Fehler.', 'jede Aufgabe ein Kreuz hat.'],
+  ] },
+];
+const STAGES = [
+  { n: '1', t: 'Ansehen', d: 'Schema lesen, jede Norm im BGB aufschlagen, dann einen gelösten Fall (Erklärung in „Fälle üben“) Schritt für Schritt mitverfolgen.', why: 'gelöste Beispiele > blind lösen' },
+  { n: '2', t: 'Anwenden', d: '3 Fälle zum Thema lösen, Schema offen daneben. Bei jeder Option fragen: Welchen Schritt prüft sie?', why: 'Struktur am Fall festigen' },
+  { n: '3', t: 'Abrufen', d: 'Abrufmodus an. Schritte auf ein leeres Blatt schreiben, dann aufdecken und vergleichen. Lücken rot markieren.', why: 'Abrufen > Wiederlesen' },
+  { n: '4', t: 'Mischen', d: 'Fälle aus „Alle Quellen“ ohne Themenfilter. Erst erkennen, welches Schema passt, dann lösen. Nach 2–3 Tagen wiederholen.', why: 'In der Klausur steht kein Thema dran' },
+];
+const SCH = [
+  { g: 'Grundgerüst – gilt für jeden Fall', c: [
+    { id: 'grund', t: 'Anspruchsaufbau', n: 'Wer will was von wem woraus?', src: 'S. 36', s: ['Frage zerlegen: Wer (Anspruchsteller) will was von wem (Gegner) woraus (Anspruchsgrundlage)?', 'I. Anspruch entstanden? Vertrag zustande gekommen und wirksam (§§ 104 ff., 125, 134, 138, 142)?', 'II. Anspruch nicht erloschen? Erfüllung § 362 I, Rücktritt § 346, Kündigung § 626', 'III. Anspruch durchsetzbar? Keine Einrede: Verjährung § 214 I, Zurückbehaltungsrecht § 273 I, § 320'], f: 'Optionen nennen oft eine passende Rechtsfolge, aber die falsche Anspruchsgrundlage. Erst die Grundlage, dann die Folge prüfen.' },
+  ] },
+  { g: 'BGB AT – Vertrag & Willenserklärung', c: [
+    { id: 'vs', t: 'Vertragsschluss', n: '§§ 145 ff., 130 BGB', src: 'VL 2', s: ['Angebot: bestimmt genug + Rechtsbindungswille (Abgrenzung invitatio ad offerendum: Schaufenster, Katalog, Onlineshop)', 'Zugang § 130 I: im Machtbereich + Kenntnisnahme unter gewöhnlichen Umständen möglich', 'Annahme rechtzeitig: §§ 147, 148; Erlöschen des Angebots § 146', 'Verspätete oder geänderte Annahme = neues Angebot § 150 I, II', 'Schweigen ist grundsätzlich keine Annahme (Ausnahme: kaufmännisches Bestätigungsschreiben)'], f: 'Die Preisauszeichnung im Laden ist kein Angebot. Und eine „Annahme mit kleiner Änderung“ ist nach § 150 II eine Ablehnung plus neues Angebot.' },
+    { id: 'gf', t: 'Minderjährige (Details nicht klausurrelevant)', n: '§§ 104–113 BGB · nur Grundbegriffe', s: ['Alter: unter 7 → geschäftsunfähig, WE nichtig §§ 104 Nr. 1, 105 I', '7–17 → beschränkt geschäftsfähig § 106', 'Lediglich rechtlicher Vorteil? § 107 → wirksam (wirtschaftlicher Vorteil zählt nicht)', 'Sonst Einwilligung § 107 oder Taschengeld § 110 (mit eigenen Mitteln vollständig bewirkt)', 'Ohne Einwilligung schwebend unwirksam → Genehmigung § 108 I; Aufforderung → 2 Wochen § 108 II; Widerruf des Partners § 109'], f: 'Ratenkauf mit Taschengeld: § 110 greift erst, wenn alles bezahlt ist. Schenkung mit Auflage oder Folgekosten ist nicht lediglich rechtlich vorteilhaft.' },
+    { id: 'we', t: 'Willenserklärung prüfen', n: '§§ 116–118, 130, 133, 157 BGB', src: 'VL 2', s: ['Objektiv: Äußerung eines Rechtsbindungswillens? (Abgrenzung Gefälligkeit, invitatio ad offerendum)', 'Handlungswille? Fehlt bei Schlaf, Reflex, geführter Hand → keine WE', 'Erklärungsbewusstsein? Fehlen unschädlich, wenn erkennbar → anfechtbar § 119 I Alt. 2 analog', 'Geschäftswille? Fehlen unbeachtlich → Anfechtung §§ 119 I, 120', 'Wirksam geworden: Abgabe + bei Empfangsbedürftigkeit Zugang § 130 I; kein Widerruf § 130 I 2'], f: 'Benachrichtigungsschein ist kein Zugang. Fehlender Handlungswille = gar keine WE, fehlendes Erklärungsbewusstsein = WE, aber anfechtbar.' },
+    { id: 'wh', t: 'Wirksamkeitshindernisse', n: '§§ 105, 116–118, 125, 134, 138 BGB', src: 'VL 2', s: ['Geheimer Vorbehalt § 116 S. 2, Scheingeschäft § 117 I, Scherz § 118', 'Form: Text § 126b · Schrift § 126 · elektronisch § 126a · Beglaubigung § 129 · Notar § 128 → sonst § 125 S. 1', 'Heilung? § 311b I 2 · § 518 II · § 766 S. 3', 'Verbotsgesetz § 134 (Auftragsmord, Schwarzarbeit)', 'Sittenwidrigkeit § 138 I (Schmiergeld), Wucher § 138 II', 'Geschäftsunfähigkeit §§ 104, 105 I (nur Grundbegriffe)'], f: 'Unterverbriefung: Beurkundetes nichtig (§ 117 I), Gewolltes formnichtig – geheilt durch Eintragung.' },
+    { id: 'agbs', t: 'AGB-Kontrolle', n: '§§ 305–310 BGB', src: 'VL 8', s: ['AGB? Für viele Verträge vorformuliert und von einer Partei gestellt § 305 I (Individualabrede geht vor § 305b)', 'Einbeziehung § 305 II: Hinweis, zumutbare Kenntnisnahme, Einverständnis (gegenüber Unternehmern gilt § 305 II nicht, § 310 I)', 'Keine überraschende Klausel § 305c I; Zweifel gehen zulasten des Verwenders § 305c II', 'Inhaltskontrolle von hinten: § 309 (ohne Wertungsmöglichkeit) → § 308 (mit Wertungsmöglichkeit) → Generalklausel § 307', 'Rechtsfolge § 306: Vertrag bleibt wirksam, statt der Klausel gilt das Gesetz'], f: 'Eine unwirksame Klausel macht nicht den ganzen Vertrag nichtig (§ 306 I) und wird nicht auf das gerade noch Zulässige zurückgeschnitten.' },
+    { id: 'sv', t: 'Stellvertretung', n: '§§ 164 ff. BGB', s: ['Eigene Willenserklärung (Abgrenzung Bote: überbringt nur fremde)', 'Im fremden Namen – Offenkundigkeit § 164 I, II', 'Mit Vertretungsmacht: Vollmacht § 167, Prokura § 49 HGB, Duldungs-/Anscheinsvollmacht', 'Vertreter darf beschränkt geschäftsfähig sein § 165', 'Ohne Vertretungsmacht: Genehmigung § 177, sonst Haftung des Vertreters § 179'], f: 'Beschränkungen im Innenverhältnis (z. B. „nur bis 500 €“) binden den Dritten nicht, solange die Vollmacht nach außen unbeschränkt ist.' },
+    { id: 'anf', t: 'Anfechtung', n: '§§ 119–124, 142, 143 BGB', src: 'VL 3', s: ['Vorab: wirksame WE? Auslegung §§ 133, 157 (falsa demonstratio) – erst dann anfechten', 'Anfechtungsgrund: Inhalts-/Erklärungsirrtum § 119 I, Eigenschaftsirrtum § 119 II, Übermittlung § 120, Täuschung/Drohung § 123', 'Anfechtungserklärung gegenüber dem Gegner § 143', 'Frist: unverzüglich § 121 (Irrtum) bzw. 1 Jahr § 124 (Täuschung/Drohung)', 'Kein Ausschluss, z. B. Bestätigung § 144', 'Folge: nichtig von Anfang an § 142 I; bei §§ 119, 120 Vertrauensschaden § 122, höchstens bis zum Erfüllungsinteresse'], f: 'Motiv- und Kalkulationsirrtum berechtigen nicht zur Anfechtung. § 122 gilt nicht bei § 123 – wer täuscht, bekommt nichts ersetzt.' },
+  ] },
+  { g: 'Schuldrecht AT – Grundbegriffe & Erlöschen', c: [
+    { id: 'erl', t: 'Ist der Anspruch erloschen?', n: '§§ 362–365, 346, 387 BGB', src: 'VL 3', s: ['Erfüllung § 362 I: richtiger Schuldner, Gläubiger, Leistung, Ort, Zeit (Dritte § 267, Ermächtigte §§ 362 II, 185)', 'Andere Leistung? An Erfüllungs statt § 364 I (sofort erloschen) oder erfüllungshalber § 364 II (erst bei Befriedigung)', 'Rücktritt §§ 346, 349 → Rückgewährschuldverhältnis, Nutzungen, Wertersatz § 346 II, III', 'Dauerschuldverhältnis: Kündigung (nur für die Zukunft), ordentlich oder aus wichtigem Grund § 314', 'Widerruf §§ 355 ff. · Aufrechnung § 387'], f: 'Scheck, Abtretung, Kreditkarte sind im Zweifel nur erfüllungshalber – die alte Forderung lebt bis zur Einlösung.' },
+  ] },
+  { g: 'Schuldrecht AT – Leistungsstörungen', c: [
+    { id: 'se', t: 'Schadensersatz § 280', n: '§§ 280–286, 311a, 276, 278 BGB', s: ['Schuldverhältnis (Vertrag oder § 311 II)', 'Pflichtverletzung', 'Vertretenmüssen wird vermutet § 280 I 2; Maßstab § 276; Gehilfen § 278', 'Art bestimmen: einfacher SE § 280 I · Verzögerung + § 286 · statt der Leistung + § 281 (Frist) / § 283 / § 311a II', 'Schaden §§ 249 ff., Mitverschulden § 254; statt SE auch Aufwendungsersatz § 284'], f: 'SE statt der Leistung verlangt in der Regel eine erfolglose Frist (§ 281 I). Optionen mit „sofort Schadensersatz“ prüfen, ob § 281 II eine Ausnahme trägt.' },
+    { id: 'vz', t: 'Schuldnerverzug', n: '§§ 286–288 BGB', src: 'VL 5', s: ['Fälliger, durchsetzbarer Anspruch (§ 271)', 'Mahnung oder entbehrlich: Kalendertermin § 286 II Nr. 1 · Entgeltforderung nach 30 Tagen § 286 III (Verbraucher nur mit Hinweis)', 'Nichtleistung trotz Fälligkeit', 'Vertretenmüssen § 286 IV (vermutet)', 'Folgen: Verzögerungsschaden §§ 280 I, II, 286 · Zinsen § 288 · Haftungsverschärfung § 287'], f: 'Verzug ≠ Rücktritt. Für den Rücktritt brauchst du § 323 mit Fristsetzung, nicht nur § 286.' },
+    { id: 'vz281', t: 'SE statt der Leistung & Rücktritt bei Verzug', n: '§§ 280 I, III, 281, 323 BGB', src: 'VL 5', s: ['Wirksames Schuldverhältnis (Rücktritt: gegenseitiger Vertrag)', 'Fällige Leistung (§ 271) nicht oder nicht vertragsgemäß erbracht', 'Angemessene Frist gesetzt – oder entbehrlich (§ 281 II / § 323 II, z. B. relatives Fixgeschäft Nr. 2)', 'Frist erfolglos abgelaufen (zu kurze Frist setzt angemessene in Gang)', 'SE: Vertretenmüssen (vermutet, § 280 I 2) + kausaler Schaden (Erfüllungsinteresse) · Rücktritt: kein Verschulden nötig, kein Ausschluss nach § 323 V, VI', 'Folgen: Leistungsanspruch erlischt mit dem SE-Verlangen (§ 281 IV) · Rückabwicklung §§ 281 V, 346 ff.'], f: 'Mahnung ≠ Fristsetzung: § 286 braucht die Mahnung, §§ 281, 323 brauchen die Frist. Praxis-Tipp des Dozenten: beides in einem Schreiben.' },
+    { id: 'um', t: 'Unmöglichkeit', n: '§§ 275, 326, 283, 311a BGB', src: 'S. 116', s: ['Schritt 1 – Primärleistung: Schuldner frei nach § 275 I (II, III nur als Einrede)', 'Stück- oder Gattungsschuld? Gattung wird erst durch Konkretisierung § 243 II unmöglich', 'Schritt 2 – Gegenleistung: entfällt § 326 I', 'Ausnahmen: Gläubiger verantwortlich § 326 II · Gefahrübergang §§ 446, 447 · Annahmeverzug §§ 300, 326 II', 'Schritt 3 – Sekundäransprüche: §§ 280 I, III, 283 (nachträglich) / § 311a II (anfänglich, nur bei Kenntnis/zu vertretender Unkenntnis)', 'Rücktritt §§ 326 V, 346 ohne Frist, ohne Verschulden (Ausschluss §§ 323 V, VI) · § 285 Surrogat → § 326 III', 'Wer hat zu vertreten? Schuldner → alles · keiner → nur Rücktritt · Gläubiger/Annahmeverzug → nichts'], f: 'Beim Versendungskauf trägt der Käufer die Gefahr ab Übergabe an den Transporteur (§ 447) – aber nicht beim Verbrauchsgüterkauf (§ 475 II).' },
+    { id: 'u283', t: 'SE statt der Leistung bei Unmöglichkeit', n: '§§ 280 I, III, 283 / 311a II BGB', src: 'VL 4', s: ['Nachträglich §§ 280 I, III, 283: wirksames Schuldverhältnis', 'Pflichtverletzung (Nichtleistung), Schuldner nach § 275 I–III frei', 'Vertretenmüssen § 276 I, vermutet § 280 I 2 – Sachverhalt kann widerlegen', 'Keine Frist nötig (§ 283 S. 2) · kausaler Schaden = Erfüllungsinteresse', 'Anfänglich § 311a II: Vertrag wirksam (§ 311a I) + Kenntnis oder zu vertretende Unkenntnis des Hindernisses'], f: 'Anfänglich oder nachträglich? Die Unterscheidung entscheidet allein über die Anspruchsgrundlage.' },
+    { id: 'u285', t: 'Surrogat § 285 & Rücktritt § 326 V', n: '§§ 285, 326 III, 326 V BGB', src: 'VL 4', s: ['§ 285 I: Schuldverhältnis, Schuldner nach § 275 frei, infolgedessen Ersatz erlangt (Versicherung)', 'Rechtsfolge: Herausgabe/Abtretung, ggf. Minderung § 285 II – ohne Verschulden', 'Dann Gegenleistung weiter geschuldet § 326 III 1, gemindert § 326 III 2', '§ 326 V: gegenseitiger Vertrag, Schuldner frei, keine Frist, kein Ausschluss §§ 323 V, VI, kein Verschulden nötig', 'Rechtsfolge Rücktritt: Rückabwicklung §§ 346 ff.; schon Gezahltes § 326 IV'], f: '§ 285 lohnt nur, wenn der Ersatz mehr wert ist als der Preis, den man dann zahlen muss.' },
+    { id: 'gat', t: 'Gattungsschuld & Fixgeschäft', n: '§§ 243, 269, 275, 286 BGB', src: 'VL 4', s: ['Stückschuld, Gattungsschuld (nach allgemeinen Merkmalen) oder beschränkte Gattungsschuld (Vorrat: Haferernte)?', 'Leistungsort: Vereinbarung → Umstände → sonst Holschuld § 269 I', 'Konkretisierung § 243 II: Holschuld = aussondern + bereitstellen + wörtlich anbieten · Bringschuld = tatsächlich beim Gläubiger anbieten · Schickschuld = Übergabe an Transportperson', 'Untergang nach Konkretisierung → Unmöglichkeit § 275 I', 'Fixgeschäft: absolut → § 275 I · relativ → nur Verzug § 286'], f: 'Vor der Konkretisierung muss der Schuldner neu beschaffen, auch wenn ihn kein Verschulden trifft.' },
+    { id: 'glv', t: 'Gläubigerverzug', n: '§§ 293–304 BGB', src: 'VL 5', s: ['Erfüllbare Leistung, Schuldner leistungsfähig § 297', 'Ordnungsgemäßes Angebot: tatsächlich § 294, wörtlich § 295, entbehrlich § 296', 'Nichtannahme § 293 (§§ 298, 299 beachten) – kein Verschulden nötig', 'Folgen: Haftung nur Vorsatz/grobe Fahrlässigkeit § 300 I · Mehraufwand § 304 · Gegenleistung bleibt § 326 II 1 Alt. 2'], f: 'Annahme ist eine Obliegenheit: kein Schadensersatz gegen den Gläubiger, aber Rechtsverlust.' },
+    { id: 'cic', t: 'Vorvertragliche Pflichten (c.i.c.)', n: '§§ 280 I, 241 II, 311 II BGB', src: 'VL 3', s: ['Vorvertragliches Schuldverhältnis § 311 II: Verhandlungen, Anbahnung oder ähnliche geschäftliche Kontakte', 'Verletzung einer Rücksichtnahmepflicht § 241 II', 'Vertretenmüssen (vermutet, § 280 I 2)', 'Schaden – in der Regel das negative Interesse (Vertrauensschaden)'], f: 'Wer ohne jede Kaufabsicht im Laden ist, ist nicht in der Vertragsanbahnung. Und c.i.c. ist keine verschuldensunabhängige Haftung.' },
+  ] },
+  { g: 'Kauf & Werkvertrag', c: [
+    { id: 'sm', t: 'Sachmangel prüfen', n: '§§ 434, 435, 475b BGB', src: 'VL 6', s: ['Subjektive Anforderungen § 434 II: vereinbarte Beschaffenheit (Nr. 1, auch Art und Menge), Eignung für die vertraglich vorausgesetzte Verwendung (Nr. 2), vereinbartes Zubehör und Anleitungen (Nr. 3)', 'Objektive Anforderungen § 434 III: Eignung für die gewöhnliche Verwendung + übliche Beschaffenheit; Abweichung nur durch negative Beschaffenheitsvereinbarung (beim Verbrauchsgüterkauf nur nach § 476 I 2)', 'Montageanforderungen § 434 IV · Falschlieferung (aliud) steht dem Mangel gleich § 434 V', 'Ware mit digitalen Elementen beim Verbrauchsgüterkauf: zusätzlich § 475b (Installation, Aktualisierungspflicht), bei dauerhafter Bereitstellung § 475c', 'Rechtsmangel § 435: Rechte Dritter (dinglich, schuldrechtlich, öffentlich-rechtliche Beschränkungen)', 'Zeitpunkt: Gefahrübergang §§ 434 I, 446, 447 (Verbrauchsgüterkauf: Beweislastumkehr § 477)'], f: 'Die Sache muss subjektive, objektive und Montageanforderungen zugleich erfüllen (§ 434 I). Eine Beschaffenheitsvereinbarung allein reicht nicht.' },
+    { id: 'kauf', t: 'Mängelrechte beim Kauf', n: '§§ 433, 434, 437–441 BGB', src: 'VL 6', s: ['Wirksamer Kaufvertrag § 433', 'Sachmangel § 434 (subjektiv, objektiv, Montage) oder Rechtsmangel § 435', 'Mangel bei Gefahrübergang § 446 (Verbraucher: § 477 Vermutung)', 'Kein Ausschluss: Kenntnis § 442, Haftungsausschluss § 444', 'Vorrang Nacherfüllung § 439 – Käufer wählt Nachbesserung oder Neulieferung', 'Nach erfolgloser Frist: Rücktritt §§ 437 Nr. 2, 323 · Minderung § 441 · SE §§ 437 Nr. 3, 280, 281', 'Verjährung § 438 I Nr. 3: 2 Jahre ab Ablieferung'], f: 'Bei unerheblichem Mangel kein Rücktritt (§ 323 V 2), Minderung aber schon. Frist entbehrlich: § 440 – beim Verbrauchsgüterkauf zusätzlich § 475d.' },
+    { id: 'kr2', t: 'Rücktritt, Minderung, SE beim Kauf', n: '§§ 437 Nr. 2, 3, 323, 441, 281 BGB', src: 'VL 7', s: ['Grundlage: wirksamer Kaufvertrag, Mangel bei Gefahrübergang, kein Ausschluss (§§ 442, 444, § 377 HGB)', 'Erfolglose Frist zur Nacherfüllung – entbehrlich nach §§ 323 II, 281 II, 326 V, 440; beim Verbrauchsgüterkauf § 475d', 'Rücktritt §§ 437 Nr. 2, 323 I (bzw. 326 V): Mangel erheblich § 323 V 2 → Rückabwicklung §§ 346 ff.', 'Minderung §§ 437 Nr. 2, 441 statt Rücktritt, auch bei unerheblichem Mangel; § 441 III: Kaufpreis × Wert mangelhaft / Wert mangelfrei', 'SE statt der Leistung §§ 437 Nr. 3, 280 I, III, 281 (bzw. 283, 311a II): Vertretenmüssen; großer SE nur bei erheblichem Mangel § 281 I 3, kleiner SE immer', 'Statt SE Aufwendungsersatz § 284 · Verjährung § 438 (Regel: 2 Jahre ab Ablieferung)'], f: 'Rücktritt und Minderung brauchen kein Verschulden, Schadensersatz schon. Bei unerheblichem Mangel: Minderung oder kleiner SE, aber kein Rücktritt.' },
+    { id: 'ev', t: 'Übereignung & Eigentumsvorbehalt', n: '§§ 929, 932, 158, 449, 986 BGB', src: 'VL 9', s: ['Einigung + Übergabe (§ 929 S. 1) oder Surrogat §§ 929 S. 2, 930, 931', 'Berechtigung des Verfügenden (Eigentümer, § 185 I) – sonst gutgläubig §§ 932 ff. (nicht bei § 935)', 'EV: Kaufvertrag unbedingt, Einigung aufschiebend bedingt auf volle Zahlung § 158 I', 'Herausgabe § 985 erst nach Rücktritt, vorher Besitzrecht § 986 / § 449 II', 'Käufer: Anwartschaftsrecht, geschützt über §§ 985, 1004, 823 I'], f: 'Zahlungsverzug allein beendet das Besitzrecht nicht – erst der Rücktritt.' },
+    { id: 'gst', t: 'Grundstück & Forderung übertragen', n: '§§ 873, 925, 892, 398 BGB', src: 'VL 9', s: ['Grundstück §§ 873 I, 925 I: Einigung = Auflassung (vor dem Notar, beide gleichzeitig anwesend)', 'Eintragung des Erwerbers ins Grundbuch', 'Berechtigung des Verfügenden – sonst gutgläubiger Erwerb § 892 (Vertrauen auf das Grundbuch)', 'Forderung § 398: Einigung über den Gläubigerwechsel (Abtretung, Zession) – kein Realakt nötig', 'Berechtigung = Inhaber der Forderung; gutgläubiger Forderungserwerb grundsätzlich ausgeschlossen'], f: 'Der Grundstückskaufvertrag (§ 311b I) ist nur das Verpflichtungsgeschäft – Eigentümer wird man erst mit Auflassung und Eintragung.' },
+    { id: 'vgk', t: 'Verbrauchsgüterkauf', n: '§§ 13, 14, 474–479 BGB', s: ['Käufer Verbraucher § 13, Verkäufer Unternehmer § 14', 'Kauf einer beweglichen Sache § 474 I', 'Gefahr bei Versendung erst mit Übergabe an den Käufer § 475 II', 'Beweislastumkehr § 477: Mangel innerhalb 1 Jahres (Tiere: 6 Monate) gilt als schon bei Übergabe vorhanden', 'Abweichende Vereinbarungen zulasten des Verbrauchers unwirksam § 476; Verjährung bei gebrauchten Sachen auf 1 Jahr verkürzbar'], f: 'Privat an privat ist kein Verbrauchsgüterkauf – dann gilt § 477 nicht und ein Gewährleistungsausschluss ist grundsätzlich möglich.' },
+    { id: 'werk', t: 'Werkvertrag', n: '§§ 631, 633–640, 650 BGB', src: 'S. 37', s: ['Werkvertrag § 631: geschuldeter Erfolg (Abgrenzung Dienstvertrag § 611)', 'Lieferung herzustellender beweglicher Sachen → Kaufrecht § 650', 'Mangel § 633 bei Abnahme § 640', 'Rechte § 634: Nacherfüllung § 635 (Unternehmer wählt!) · Selbstvornahme § 637 · Rücktritt · Minderung · SE', 'Verjährung § 634a'], f: 'Beim Kauf wählt der Käufer die Art der Nacherfüllung, beim Werkvertrag der Unternehmer. Selbstvornahme gibt es nur im Werkrecht.' },
+    { id: 'wr', t: 'Widerruf Verbrauchervertrag', n: '§§ 312b, 312c, 312g, 355–357 BGB', src: 'VL 8', s: ['Verbrauchervertrag § 310 III, Anwendungsbereich § 312', 'Außerhalb von Geschäftsräumen § 312b oder Fernabsatz § 312c', 'Widerrufsrecht § 312g I – Ausnahmen § 312g II (z. B. Maßanfertigung, Verderbliches)', 'Erklärung gegenüber dem Unternehmer, ohne Begründung § 355 I', 'Frist 14 Tage § 355 II; Beginn bei Waren mit Erhalt § 356 II; ohne Belehrung max. 12 Monate + 14 Tage § 356 III', 'Rückabwicklung § 357'], f: 'Einfaches Zurückschicken ohne Erklärung reicht nicht – der Widerruf muss eindeutig erklärt werden.' },
+  ] },
+  { g: 'Gesetzliche Schuldverhältnisse', c: [
+    { id: '823', t: 'Deliktshaftung § 823 I', n: '§§ 823 I, 827, 828, 249 ff. BGB', src: 'S. 183', s: ['Rechtsgut i. S. d. § 823 I verletzt (Leben, Körper, Gesundheit, Freiheit, Eigentum, sonstiges Recht)', 'Verletzungshandlung: Tun oder Unterlassen (Verkehrssicherungspflicht)', 'Haftungsbegründende Kausalität', 'Widerrechtlichkeit (wird indiziert)', 'Verschulden § 276; Deliktsfähigkeit § 828 (unter 7 nie, im Straßenverkehr unter 10 nicht)', 'Schaden + haftungsausfüllende Kausalität §§ 249 ff.'], f: 'Vermögen als solches ist kein Rechtsgut des § 823 I. Ein fehlender Vertrag schließt Deliktsansprüche nicht aus.' },
+    { id: 'sea', t: 'Umfang des Schadensersatzes', n: '§§ 249–254 BGB', src: 'VL 8', s: ['Schaden = jeder unfreiwillige Vermögensnachteil, ermittelt mit der Differenzhypothese (Lage mit vs. ohne Schadensereignis)', 'Totalreparation: Naturalrestitution § 249 I – bei Personen- oder Sachschaden stattdessen Geld § 249 II 1', 'Entgangener Gewinn § 252', 'Immaterieller Schaden nur in gesetzlichen Fällen § 253 I – Schmerzensgeld § 253 II', 'Mitverschulden § 254 I · Schadensminderungsobliegenheit § 254 II'], f: '§ 254 II ist eine Obliegenheit: Wer den Schaden nicht gering hält, verliert anteilig seinen Anspruch.' },
+    { id: 'prod', t: 'Produzentenhaftung & ProdHaftG', n: '§ 823 I BGB · §§ 1 ff. ProdHaftG', src: 'VL 9', s: ['§ 823 I mit Besonderheiten: Verletzungshandlung = Inverkehrbringen eines fehlerhaften Produkts', 'Fehlerart: Konstruktions-, Fabrikations- oder Instruktionsfehler', 'Rechtsgutsverletzung + haftungsbegründende Kausalität', 'Verschulden: Beweislastumkehr – der Hersteller muss sich entlasten', 'Daneben verschuldensunabhängig §§ 1 ff. ProdHaftG (Sachschaden nur an privat genutzten anderen Sachen, Selbstbeteiligung 500 € § 11)'], f: 'Ausreißer in der Fertigung: Nach dem ProdHaftG haftet der Hersteller trotzdem, bei § 823 I kann er sich entlasten.' },
+    { id: '831', t: 'Gehilfen: § 278 vs. § 831', n: '§§ 278, 831 BGB', src: 'Delikt', s: ['§ 278: Zurechnungsnorm – nur innerhalb eines Schuldverhältnisses, Anspruch dann z. B. aus § 280', '§ 278: Weisungsgebundenheit egal, keine Entlastung möglich', '§ 831: eigene Anspruchsgrundlage, kein Schuldverhältnis nötig', '§ 831: Verrichtungsgehilfe (weisungsabhängig) begeht in Ausführung eine unerlaubte Handlung', '§ 831 I 2: Geschäftsherr kann sich entlasten (Auswahl, Überwachung)'], f: '§ 278 begründet keinen eigenen Anspruch. Eine Person kann gleichzeitig Erfüllungs- und Verrichtungsgehilfe sein.' },
+    { id: '833', t: 'Tierhalterhaftung', n: '§ 833 BGB', src: 'S. 188', s: ['Tod, Körper-/Gesundheitsverletzung oder Sachbeschädigung', 'Verursacht durch ein Tier (typische Tiergefahr)', 'Anspruchsgegner ist Halter', 'Keine Ausnahme nach § 833 S. 2 (Nutztier + Sorgfalt)', 'Schaden + haftungsausfüllende Kausalität'], f: 'Gefährdungshaftung – beim Luxustier kommt es auf Verschulden nicht an. Die Entlastung nach S. 2 gibt es nur bei Nutztieren.' },
+    { id: '812', t: 'Bereicherungsrecht', n: '§§ 812 I 1 Alt. 1, 814, 817, 818 BGB', src: 'S. 218', s: ['Etwas erlangt (z. B. Besitz und Eigentum)', 'Durch Leistung = bewusste, zweckgerichtete Mehrung fremden Vermögens', 'Ohne Rechtsgrund (z. B. Kaufvertrag nichtig)', 'Kein Ausschluss: Leistung in Kenntnis der Nichtschuld § 814, eigener Gesetzes- oder Sittenverstoß § 817 S. 2', 'Rechtsfolge § 818: Herausgabe, Nutzungen § 818 I, Wertersatz § 818 II, Entreicherung § 818 III', 'Verschärfte Haftung ab Rechtshängigkeit oder Kenntnis §§ 818 IV, 819 I – dann keine Entreicherung'], f: 'Wegen des Abstraktionsprinzips bleibt die Übereignung (§ 929) trotz nichtigem Kaufvertrag wirksam – Rückholung läuft über § 812, nicht über § 985.' },
+  ] },
+  { g: 'Fristen & Verjährung', c: [
+    { id: 'fr', t: 'Fristberechnung', n: '§§ 187–193 BGB', s: ['Ereignisfrist § 187 I: Tag des Ereignisses zählt nicht mit', 'Beginnfrist § 187 II: Tag zählt mit (z. B. Lebensalter)', 'Ende § 188: Tages-, Wochen- und Monatsfristen', 'Fällt das Ende auf Sa/So/Feiertag → nächster Werktag § 193'], f: '§ 193 verschiebt nur das Fristende, nie den Beginn.' },
+    { id: 'vj', t: 'Verjährung', n: '§§ 195, 199, 214, 438 BGB', src: 'VL 3', s: ['Regelverjährung 3 Jahre § 195', 'Beginn mit Jahresende, in dem Anspruch entstand + Kenntnis § 199 I', 'Höchstfristen § 199 II–IV: 30 Jahre bei Leben/Körper/Gesundheit/Freiheit, sonst 10 Jahre', 'Neubeginn § 212 (läuft voll neu) oder Hemmung §§ 203 ff., 209 (Rest läuft weiter) – Klage, Mahnbescheid § 204', 'Sonderfristen: Kaufmängel § 438 (2 Jahre ab Ablieferung), Werk § 634a', 'Folge: Einrede, Schuldner darf verweigern § 214 I – Anspruch erlischt nicht; Geleistetes bleibt § 214 II; Sicherheiten § 216'], f: 'Bei § 438 beginnt die Frist mit Ablieferung, nicht am Jahresende. Verjährung muss erhoben werden – das Gericht prüft sie nicht von sich aus.' },
+  ] },
+];
+const MERK = {
+  grund: 'Entstanden → nicht erloschen → durchsetzbar',
+  vs: 'Angebot → Zugang → Annahme (rechtzeitig, deckungsgleich)',
+  we: 'Rechtsbindungswille · Handlungswille → Erklärungsbewusstsein → Geschäftswille · Abgabe + Zugang',
+  wh: 'Ernstlich? → Form? → Verbot? → Sitte? → geschäftsfähig?',
+  agbs: 'AGB? → einbezogen? → nicht überraschend? → § 309 → § 308 → § 307 → Folge § 306',
+  sv: 'Eigene WE → fremder Name → Vertretungsmacht',
+  anf: 'Wirksame WE → Grund → Erklärung → Frist → Folge',
+  erl: 'Erfüllung → Ersatzleistung → Rücktritt → Kündigung → Widerruf / Aufrechnung',
+  se: 'Schuldverhältnis → Pflichtverletzung → Vertretenmüssen → Art des SE → Schaden',
+  vz: 'Fällig → Mahnung → nicht geleistet → Vertretenmüssen → Verzögerungsschaden',
+  vz281: 'Schuldverhältnis → fällig → Frist → Fristablauf → (SE: Vertretenmüssen + Schaden)',
+  um: '1. Leistung frei? → 2. Gegenleistung? → 3. Sekundärrechte?',
+  u283: 'Schuldverhältnis → frei nach § 275 → Vertretenmüssen → Schaden',
+  u285: 'Frei nach § 275 → Ersatz erlangt → herausgeben → Gegenleistung bleibt',
+  gat: 'Schuldart → Leistungsort → Konkretisierung → Untergang',
+  glv: 'Erfüllbar + leistungsfähig → Angebot → Nichtannahme → Folgen',
+  cic: '§ 311 II → § 241 II verletzt → Vertretenmüssen → Schaden',
+  sm: 'Subjektiv → objektiv → Montage → bei Gefahrübergang',
+  kauf: 'Kaufvertrag → Mangel → bei Gefahrübergang → kein Ausschluss → Nacherfüllung → Sekundärrechte → Verjährung',
+  kr2: 'Mangel → Frist (oder entbehrlich) → Rücktritt | Minderung | SE',
+  ev: 'Einigung → Übergabe → Berechtigung (sonst §§ 932 ff.)',
+  gst: 'Grundstück: Auflassung + Eintragung + Berechtigung · Forderung: Einigung + Inhaberschaft',
+  vgk: 'Verbraucher kauft vom Unternehmer eine bewegliche Sache',
+  werk: 'Erfolg geschuldet → Mangel bei Abnahme → Rechte § 634 → Verjährung',
+  wr: 'Verbrauchervertrag → Fernabsatz/außerhalb → Widerrufsrecht → Erklärung → Frist → Folgen',
+  '823': 'Handlung → Rechtsgut → Kausalität → Rechtswidrigkeit → Verschulden → Schaden → Kausalität',
+  sea: 'Differenz → Naturalrestitution → Geld → Gewinn → Schmerzensgeld → Mitverschulden',
+  '831': '§ 278 = Zurechnung im Vertrag · § 831 = eigener Anspruch mit Entlastung',
+  prod: 'Inverkehrbringen → Fehler → Rechtsgut → Verschulden vermutet',
+  '812': 'Etwas erlangt → durch Leistung → ohne Rechtsgrund → kein Ausschluss → Umfang § 818',
+  vj: '3 Jahre → ab Jahresende + Kenntnis → Höchstfristen → Neubeginn / Hemmung → Einrede',
+  gf: 'Alter → lediglich rechtlicher Vorteil? → Einwilligung / Taschengeld → sonst Genehmigung',
+  '833': 'Rechtsgut → Tiergefahr → Halter → keine Entlastung (Nutztier) → Schaden',
+  fr: 'Ereignis- oder Beginnfrist → Ende § 188 → Wochenende/Feiertag § 193'
+};
+const NORM_RE = /§§?\s?\d+[a-z]?(?:\s(?:[IVX]+\b|S\.\s?\d+|Nr\.\s?\d+|Alt\.\s?\d+|\d+(?!\d)(?![.,]?\s?(?:€|Jahr|Tag|Monat|Woche)))|,\s?(?:\d+[a-z]?|[IVX]+\b)|\s?–\s?(?:\d+[a-z]?|[IVX]+\b)|\sff\.)*(?:\s(?:HGB|ZPO|GVG|ProdHaftG|GG))?/g;
+const splitNorms = t => { const out = []; let last = 0; String(t).replace(NORM_RE, (m, off) => { if (off > last) out.push({ t: t.slice(last, off) }); out.push({ t: m, g: 1 }); last = off + m.length; return m; }); if (last < t.length) out.push({ t: t.slice(last) }); return out; };
+class Component extends DCLogic {
+  state = { tab: 'start', topic: 'kauf', ft: 'all', src: 'all', wrong: false, wset: null, idx: 0, ans: {}, chk: {}, nfo: {}, nfOrder: null, exam: null, now: Date.now(), v: 0 };
+  componentDidMount() {
+    try { this.setState({ plan: JSON.parse(localStorage.getItem('wpr-plan-v1') || '{}'), sch: JSON.parse(localStorage.getItem('wpr-schema-v1') || '{}') }); } catch (e) {}
+    try { const p = JSON.parse(localStorage.getItem('wpr-pauken-v1') || 'null'); if (p && p.box) this.setState({ pk: p }); } catch (e) {}
+    try { const r = JSON.parse(localStorage.getItem('wpr-fallbuch-v1') || 'null'); if (r && typeof r === 'object') this.setState({ fbRes: r }); } catch (e) {}
+    try { const p = JSON.parse(localStorage.getItem('wpr-fallbuch-mc-v1') || 'null'); if (p && typeof p === 'object') this.setState({ fbPick: p }); } catch (e) {}
+    try { const v = parseInt(localStorage.getItem('wpr-vl-sel') || '0', 10); if (v > 0) this.setState({ vlI: v }); } catch (e) {}
+    try { if (localStorage.getItem('wpr-hide-done') === '1') this.setState({ hideDone: true }); } catch (e) {}
+    try { const s = JSON.parse(localStorage.getItem('wpr-kompakt-v1') || '{}'); this.setState({ ans: s.ans || {}, chk: s.chk || {}, tab: s.tab || 'start' }); } catch (e) {}
+    if (this.state.hideDone) this.setState({ dset: this.doneSet() });
+    this.onData = () => { if (window.WPRK) { this.build(); this.setState(s => ({ v: s.v + 1 })); } };
+    window.addEventListener('wpr-data', this.onData); this.onData();
+    this.lastY = window.scrollY || 0;
+    this.onScroll = () => {
+      const y = window.scrollY || 0, d = y - this.lastY;
+      if (Math.abs(d) < 6) return;
+      const hide = y > 120 && d > 0;
+      if (hide !== !!this.state.subHide) this.setState({ subHide: hide });
+      this.lastY = y;
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.tm = setInterval(() => {
+      const e = this.state.exam; if (!e || e.done) return;
+      if (Date.now() - e.start >= this.mins() * 60000) this.submit(); else this.setState({ now: Date.now() });
+    }, 1000);
+  }
+  componentWillUnmount() { clearInterval(this.tm); window.removeEventListener('wpr-data', this.onData); window.removeEventListener('scroll', this.onScroll); }
+  mins() { return this.props.examMinutes ?? 60; }
+  size() { return this.props.examSize ?? 20; }
+  persist(p) {
+    this.setState(p, () => { try { localStorage.setItem('wpr-kompakt-v1', JSON.stringify({ ans: this.state.ans, chk: this.state.chk, tab: this.state.tab })); } catch (e) {} });
+  }
+  cls(c) {
+    const t = [c.sv, c.q, ...(c.o || []).map(x => x[0] + ' ' + x[1])].join(' ');
+    const R = [['per', /Minderjähr|jährig|Taschengeld|Testament|Erbe|§ ?10[4-9]|§ ?11[0-3]/], ['stv', /Vollmacht|Prokur|Vertret|§ ?16[4-9]|§ ?17\d|§ ?181/], ['anf', /anficht|Anfecht|Irrtum|§ ?1(19|2[0-4])|§ ?142/], ['agb', /AGB|Widerruf|Klausel|Geschäftsbedingung|§ ?30[5-9]|§ ?35[5-7]/], ['del', /§ ?823|§ ?831|Delikt|ProdHaftG|Schmerzens|Verrichtung/], ['sach', /Eigentümer|Eigentum|übereign|§ ?9[2-4]\d|§ ?985|§ ?812|Abtret|Factoring|Bereicher/], ['kauf', /Mangel|Nacherfüll|Gewährleist|§ ?43[4-9]|§ ?44\d|§ ?47\d|Verbrauchsgüter|Update|digital/], ['lst', /Verzug|unmöglich|Annahmeverzug|§ ?2[789]\d|Schadensersatz|§ ?313|§ ?311/], ['sr', /Erfüllungs? statt|erfüllungshalber|Aufrechn|Obliegenheit|§ ?36[2-5]|§ ?387/], ['frist', /Verjähr|Frist|§ ?18[7-9]|§ ?19[3-9]/], ['form', /Form|Bürgschaft|notariell|schriftlich|§ ?12[5-6]|§ ?766/], ['vs', /Angebot|Annahme|zustande|Zugang|Auslob|invitatio|§ ?14[5-9]/], ['typ', /Miete|Darlehen|Werkvertrag|Dienstvertrag|Gericht|§ ?535|§ ?488|§ ?631|§ ?611/]];
+    for (const [id, re] of R) if (re.test(t)) return id;
+    return 'mix';
+  }
+  build() {
+    const K = window.WPRK;
+    const pool = [];
+    [...(window.WPRK_HARD || []).map((q, i) => ({ ...q, id: 'h' + i })), ...[...new Map((window.WPRK_LONG || []).map(q => [q.id, q])).values()]].forEach((q, i) => pool.push({ ...q, src: 'schwer', tag: 'Fall ' + (i + 1) }));
+    (window.WPRK_RH || []).forEach(c => pool.push({ id: (c.o.length === 6 ? 'rh6-' : 'rh') + c.n, src: 'rh', tag: 'Übungsfall ' + c.n + ' · Holztrattner', topic: this.cls(c), sv: c.sv || '', q: c.q, c: c.c, o: c.o }));
+    const FBM = window.WPRK_FB_MC || {};
+    (window.WPRK_FB || []).forEach(c => { const m = FBM[c.id]; if (!m) return; const sv = c.sv + (m.st && m.st.length ? '\n\nAussagen:\n' + m.st.map((t, k) => (k + 1) + '. ' + t).join('\n') : ''); pool.push({ id: 'fb-' + c.id, src: 'fb', tag: 'Fallbuch · ' + c.vl + ' – ' + c.t, topic: this.cls({ sv, q: c.q, o: m.o }), sv, q: c.q + ' ' + m.q, c: m.c, o: m.o }); });
+    const alt = (window.WPR && window.WPR[16] && window.WPR[16].cases) || [];
+    let base = '', bsem = '';
+    alt.forEach((c, i) => { const sem = String(c.n).split('·')[0].trim(); const follow = /^(wie zuvor|abwandlung|wie oben|fortsetzung|gleicher sachverhalt|wie in aufgabe)/i.test((c.sv || '').trim()); let sv = c.sv; if (follow && base && sem === bsem) sv = 'Ausgangsfall: ' + base + '\n\nDann: ' + c.sv; else if (!follow) { base = c.sv; bsem = sem; } pool.push({ id: (c.o.length === 6 ? 'a6-' : 'a') + i, src: 'alt', tag: 'Altklausur ' + c.n, topic: this.cls(c), sv, q: c.q, c: c.c, o: c.o }); });
+    if (this.props.shuffle ?? true) { const h = s => { let x = 7; for (const ch of s) x = (x * 31 + ch.charCodeAt(0)) % 100003; return x; }; pool.sort((a, b) => h(a.id + 'x') - h(b.id + 'x')); }
+    // „Noch offen“: Themen aus Holztrattner VL 7–9 (noch kein Skript) – Näherung über Thema und Stichworte
+    const v7 = /zurück(zu)?tret|rücktritt|minder(n|ung)|schadensersatz|aufwendungs(ersatz)?|garantie|verjähr|regress|rückgriff|§\s*(437 Nr\. ?[23]|438|440|441|443|445a|445b|475d|475e|479)\b/i;
+    pool.forEach(q => { q.open = ['agb', 'del', 'sach'].includes(q.topic) || (q.topic === 'kauf' && v7.test((q.q || '') + ' ' + (q.sv || '') + ' ' + ((q.o[q.c] || [])[0] || ''))); });
+    this.pool = pool; this.tmap = {}; K.topics.forEach(t => this.tmap[t.id] = t);
+  }
+  doneSet() { const d = {}; Object.keys(this.state.ans || {}).forEach(k => { if (this.state.ans[k] != null) d[k] = 1; }); return d; }
+  list() {
+    const s = this.state; let L = this.pool || [];
+    if (s.ft === 'open') L = L.filter(q => q.open);
+    else if (s.ft !== 'all') L = L.filter(q => q.topic === s.ft);
+    if (s.src === 'neu') L = L.filter(q => q.neu); else if (s.src !== 'all') L = L.filter(q => q.src === s.src);
+    if (s.wrong && s.wset) L = L.filter(q => s.wset[q.id]);
+    else if (s.hideDone && s.dset) L = L.filter(q => !s.dset[q.id]);
+    return L;
+  }
+  loes(q) { const L = (window.WPR_LOES || {})[q.id]; if (!L) return null; const ct = String((q.o[q.c] || [])[0] || ''); return (!L.k || ct.startsWith(L.k)) ? L : null; }
+  lw(q, reveal) { const L = reveal ? this.loes(q) : null; return L && L.w ? L.w.map((t, i) => ({ n: i + 1, t })) : []; }
+  opts(q, chosen, reveal, onPick) {
+    return q.o.map((o, i) => {
+      const isC = i === q.c, isSel = i === chosen;
+      let bg = '#2a2e36', bd = '#434954', lc = '#aba69c';
+      if (!reveal && isSel) { bd = 'oklch(0.74 0.12 45)'; bg = 'oklch(0.33 0.03 50)'; lc = 'oklch(0.74 0.12 45)'; }
+      if (reveal && isC) { bd = 'oklch(0.7 0.13 150)'; bg = 'oklch(0.32 0.04 150)'; lc = 'oklch(0.75 0.13 150)'; }
+      if (reveal && isSel && !isC) { bd = 'oklch(0.65 0.15 25)'; bg = 'oklch(0.32 0.04 25)'; lc = 'oklch(0.7 0.15 25)'; }
+      const LS = this.loes(q), mm = String(o[1]).match(/^(Richtig|Falsch)\.?\s*(.*)$/s), rs = LS && LS.o && LS.o[i];
+      const norms = reveal && window.WPR_NORMS_FOR ? window.WPR_NORMS_FOR([o[0], o[1]], 2) : [];
+      return { l: 'abcdef'[i], text: o[0], expl: o[1], verdict: mm ? mm[1] + '.' : '', reason: rs || (mm ? mm[2] : o[1]), norms, show: reveal, ec: isC ? 'oklch(0.8 0.1 150)' : '#b6b1a7', bg, bd, lc, on: () => onPick(i) };
+    });
+  }
+  submit() { const e = this.state.exam; if (!e || e.done) return; this.setState({ exam: { ...e, done: true, end: Date.now() } }); }
+  vorlesungen() {
+    const s = this.state, ALL = window.WPRK_VL || [];
+    const i = Math.min(Math.max(0, s.vlI || 0), Math.max(0, ALL.length - 1)), c = ALL[i];
+    const go = j => { this.setState({ vlI: j }); try { localStorage.setItem('wpr-vl-sel', String(j)); } catch (e) {} window.scrollTo(0, 0); };
+    const tab = t => { this.persist({ tab: t }); window.scrollTo(0, 0); };
+    const FC = { 'sehr oft': 'oklch(0.74 0.12 45)', 'oft': '#e8c547', 'regelmäßig': '#b6b1a7' };
+    const out = {
+      isVl: s.tab === 'vl',
+      vlChips: ALL.map((x, j) => { const on = j === i; return { t: (x.vl === 'Zusatz' ? 'Zusatz · ' : x.vl + ' · ') + x.t.split(/[,:&]/)[0].trim(), on: () => go(j), bg: on ? 'oklch(0.74 0.12 45)' : '#2a2e36', fg: on ? '#141518' : '#e8e4dc', bd: on ? 'oklch(0.74 0.12 45)' : x.vl === 'Zusatz' ? 'oklch(0.55 0.1 150)' : '#555d69' }; }),
+      vlHas: !!c,
+      vlC: { vl: '', t: '', lp: '', klausur: '', klausurD: '', kc: '#b6b1a7', merk: '', ueber: [], reihen: [], defs: [], weiden: [], fallen: [], isZusatz: false },
+      vlPrev: () => go(i > 0 ? i - 1 : ALL.length - 1), vlNext: () => go(i + 1 < ALL.length ? i + 1 : 0),
+      vlPrevLabel: '', vlNextLabel: '', vlHasFb: false, vlFbLabel: '',
+      vlGoFb: () => {}, vlGoUeben: () => {}, vlGoPauken: () => tab('pauken')
+    };
+    if (!c) return out;
+    const lab = x => (x.vl === 'Zusatz' ? 'Zusatz: ' : x.vl + ': ') + x.t;
+    const pv = ALL[i > 0 ? i - 1 : ALL.length - 1], nx = ALL[i + 1 < ALL.length ? i + 1 : 0];
+    const fbN = c.fb ? (window.WPRK_FB || []).filter(f => f.vl === c.fb).length : 0;
+    out.vlC = { vl: c.vl === 'Zusatz' ? 'Zusatzkapitel (nur Weiden/Wende)' : c.vl + ' · Holztrattner', t: c.t, lp: c.lp, klausur: 'In Altklausuren: ' + c.klausur, klausurD: c.klausurD, kc: FC[c.klausur] || '#b6b1a7', merk: c.merk,
+      ueber: c.ueber.map(t => ({ t })), reihen: c.reihen.map(r => ({ t: r.t, s: r.s.map((x, k) => ({ n: k + 1, t: x })) })), defs: c.defs.map(([a, b]) => ({ a, b })),
+      weiden: c.weiden.map(t => ({ t })), fallen: c.fallen.map(t => ({ t })), isZusatz: c.vl === 'Zusatz' };
+    out.vlPrevLabel = '← ' + lab(pv); out.vlNextLabel = lab(nx) + ' →';
+    out.vlHasFb = fbN > 0; out.vlFbLabel = `${fbN} Fälle dazu im Fallbuch`;
+    out.vlGoFb = () => { this.setState({ fbVl: c.fb, fbSt: 'all', fbI: 0, fbHint: false, fbSol: false }); tab('fall'); };
+    out.vlGoUeben = () => { this.setState({ ft: c.ft, src: 'all', wrong: false, idx: 0 }); tab('ueben'); };
+    return out;
+  }
+  fallbuch() {
+    const s = this.state, ALL = window.WPRK_FB || [], res = s.fbRes || {};
+    const vl = s.fbVl || 'all', stf = s.fbSt || 'all';
+    const ch = (act, t, on) => ({ t, on, bd: act ? 'oklch(0.74 0.12 45)' : '#555d69', bg: act ? 'oklch(0.74 0.12 45)' : '#2a2e36', fg: act ? '#141518' : '#e8e4dc' });
+    const reset = { fbI: 0, fbHint: false, fbSol: false };
+    const vls = [...new Set(ALL.map(c => c.vl))].sort((a, b) => parseInt(a.slice(3), 10) - parseInt(b.slice(3), 10));
+    const inSt = (c, id, r) => id === 'all' || (id === 'open' ? !r[c.id] : r[c.id] === id);
+    const byVl = ALL.filter(c => vl === 'all' || c.vl === vl);
+    const L = byVl.filter(c => inSt(c, stf, res));
+    const i = Math.min(s.fbI || 0, Math.max(0, L.length - 1)), cur = L[i];
+    const okN = ALL.filter(c => res[c.id] === 'ok').length, badN = ALL.filter(c => res[c.id] === 'bad').length;
+    const go = j => this.setState({ fbI: j, fbHint: false, fbSol: false }, () => { const el = document.getElementById('fb-card'); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 130, behavior: 'smooth' }); });
+    const out = {
+      isFall: s.tab === 'fall',
+      fbVlChips: [ch(vl === 'all', `Alle (${ALL.length})`, () => this.setState({ fbVl: 'all', ...reset })), ...vls.map(v => ch(vl === v, `${v} (${ALL.filter(c => c.vl === v).length})`, () => this.setState({ fbVl: v, ...reset })))],
+      fbStChips: [['all', 'Alle'], ['open', 'Offen'], ['bad', 'Nochmal'], ['ok', 'Gelöst']].map(([id, t]) => ch(stf === id, `${t} (${byVl.filter(c => inSt(c, id, res)).length})`, () => this.setState({ fbSt: id, ...reset }))),
+      fbLabel: `${okN} / ${ALL.length} gelöst · ${badN} zum Wiederholen`, fbPct: (ALL.length ? okN / ALL.length * 100 : 0) + '%',
+      fbNav: L.map((c, j) => { const r = res[c.id], on = j === i; return { n: String(j + 1), label: `Fall ${j + 1}: ${c.vl} – ${c.t}`, on: () => go(j),
+        bg: on ? 'oklch(0.74 0.12 45)' : r === 'ok' ? 'oklch(0.39 0.06 150)' : r === 'bad' ? 'oklch(0.37 0.07 25)' : '#2a2e36',
+        fg: on ? '#141518' : '#e8e4dc', bd: on ? 'oklch(0.74 0.12 45)' : r === 'ok' ? 'oklch(0.6 0.11 150)' : r === 'bad' ? 'oklch(0.6 0.14 25)' : '#555d69' }; }),
+      fbHas: !!cur, fbNone: !cur, fbPos: `Fall ${Math.min(i + 1, L.length)} von ${L.length}`,
+      fbPrev: () => go(i > 0 ? i - 1 : Math.max(0, L.length - 1)), fbNext: () => go(i + 1 < L.length ? i + 1 : 0),
+      fbC: { vl: '', b: '', t: '', sv: '', q: '', hint: '', erg: '', weg: [], falle: '', status: '', statusC: '#aba69c' },
+      fbHintOpen: false, fbHintClosed: true, fbSolOpen: false, fbSolClosed: true, fbRates: [],
+      fbHasMc: false, fbHasSt: false, fbMc: { q: '', st: [], opts: [] }, fbPicked: false, fbRepick: () => {}, fbPickMsg: '', fbPickC: '#b6b1a7'
+    };
+    if (!cur) return out;
+    const st = res[cur.id];
+    out.fbC = { vl: cur.vl, b: cur.b, t: cur.t, sv: cur.sv, q: cur.q, hint: cur.hint, erg: cur.erg, weg: cur.weg.map((w, k) => ({ n: k + 1, t: w })), falle: cur.falle,
+      status: st === 'ok' ? 'gelöst' : st === 'bad' ? 'nochmal' : 'offen', statusC: st === 'ok' ? 'oklch(0.75 0.13 150)' : st === 'bad' ? 'oklch(0.72 0.14 25)' : '#aba69c' };
+    out.fbHintOpen = !!s.fbHint; out.fbHintClosed = !s.fbHint; out.fbSolOpen = !!s.fbSol; out.fbSolClosed = !s.fbSol;
+    out.fbShowHint = () => this.setState({ fbHint: true }); out.fbShowSol = () => this.setState({ fbSol: true });
+    const rate = r => {
+      const res2 = { ...res, [cur.id]: r }; try { localStorage.setItem('wpr-fallbuch-v1', JSON.stringify(res2)); } catch (e) {}
+      const L2 = byVl.filter(c => inSt(c, stf, res2)), nextC = L[i + 1], j = nextC ? L2.indexOf(nextC) : -1;
+      this.setState({ fbRes: res2 }); go(j >= 0 ? j : 0);
+    };
+    out.fbRates = [['bad', 'Falsch oder lückenhaft', 'kommt unter „Nochmal“', 'oklch(0.65 0.15 25)'], ['ok', 'Richtig gelöst', 'Ergebnis und Begründung stimmen', 'oklch(0.7 0.13 150)']].map(([r, t, d, c]) => ({ t, d, c, on: () => rate(r) }));
+    const mc = (window.WPRK_FB_MC || {})[cur.id];
+    if (mc) {
+      const picks = s.fbPick || {}, ch = picks[cur.id], has = ch != null;
+      const savePicks = p => { try { localStorage.setItem('wpr-fallbuch-mc-v1', JSON.stringify(p)); } catch (e) {} };
+      const pick = k => {
+        if (has) return;
+        const p2 = { ...picks, [cur.id]: k }, res2 = { ...res, [cur.id]: k === mc.c ? 'ok' : 'bad' };
+        savePicks(p2); try { localStorage.setItem('wpr-fallbuch-v1', JSON.stringify(res2)); } catch (e) {}
+        this.setState({ fbPick: p2, fbRes: res2 });
+      };
+      out.fbHasMc = true; out.fbHasSt = !!(mc.st && mc.st.length);
+      out.fbMc = { q: mc.q, st: (mc.st || []).map(t => ({ t })), opts: this.opts(mc, ch, has, pick) };
+      out.fbPicked = has;
+      out.fbRepick = () => { const p2 = { ...picks }; delete p2[cur.id]; savePicks(p2); this.setState({ fbPick: p2 }); };
+      out.fbPickMsg = !has ? '' : ch === mc.c ? `Richtig: ${'abcdef'[mc.c]}. Als „gelöst“ markiert. Den Lösungsweg prüfst du unter „Lösung zeigen“.` : `Falsch. Richtig ist ${'abcdef'[mc.c]}. Der Fall steht jetzt unter „Nochmal“. Lies den Lösungsweg unter „Lösung zeigen“.`;
+      out.fbPickC = has && ch === mc.c ? 'oklch(0.8 0.1 150)' : 'oklch(0.78 0.12 25)';
+    }
+    return out;
+  }
+  pauken() {
+    const s = this.state, now = Date.now(), DAY = 864e5, IV = [0, 1, 3, 7, 14, 30];
+    const ALL = SCH.flatMap(g => g.c.map(c => ({ ...c, g: g.g })));
+    const pk = s.pk || { box: {}, due: {} }, box = pk.box || {}, dueM = pk.due || {};
+    const pf = s.pkFilter || 'all', mode = s.pkMode || 'reveal';
+    const isVL = c => /^VL /.test(c.src || '');
+    const F = ALL.filter(c => pf === 'all' || (pf === 'vl' ? isVL(c) : c.g === pf));
+    const isNew = c => box[c.id] == null, isDue = c => !isNew(c) && (dueM[c.id] || 0) <= now;
+    const dueL = F.filter(isDue).sort((a, b) => (box[a.id] - box[b.id]) || ((dueM[a.id] || 0) - (dueM[b.id] || 0)));
+    const newL = F.filter(isNew), auto = [...dueL, ...newL].map(c => c.id), free = !auto.length;
+    const Q = s.pkQ || (free ? F.map(c => c.id) : auto);
+    const i = s.pkI || 0, cur = ALL.find(c => c.id === Q[i]);
+    const st = s.pkStats || { ok: 0, mid: 0, bad: 0 };
+    const reset = { pkShown: 0, pkPick: [], pkErr: 0, pkBad: null, pkGap: {}, pkGapAll: false };
+    const ch = (act, t, on) => ({ t, on, bd: act ? 'oklch(0.74 0.12 45)' : '#555d69', bg: act ? 'oklch(0.74 0.12 45)' : '#2a2e36', fg: act ? '#141518' : '#e8e4dc' });
+    const newRound = extra => this.setState({ pkQ: null, pkI: 0, pkStats: { ok: 0, mid: 0, bad: 0 }, pkSeed: Math.floor(Math.random() * 1e6), ...reset, ...extra });
+    const bc = [0, 0, 0, 0, 0, 0]; F.forEach(c => { bc[isNew(c) ? 0 : Math.min(5, box[c.id])]++; });
+    const BOXC = ['#8d949f', 'oklch(0.65 0.15 25)', 'oklch(0.72 0.13 60)', '#e8c547', 'oklch(0.72 0.12 130)', 'oklch(0.7 0.13 150)'];
+    const out = {
+      isPauken: s.tab === 'pauken',
+      pkModes: [['reveal', 'Aufdecken'], ['order', 'Reihenfolge'], ['gap', 'Normen-Lücken']].map(([id, t]) => ch(mode === id, t, () => this.setState({ pkMode: id, ...reset }))),
+      pkFilters: [['all', `Alle (${ALL.length})`], ['vl', `Nur Holztrattner-VL (${ALL.filter(isVL).length})`], ...SCH.map(g => [g.g, `${g.g} (${g.c.length})`])].map(([id, t]) => ch(pf === id, t, () => newRound({ pkFilter: id }))),
+      pkBoxes: bc.map((n, b) => ({ t: b ? 'Fach ' + b : 'Neu', n, w: (F.length ? n / F.length * 100 : 0) + '%', c: BOXC[b] })),
+      pkDueLabel: free ? `Nichts fällig – freie Runde mit allen ${F.length} Schemata` : `${dueL.length} fällig · ${newL.length} neu`,
+      pkHasCard: !!cur, pkEnd: !cur, pkRestart: () => newRound({}),
+      pkEndLabel: `Runde fertig: ${st.ok} gewusst · ${st.mid} teilweise · ${st.bad} nicht gewusst`,
+      pkPos: `${Math.min(i + 1, Q.length)} / ${Q.length}`, pkPct: (Q.length ? i / Q.length * 100 : 0) + '%',
+      pkResetLabel: s.pkArm ? 'Wirklich alles auf „Neu“ setzen? Nochmal klicken' : 'Lernstand zurücksetzen',
+      pkReset: () => { if (!this.state.pkArm) { this.setState({ pkArm: true }); return; } const e = { box: {}, due: {} }; try { localStorage.setItem('wpr-pauken-v1', JSON.stringify(e)); } catch (x) {} this.setState({ pk: e, pkArm: false }); newRound({}); },
+      pkIsReveal: mode === 'reveal', pkIsOrder: mode === 'order', pkIsGap: mode === 'gap',
+      pkCard: { t: '', n: '', g: '', trap: '', kurz: '', hasKurz: false, src: '', boxLabel: '', boxC: '#8d949f' }, pkRates: [], pkRevSteps: [], pkOrdPicked: [], pkOrdPool: [], pkGapSteps: [], pkDone: false
+    };
+    if (!cur) return out;
+    const n = cur.s.length, b0 = box[cur.id];
+    const rate = r => {
+      const b = box[cur.id] || 0, nb = r === 2 ? Math.min(5, b + 1) : r === 1 ? Math.max(1, b) : 1;
+      const pk2 = { box: { ...box, [cur.id]: nb }, due: { ...dueM, [cur.id]: now + (r === 0 ? 0 : r === 1 ? DAY : IV[nb] * DAY) } };
+      const q2 = r === 0 && Q.indexOf(cur.id, i + 1) < 0 ? [...Q, cur.id] : Q;
+      const key = ['bad', 'mid', 'ok'][r], st2 = { ...st, [key]: st[key] + 1 };
+      const sch = { ...(this.state.sch || {}) };
+      if (nb >= 3 && (sch[cur.id] || 0) < 3) { sch[cur.id] = 3; try { localStorage.setItem('wpr-schema-v1', JSON.stringify(sch)); } catch (e) {} }
+      try { localStorage.setItem('wpr-pauken-v1', JSON.stringify(pk2)); } catch (e) {}
+      this.setState({ pk: pk2, pkQ: q2, pkI: i + 1, pkStats: st2, sch, ...reset }); window.scrollTo(0, 0);
+    };
+    const nbOk = Math.min(5, (b0 || 0) + 1), inDays = d => d === 1 ? 'morgen' : `in ${d} Tagen`;
+    out.pkRates = [['Nicht gewusst', 'kommt in dieser Runde wieder', 'oklch(0.65 0.15 25)'], ['Teilweise', 'morgen wieder', 'oklch(0.72 0.13 60)'], ['Gewusst', inDays(IV[nbOk]) + ' wieder', 'oklch(0.7 0.13 150)']].map(([t, d, c], r) => ({ t, d, c, on: () => rate(r) }));
+    out.pkCard = { t: cur.t, n: cur.n, g: cur.g, trap: cur.f, kurz: MERK[cur.id] || '', hasKurz: !!MERK[cur.id], cnt: n,
+      src: cur.src ? (isVL(cur) ? cur.src : 'Skript ' + cur.src) : 'ergänzt', boxLabel: b0 == null ? 'Neu' : 'Fach ' + b0, boxC: BOXC[b0 == null ? 0 : Math.min(5, b0)] };
+    // Aufdecken
+    const shown = Math.min(s.pkShown || 0, n);
+    out.pkRevSteps = cur.s.slice(0, shown).map((t, k) => ({ n: k + 1, t }));
+    out.pkRevOpen = shown < n; out.pkRevNextLabel = `Schritt ${shown + 1} von ${n}: erst im Kopf oder auf Papier, dann aufdecken`;
+    out.pkRevNext = () => this.setState({ pkShown: shown + 1 }); out.pkRevAll = () => this.setState({ pkShown: n });
+    // Reihenfolge
+    const seed = s.pkSeed || 1, hh = x => { let v = seed; for (const c of x) v = (v * 31 + c.charCodeAt(0)) % 1000003; return v; };
+    let perm = cur.s.map((_, k) => k).sort((a, b) => hh(cur.id + a) - hh(cur.id + b));
+    if (n > 1 && perm.every((v, k) => v === k)) perm = [...perm.slice(1), perm[0]];
+    const picked = s.pkPick || [];
+    out.pkOrdPicked = picked.map((k, j) => ({ n: j + 1, t: cur.s[k] }));
+    out.pkOrdPool = perm.filter(k => !picked.includes(k)).map(k => { const bad = s.pkBad === k; return { t: cur.s[k], bd: bad ? 'oklch(0.65 0.15 25)' : '#555d69', bg: bad ? 'oklch(0.32 0.04 25)' : '#323741',
+      on: () => { if (k === picked.length) this.setState({ pkPick: [...picked, k], pkBad: null }); else this.setState({ pkErr: (this.state.pkErr || 0) + 1, pkBad: k }); } }; });
+    out.pkOrdOpen = picked.length < n; out.pkOrdHasPicked = picked.length > 0;
+    out.pkOrdLabel = `${picked.length} / ${n} richtig gesetzt · ${s.pkErr || 0} Fehlgriffe`;
+    // Normen-Lücken
+    const gapOpen = s.pkGap || {}; let gTot = 0, gOpen = 0;
+    out.pkGapSteps = cur.s.map((t, k) => ({ n: k + 1, parts: splitNorms(t).map((p, j) => {
+      if (!p.g) return { t: p.t, txt: true, gap: false };
+      const key = k + '-' + j, o = !!(s.pkGapAll || gapOpen[key]); gTot++; if (o) gOpen++;
+      return { t: o ? p.t : '§ ?', txt: false, gap: true, fg: o ? 'oklch(0.74 0.12 45)' : '#e8e4dc', bd: o ? 'transparent' : '#8d949f', on: () => this.setState({ pkGap: { ...(this.state.pkGap || {}), [key]: 1 } }) };
+    }) }));
+    out.pkGapLabel = `${gOpen} / ${gTot} Normen aufgedeckt`; out.pkGapAll = () => this.setState({ pkGapAll: true });
+    out.pkDone = mode === 'reveal' ? shown >= n : mode === 'order' ? picked.length >= n : true;
+    return out;
+  }
+  renderVals() {
+    const s = this.state, K = window.WPRK || { topics: [], mark: [], reiter: [], buecher: [], wege: [], nf: [], mc: [] };
+    const pool = this.pool || [], tmap = this.tmap || {};
+    const setTab = tab => { this.persist({ tab }); window.scrollTo(0, 0); };
+    const GR = [['start', 'Start', [['start', 'Überblick'], ['plan', 'Lernplan']]], ['lernen', 'Lernen', [['vl', 'Nach Vorlesung'], ['wissen', 'Nach Thema']]], ['schema', 'Schemata', [['schema', 'Schemata'], ['pauken', 'Pauken']]], ['ueben', 'Fälle üben', [['ueben', 'Multiple Choice'], ['fall', 'Fallbuch (Gutachten)']]], ['probe', 'Probeklausur', [['probe', 'Probeklausur']]], ['bgb', 'BGB', [['mark', 'Markieren & Reiter'], ['nf', 'Normfinder']]]];
+    const curG = GR.find(g => g[2].some(x => x[0] === s.tab)) || GR[0];
+    const tabs = GR.map(([gid, label, subs]) => ({ label, on: () => setTab(subs[0][0]), fg: curG[0] === gid ? '#e8e4dc' : '#aba69c', bd: curG[0] === gid ? 'oklch(0.74 0.12 45)' : 'transparent' }));
+    const subTabs = curG[2].length > 1 ? curG[2].map(([id, label]) => ({ label, on: () => setTab(id), fg: s.tab === id ? '#141518' : '#e8e4dc', bg: s.tab === id ? 'oklch(0.74 0.12 45)' : 'transparent', bd: s.tab === id ? 'oklch(0.74 0.12 45)' : '#555d69' })) : [];
+    const pd = s.plan || {}; let pn = 0, pDone = 0, firstOpen = null;
+    const tabName = { mark: 'BGB markieren', wissen: 'Kompaktwissen', ueben: 'Fälle üben', probe: 'Probeklausur', nf: 'Normfinder' };
+    const phases = PLAN.map((ph, pi) => {
+      const steps = ph.s.map((x, si) => {
+        pn++; const id = `${pi}-${si}`, done = !!pd[id]; if (done) pDone++; else if (!firstOpen) firstOpen = 'step-' + id;
+        return { n: String(pn).padStart(2, '0'), t: x[0], dur: x[1], d: x[2], ok: x[3], anchor: 'step-' + id, hasGo: !!x[4], goLabel: x[4] ? tabName[x[4]] : '', go: () => setTab(x[4]),
+          toggle: () => { const p = { ...(this.state.plan || {}) }; if (p[id]) delete p[id]; else p[id] = 1; this.setState({ plan: p }, () => { try { localStorage.setItem('wpr-plan-v1', JSON.stringify(p)); } catch (e) {} }); },
+          mark: done ? '✓' : '', boxBg: done ? 'oklch(0.7 0.13 150)' : 'transparent', boxBd: done ? 'oklch(0.7 0.13 150)' : '#8d949f', bd: done ? '#3a3f49' : '#434954', op: done ? .6 : 1, dec: done ? 'line-through' : 'none' };
+      });
+      const d = steps.filter(x => x.mark).length;
+      return { when: ph.when, title: ph.t, goal: ph.g, steps, cnt: `${d} / ${steps.length}`, cntFg: d === steps.length ? 'oklch(0.7 0.13 150)' : '#aba69c' };
+    });
+    const sl = s.sch || {}, rev = s.schRev || {}, recall = !!s.schRecall; let schN = 0, schDone = 0;
+    const LV = ['Gelesen', 'Mit Schema gelöst', 'Aus dem Kopf', 'Sitzt im Mix'];
+    const schGroups = SCH.map(gr => ({ t: gr.g, cards: gr.c.map(c => {
+      schN++; const lv = sl[c.id] || 0; if (lv >= 3) schDone++;
+      const hidden = recall && !rev[c.id];
+      return { t: c.t, n: c.n, src: c.src ? (/^VL /.test(c.src) ? c.src : 'Skript ' + c.src) : 'ergänzt', srcFg: c.src ? 'oklch(0.75 0.11 150)' : '#aba69c', steps: c.s, trap: c.f, cnt: c.s.length, hidden, shown: !hidden, kurz: MERK[c.id] || '', hasKurz: !!MERK[c.id],
+        bd: lv >= 4 ? 'oklch(0.55 0.1 150)' : '#434954',
+        reveal: () => this.setState({ schRev: { ...(this.state.schRev || {}), [c.id]: 1 } }),
+        levels: LV.map((t, i) => { const on = lv >= i + 1; return { t: (on ? '✓ ' : '') + t, bg: on ? 'oklch(0.7 0.13 150)' : 'transparent', fg: on ? '#141518' : '#b6b1a7', bd: on ? 'oklch(0.7 0.13 150)' : '#555d69',
+          on: () => { const p = { ...(this.state.sch || {}) }; p[c.id] = lv === i + 1 ? i : i + 1; this.setState({ sch: p }, () => { try { localStorage.setItem('wpr-schema-v1', JSON.stringify(p)); } catch (e) {} }); } }; }) };
+    }) }));
+    const answered = pool.filter(q => s.ans[q.id] != null), right = answered.filter(q => s.ans[q.id] === q.c);
+    const cnt = id => pool.filter(q => q.topic === id).length;
+    const fcol = f => f === 'sehr oft' ? 'oklch(0.74 0.12 45)' : f === 'oft' ? '#e8c547' : '#aba69c';
+    const tIdx = Math.max(0, K.topics.findIndex(t => t.id === s.topic)), T = K.topics[tIdx] || { norms: [], kern: [], schema: [], fallen: [] };
+    const chip = (act, t, on) => ({ t, on, bd: act ? 'oklch(0.74 0.12 45)' : '#555d69', bg: act ? 'oklch(0.74 0.12 45)' : '#2a2e36', fg: act ? '#141518' : '#e8e4dc' });
+    // practice
+    const L = this.list(), idx = Math.min(s.idx, Math.max(0, L.length - 1)), q = L[idx];
+    let cq = { opts: [] };
+    if (q) { const ch = s.ans[q.id]; cq = { ...q, topicT: (tmap[q.topic] || { t: 'Gemischt' }).t, lw: this.lw(q, ch != null), hasLw: this.lw(q, ch != null).length > 0, opts: this.opts(q, ch, ch != null, i => { if (s.ans[q.id] == null) this.persist({ ans: { ...s.ans, [q.id]: i } }); }) }; }
+    // marks
+    let mTot = 0, mDone = 0;
+    const markGroups = K.mark.map(g => ({ ...g, items: g.items.map(([p, w]) => { const k = g.name + p; mTot++; const d = !!s.chk[k]; if (d) mDone++; return { p, w, box: d ? '✓' : '○', op: d ? .55 : 1, dec: d ? 'line-through' : 'none', on: () => this.persist({ chk: { ...s.chk, [k]: !d } }) }; }) }));
+    // exam
+    const e = s.exam; let examQs = [], timerLabel = '', examStatus = '', timerColor = '#e8e4dc';
+    if (e) {
+      const qs = e.ids.map(id => pool.find(x => x.id === id)).filter(Boolean);
+      let ok = 0, done = 0;
+      examQs = qs.map((x, n) => { const ch = e.sel[x.id]; if (ch != null) done++; if (ch === x.c) ok++; return { ...x, nr: n + 1, lw: this.lw(x, e.done), hasLw: this.lw(x, e.done).length > 0, opts: this.opts(x, ch, e.done, i => { if (!s.exam.done) this.setState({ exam: { ...s.exam, sel: { ...s.exam.sel, [x.id]: i } } }); }) }; });
+      const left = Math.max(0, this.mins() * 60 - Math.floor(((e.done ? e.end : s.now) - e.start) / 1000));
+      timerLabel = String(Math.floor(left / 60)).padStart(2, '0') + ':' + String(left % 60).padStart(2, '0');
+      if (left < 300 && !e.done) timerColor = 'oklch(0.7 0.15 25)';
+      examStatus = e.done ? `${ok} von ${qs.length} richtig · ${Math.round(ok / qs.length * 100)} % · ${ok >= qs.length / 2 ? 'bestanden' : 'nicht bestanden'}` : `${done} von ${qs.length} beantwortet`;
+      if (e.done) timerColor = ok >= qs.length / 2 ? 'oklch(0.75 0.13 150)' : 'oklch(0.7 0.15 25)';
+    }
+    // normfinder
+    const order = s.nfOrder || K.nf.map((_, i) => i);
+    const allOpen = K.nf.length > 0 && K.nf.every((_, i) => s.nfo[i]);
+    const nfCards = order.map(i => { const [sit, a] = K.nf[i]; const o = !!s.nfo[i]; return { s: sit, a: o ? a : 'antippen zum Aufdecken', fc: o ? 'oklch(0.74 0.12 45)' : '#9a978f', on: () => this.setState({ nfo: { ...s.nfo, [i]: !o } }) }; });
+    return {
+      ...this.pauken(),
+      ...this.fallbuch(),
+      ...this.vorlesungen(),
+      tabs, subTabs, hasSub: subTabs.length > 0, showSub: subTabs.length > 0 && !s.subHide,isPlan: s.tab === 'plan', phases, planLabel: `${pDone} / ${pn} Schritte`, planPct: (pn ? pDone / pn * 100 : 0) + '%',
+      planNext: () => { const el = firstOpen && document.getElementById(firstOpen); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 140, behavior: 'smooth' }); },
+      isSchema: s.tab === 'schema', stages: STAGES, schGroups, schLabel: `${schDone} / ${schN} Schemata aus dem Kopf`, schPct: (schN ? schDone / schN * 100 : 0) + '%',
+      recallLabel: recall ? 'Abrufmodus an – Schritte verdeckt' : 'Abrufmodus: Schritte verdecken', recallBg: recall ? 'oklch(0.74 0.12 45)' : 'transparent', recallFg: recall ? '#141518' : '#e8e4dc',
+      toggleRecall: () => this.setState({ schRecall: !recall, schRev: {} }), goUeben: () => setTab('ueben'),
+      isStart: s.tab === 'start', isMark: s.tab === 'mark', isWissen: s.tab === 'wissen', isUeben: s.tab === 'ueben', isProbe: s.tab === 'probe', isNf: s.tab === 'nf',
+      statLabel: `${right.length} / ${answered.length} richtig · ${pool.length} Fragen`, statPct: (pool.length ? answered.length / pool.length * 100 : 0) + '%',
+      poolLabel: `${pool.length} MC-Fragen: ${pool.filter(x => x.src === 'rh').length} Übungsfälle von Holztrattner, ${pool.filter(x => x.src === 'schwer').length} lange Klausurfälle mit je 6 Antworten, ${pool.filter(x => x.src === 'alt').length} aus Altklausuren.`,
+      goMark: () => setTab('mark'), goWissen: () => setTab('vl'), goUeben: () => setTab('ueben'), goProbe: () => setTab('probe'),
+      topicRows: K.topics.map(t => ({ t: t.t, freq: t.freq, fc: fcol(t.freq), n: cnt(t.id), on: () => { this.setState({ topic: t.id }); setTab('wissen'); } })),
+      markGroups, markLabel: `${mDone} / ${mTot}`, reiter: K.reiter, wege: K.wege.map(([q, e2, k]) => ({ q, e: e2, k })),
+      buecher: K.buecher.map(([n, t, r, d]) => ({ n, t, r, d, op: n === '4' ? .5 : 1 })),
+      topicChips: K.topics.map(t => chip(t.id === s.topic, t.t, () => this.setState({ topic: t.id }))),
+      tp: { ...T, n: cnt(T.id), kern: T.kern.map(k => { const [a, b] = k.split(' :: '); return { a, b }; }), schema: T.schema.map((t, i) => ({ i: i + 1, t })) },
+      practiceTopic: () => { this.setState({ ft: T.id, src: 'all', wrong: false, idx: 0 }); setTab('ueben'); },
+      nextTopic: () => { this.setState({ topic: K.topics[(tIdx + 1) % K.topics.length].id }); window.scrollTo(0, 0); },
+      filterChips: [chip(s.ft === 'all', `Alle (${pool.length})`, () => this.setState({ ft: 'all', idx: 0 })), ...K.topics.map(t => chip(s.ft === t.id, `${t.t} (${cnt(t.id)})`, () => this.setState({ ft: t.id, idx: 0 }))), ...(cnt('mix') ? [chip(s.ft === 'mix', `Gemischt (${cnt('mix')})`, () => this.setState({ ft: 'mix', idx: 0 }))] : []), chip(s.ft === 'open', `Noch offen · VL 7–9 (${pool.filter(x => x.open).length})`, () => this.setState({ ft: 'open', idx: 0 }))],
+      srcChips: [['all', 'Alle Quellen'], ['rh', `Übungsfälle Holztrattner (${pool.filter(x => x.src === 'rh').length})`], ['schwer', 'Klausurfälle (lang, 6 Optionen)'], ['fb', `Fallbuch-Fälle (${pool.filter(x => x.src === 'fb').length})`], ['alt', 'Altklausuren'], ['neu', `Neue Transferfälle (${pool.filter(x => x.neu).length})`]].map(([id, t]) => chip(s.src === id, t, () => this.setState({ src: id, idx: 0 }))),
+      toggleWrong: () => { const w = {}; pool.forEach(x => { if (s.ans[x.id] != null && s.ans[x.id] !== x.c) w[x.id] = 1; }); this.setState({ wrong: !s.wrong, wset: w, idx: 0 }); },
+      wrongLabel: s.wrong ? 'Nur falsche ✓' : 'Nur falsche wiederholen', wrongBd: s.wrong ? 'oklch(0.65 0.15 25)' : '#555d69', wrongFg: s.wrong ? 'oklch(0.75 0.13 25)' : '#e8e4dc',
+      hasQ: !!q, noQ: !q && !!this.pool, cq, posLabel: `${idx + 1} / ${L.length}`,
+      prevQ: () => this.setState({ idx: Math.max(0, idx - 1) }), nextQ: () => this.setState({ idx: idx + 1 >= L.length ? 0 : idx + 1 }),
+      // Ausblenden per Momentaufnahme: Fälle, die du danach löst, bleiben bis zum nächsten Umschalten sichtbar (Zurück funktioniert)
+      toggleDone: () => { const v = !s.hideDone; try { localStorage.setItem('wpr-hide-done', v ? '1' : '0'); } catch (e) {} this.setState({ hideDone: v, dset: v ? this.doneSet() : null, idx: 0 }); },
+      doneLabel: s.hideDone ? `Bearbeitete ausgeblendet (${Object.keys(s.dset || {}).length}) ✓` : 'Bearbeitete ausblenden', doneBd: s.hideDone ? 'oklch(0.74 0.12 45)' : '#555d69', doneFg: s.hideDone ? 'oklch(0.8 0.1 45)' : '#e8e4dc',
+      noExam: !e, hasExam: !!e, examQs, timerLabel, timerColor, examStatus, submitLabel: e && e.done ? 'Abgegeben' : 'Abgeben',
+      examIntro: `${this.size()} Aufgaben aus ${pool.length} Fragen, gewichtet wie die echte Probeklausur (je 4 Leistungsstörungen und Kaufrecht, je 2 Delikt und Vertragsschluss, Rest gemischt), ${this.mins()} Minuten, bestanden ab 50 %.`,
+      startExam: () => {
+        const base = this.hardMode ? pool.filter(x => x.src === 'schwer' || x.src === 'fb') : pool;
+        const n = this.size(), f = n / 20;
+        const sh = a => { const r = [...a]; for (let i = r.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [r[i], r[j]] = [r[j], r[i]]; } return r; };
+        // Gewichtung nach Probeklausuren 2022–25 (je 20 Aufgaben)
+        const Q = { lst: 4, kauf: 4, del: 2, vs: 2, sach: 1, per: 1, anf: 1, agb: 1, frist: 1 };
+        const got = new Set(), take = arr => arr.forEach(x => got.add(x.id));
+        Object.entries(Q).forEach(([t, k]) => take(sh(base.filter(x => x.topic === t)).slice(0, Math.round(k * f))));
+        const rest = ['stv', 'form', 'typ', 'sr', 'mix'];
+        take(sh(base.filter(x => !got.has(x.id) && rest.includes(x.topic))).slice(0, Math.max(0, n - got.size)));
+        take(sh(base.filter(x => !got.has(x.id))).slice(0, Math.max(0, n - got.size)));
+        const ids = sh([...got]).slice(0, n);
+        this.setState({ exam: { ids, sel: {}, start: Date.now(), done: false }, now: Date.now() });
+      },
+      startHard: () => { this.hardMode = true; try { this.renderVals().startExam(); } finally { this.hardMode = false; } },
+      hardIntro: `Ohne Altklausuren: ${pool.filter(x => x.src === 'schwer' || x.src === 'fb').length} lange Fälle (Klausurfälle und Fallbuch) mit je 6 eng beieinanderliegenden Antworten. Rechne mit 4–5 Minuten pro Fall.`,
+      submitExam: () => this.submit(), resetExam: () => { this.setState({ exam: null }); window.scrollTo(0, 0); },
+      nfCards, nfAllLabel: allOpen ? 'Alle zudecken' : 'Alle aufdecken',
+      nfAll: () => { const o = {}; if (!allOpen) K.nf.forEach((_, i) => o[i] = true); this.setState({ nfo: o }); },
+      nfShuffle: () => this.setState({ nfOrder: K.nf.map((_, i) => i).sort(() => Math.random() - .5), nfo: {} })
+    };
+  }
+}
+</script>
+</body>
+</html>
