@@ -52,7 +52,7 @@ a{color:oklch(0.74 0.12 45)}a:hover{color:#e8e4dc}
 <script src="./wpr-loes-6.js"></script>
 </helmet>
 <div style="min-height:100vh;background:radial-gradient(1100px 520px at 12% -8%, oklch(0.34 0.05 45 / 0.45), transparent 62%), radial-gradient(900px 480px at 100% 0%, oklch(0.32 0.04 230 / 0.35), transparent 60%), #1f2228">
-  <header style="position: sticky; top: 0; z-index: 5; background: rgba(38,42,50,0.86); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid #434954; width: 100%; height: 96px">
+  <header style="position: sticky; top: 0; z-index: 5; background: rgba(38,42,50,0.86); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid #434954; width: 100%; height: 96px; transform: {{ hdrTf }}; transition: transform .25s ease">
     <div style="max-width:1100px;margin:0 auto;padding:12px 20px 0;display:flex;flex-direction:column;gap:10px">
       <div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;justify-content:space-between">
         <div style="display:flex;flex-direction:column;gap:2px">
@@ -816,7 +816,7 @@ a{color:oklch(0.74 0.12 45)}a:hover{color:#e8e4dc}
         </section>
       </sc-if>
       <sc-if value="{{ hasExam }}" hint-placeholder-val="{{ false }}">
-        <div style="position:sticky;top:104px;z-index:4;background:rgba(38,42,50,0.94);backdrop-filter:blur(8px);border:1px solid #434954;border-radius:9px;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div style="position:sticky;top:{{ stickyTop }};transition:top .25s ease;z-index:4;background:rgba(38,42,50,0.94);backdrop-filter:blur(8px);border:1px solid #434954;border-radius:9px;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:18px;color:{{ timerColor }}">{{ timerLabel }}</span>
           <span style="font-size:14px;color:#c6c1b7">{{ examStatus }}</span>
           <div style="display:flex;gap:8px">
@@ -1304,7 +1304,7 @@ class Component extends DCLogic {
       ...this.pauken(),
       ...this.fallbuch(),
       ...this.vorlesungen(),
-      tabs, subTabs, hasSub: subTabs.length > 0, showSub: subTabs.length > 0 && !s.subHide,isPlan: s.tab === 'plan', phases, planLabel: `${pDone} / ${pn} Schritte`, planPct: (pn ? pDone / pn * 100 : 0) + '%',
+      tabs, subTabs, hasSub: subTabs.length > 0, showSub: subTabs.length > 0 && !s.subHide, hdrTf: s.subHide && window.innerWidth <= 760 ? 'translateY(-100%)' : 'none', stickyTop: s.subHide && window.innerWidth <= 760 ? '8px' : '104px',isPlan: s.tab === 'plan', phases, planLabel: `${pDone} / ${pn} Schritte`, planPct: (pn ? pDone / pn * 100 : 0) + '%',
       planNext: () => { const el = firstOpen && document.getElementById(firstOpen); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 140, behavior: 'smooth' }); },
       isSchema: s.tab === 'schema', stages: STAGES, schGroups, schLabel: `${schDone} / ${schN} Schemata aus dem Kopf`, schPct: (schN ? schDone / schN * 100 : 0) + '%',
       recallLabel: recall ? 'Abrufmodus an – Schritte verdeckt' : 'Abrufmodus: Schritte verdecken', recallBg: recall ? 'oklch(0.74 0.12 45)' : 'transparent', recallFg: recall ? '#141518' : '#e8e4dc',
