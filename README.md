@@ -9,6 +9,7 @@ Lern- und Übungsseite für Wirtschaftsprivatrecht (Hochschule München).
 - `WPR Lernmaterial.dc.html` / `WPR Lernmaterial.html` – frühere Lernmaterial-Seite
 - `wpr-*.js` – Daten: Themen, Fälle, Lösungswege, Vorlesungszettel
   - `wpr-plus-5.js` – 39 neue Transferfälle
+  - `wpr-plus-6.js` – 28 Fälle zu Holztrattner VL 7 (Mängelhaftung II)
   - `wpr-loes-1.js` … `wpr-loes-6.js` – Lösungswege und Begründungen für alle Fälle
 - `support.js`, `compat.json` – Laufzeit und Seitenliste aus dem Claude-Artefakt
 

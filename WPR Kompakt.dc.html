@@ -44,6 +44,7 @@ a{color:oklch(0.74 0.12 45)}a:hover{color:#e8e4dc}
 <script src="./wpr-plus-3.js"></script>
 <script src="./wpr-plus-4.js"></script>
 <script src="./wpr-plus-5.js"></script>
+<script src="./wpr-plus-6.js"></script>
 <script src="./wpr-loes-1.js"></script>
 <script src="./wpr-loes-2.js"></script>
 <script src="./wpr-loes-3.js"></script>
@@ -52,16 +53,58 @@ a{color:oklch(0.74 0.12 45)}a:hover{color:#e8e4dc}
 <script src="./wpr-loes-6.js"></script>
 </helmet>
 <div style="min-height:100vh;background:radial-gradient(1100px 520px at 12% -8%, oklch(0.34 0.05 45 / 0.45), transparent 62%), radial-gradient(900px 480px at 100% 0%, oklch(0.32 0.04 230 / 0.35), transparent 60%), #1f2228">
-  <header style="position: sticky; top: 0; z-index: 5; background: rgba(38,42,50,0.86); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid #434954; width: 100%; height: 96px; transform: {{ hdrTf }}; transition: transform .25s ease">
+  <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 5; background: rgba(38,42,50,0.86); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid #434954; width: 100%; min-height: 96px; box-sizing: border-box; transform: {{ hdrTf }}; transition: transform .25s ease">
     <div style="max-width:1100px;margin:0 auto;padding:12px 20px 0;display:flex;flex-direction:column;gap:10px">
       <div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;justify-content:space-between">
         <div style="display:flex;flex-direction:column;gap:2px">
           <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#aba69c">WPR · Prof. Weiden · Kompaktfassung</div>
           <div style="font-family:'Newsreader',serif;font-size:21px;font-weight:500">Nur was in der Klausur zählt</div>
         </div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:#b6b1a7">
-          <span>{{ statLabel }}</span>
-          <div style="width:120px;height:6px;background:#3b414b;border-radius:3px;overflow:hidden"><div style="height:100%;width:{{ statPct }};background:oklch(0.7 0.13 150)"></div></div>
+        <div id="wpr-stat" style="display:flex;align-items:center">
+          <button type="button" onClick="{{ statToggle }}" aria-expanded="{{ statExpanded }}" aria-controls="wpr-stat-panel" title="Statistik nach Themengebiet anzeigen" style="font:inherit;font-size:13px;color:#b6b1a7;display:flex;align-items:center;gap:10px;cursor:pointer;background:{{ statBtnBg }};border:1px solid {{ statBtnBd }};border-radius:6px;padding:3px 8px">
+            <span>{{ statLabel }}</span>
+            <span aria-hidden="true" style="display:block;width:120px;height:6px;background:#3b414b;border-radius:3px;overflow:hidden"><span style="display:block;height:100%;width:{{ statPct }};background:oklch(0.7 0.13 150)"></span></span>
+            <span aria-hidden="true" style="font-size:11px;color:#e8e4dc">{{ statCaret }}</span>
+          </button>
+          <sc-if value="{{ statOpen }}" hint-placeholder-val="{{ false }}">
+            <div id="wpr-stat-panel" role="region" aria-label="Statistik nach Themengebiet" style="position:absolute;top:calc(100% + 6px);right:max(16px, calc((100vw - 1100px) / 2 + 20px));width:min(440px, calc(100vw - 32px));max-height:min(72vh, 640px);overflow-y:auto;background:#262a32;border:1px solid #555d69;border-radius:10px;box-shadow:0 18px 40px rgba(0,0,0,.45);padding:16px 18px;display:flex;flex-direction:column;gap:10px;text-align:left;color:#e8e4dc">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px">
+                <div style="display:flex;flex-direction:column;gap:2px">
+                  <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#aba69c">Statistik nach Thema</div>
+                  <div style="font-family:'Newsreader',serif;font-size:19px;font-weight:500">{{ statSum }}</div>
+                </div>
+                <button type="button" onClick="{{ statClose }}" aria-label="Statistik schließen" style="font:inherit;font-size:18px;line-height:1;cursor:pointer;background:transparent;border:1px solid #555d69;border-radius:6px;color:#e8e4dc;padding:4px 9px">×</button>
+              </div>
+              <sc-if value="{{ statHasWrong }}" hint-placeholder-val="{{ true }}">
+                <button type="button" onClick="{{ statAllWrong }}" style="align-self:stretch;font:inherit;font-size:14px;font-weight:500;cursor:pointer;padding:9px 14px;border-radius:8px;border:1px solid oklch(0.65 0.15 25);background:oklch(0.65 0.15 25 / 0.16);color:oklch(0.85 0.08 25)">↻ {{ statAllWrongLabel }}</button>
+              </sc-if>
+              <div style="display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:#b6b1a7">
+                <span style="display:flex;align-items:center;gap:6px"><span aria-hidden="true" style="display:block;width:10px;height:10px;border-radius:2px;background:oklch(0.72 0.13 150)"></span>richtig</span>
+                <span style="display:flex;align-items:center;gap:6px"><span aria-hidden="true" style="display:block;width:10px;height:10px;border-radius:2px;background:oklch(0.58 0.16 25)"></span>falsch</span>
+                <span style="display:flex;align-items:center;gap:6px"><span aria-hidden="true" style="display:block;width:10px;height:10px;border-radius:2px;background:#3b414b;border:1px solid #6b717c"></span>noch offen</span>
+                <span style="color:#aba69c">· schwächste Themen zuerst</span>
+              </div>
+              <sc-for list="{{ statRows }}" as="r" hint-placeholder-count="6">
+                <div style="display:flex;flex-direction:column;gap:6px;padding-top:10px;border-top:1px solid #3a3f49">
+                  <button type="button" onClick="{{ r.on }}" title="Dieses Thema üben" style="font:inherit;color:inherit;background:transparent;border:0;padding:0;cursor:pointer;text-align:left;display:flex;flex-direction:column;gap:6px;width:100%">
+                    <span style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;width:100%">
+                      <span style="font-size:14px;color:#e8e4dc">{{ r.t }} <span aria-hidden="true" style="color:#aba69c">›</span></span>
+                      <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:{{ r.pctFg }}">{{ r.pctLabel }}</span>
+                    </span>
+                    <span aria-hidden="true" style="display:flex;width:100%;height:7px;background:#3b414b;border-radius:3px;overflow:hidden">
+                      <span style="display:block;height:100%;width:{{ r.wRight }};background:oklch(0.72 0.13 150)"></span>
+                      <span style="display:block;height:100%;width:{{ r.wWrong }};background:oklch(0.58 0.16 25)"></span>
+                    </span>
+                    <span style="font-size:12px;color:#aba69c">{{ r.sub }}</span>
+                  </button>
+                  <sc-if value="{{ r.hasWrong }}" hint-placeholder-val="{{ true }}">
+                    <button type="button" onClick="{{ r.onWrong }}" style="align-self:flex-start;font:inherit;font-size:12px;cursor:pointer;padding:3px 10px;border-radius:999px;border:1px solid oklch(0.65 0.15 25);background:transparent;color:oklch(0.8 0.1 25)">{{ r.wrongLabel }}</button>
+                  </sc-if>
+                </div>
+              </sc-for>
+              <div style="font-size:12px;color:#aba69c;border-top:1px solid #3a3f49;padding-top:10px">Ein Thema antippen öffnet „Fälle üben“ mit diesem Thema. Gezählt werden Antworten aus „Fälle üben“ und aus abgegebenen Probeklausuren.</div>
+            </div>
+          </sc-if>
         </div>
       </div>
       <nav style="display:flex;gap:2px;overflow-x:auto">
@@ -72,6 +115,7 @@ a{color:oklch(0.74 0.12 45)}a:hover{color:#e8e4dc}
       <sc-if value="{{ showSub }}" hint-placeholder-val="{{ false }}"><div style="display:flex;gap:6px;flex-wrap:wrap;padding-bottom:6px"><sc-for list="{{ subTabs }}" as="st" hint-placeholder-count="2"><button onClick="{{ st.on }}" style="font:inherit;font-size:13px;cursor:pointer;padding:5px 12px;border-radius:999px;border:1px solid {{ st.bd }};background:{{ st.bg }};color:{{ st.fg }}">{{ st.label }}</button></sc-for></div></sc-if>
     </div>
   </header>
+  <div aria-hidden="true" style="height: var(--wpr-hdr-full, 96px)"></div>
 
   <main style="max-width:1100px;margin:0 auto;padding:32px 20px 80px;display:flex;flex-direction:column;gap:40px">
 
@@ -218,7 +262,7 @@ a{color:oklch(0.74 0.12 45)}a:hover{color:#e8e4dc}
             <button onClick="{{ vlPrev }}" style="font:inherit;font-size:13px;cursor:pointer;background:transparent;color:#c6c1b7;border:1px solid #434954;border-radius:6px;padding:8px 12px;text-align:left">{{ vlPrevLabel }}</button>
             <button onClick="{{ vlNext }}" style="font:inherit;font-size:13px;cursor:pointer;background:transparent;color:#c6c1b7;border:1px solid #434954;border-radius:6px;padding:8px 12px;text-align:right">{{ vlNextLabel }}</button>
           </section>
-          <p style="margin:0;font-size:12px;line-height:1.6;color:#aba69c;max-width:780px">Quellen: Holztrattner, Skript VL 1–6 (PDF) und PowerPoint VL 1–9 (WiSe 2026/27); Weiden/Wende, Folien Lernpakete 1–17 und Altklausuren SS 2018 – WS 2024/25. Zu VL 7–9 lagen von Holztrattner nur Stichpunkte vor.</p>
+          <p style="margin:0;font-size:12px;line-height:1.6;color:#aba69c;max-width:780px">Quellen: Holztrattner, Skript VL 1–7 (PDF) und PowerPoint VL 1–9 (WiSe 2026/27); Weiden/Wende, Folien Lernpakete 1–17 und Altklausuren SS 2018 – WS 2024/25. VL 6 und VL 7 enthalten zusätzlich das Skript von Holztrattner; zu VL 8–9 lagen nur Stichpunkte vor.</p>
         </article>
       </sc-if>
     </sc-if>
@@ -784,6 +828,12 @@ a{color:oklch(0.74 0.12 45)}a:hover{color:#e8e4dc}
           <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#aba69c">
             <span>{{ cq.tag }} · {{ cq.topicT }}</span><span>{{ posLabel }}</span>
           </div>
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+            <span role="timer" aria-label="Zeit für diese Aufgabe" style="font-family:'IBM Plex Mono',monospace;font-size:18px;font-variant-numeric:tabular-nums;color:{{ qtColor }}">⏱ {{ qtLabel }}</span>
+            <button type="button" onClick="{{ qtToggle }}" style="font:inherit;font-size:13px;cursor:pointer;padding:5px 12px;border-radius:6px;border:1px solid #555d69;background:transparent;color:#e8e4dc">{{ qtBtn }}</button>
+            <button type="button" onClick="{{ qtReset }}" style="font:inherit;font-size:13px;cursor:pointer;padding:5px 12px;border-radius:6px;border:1px solid #555d69;background:transparent;color:#e8e4dc">↺ Zurücksetzen</button>
+            <sc-if value="{{ qtOver }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;color:oklch(0.75 0.14 25)">Zeit abgelaufen</span></sc-if>
+          </div>
           <div style="font-size: 19px; line-height: 1.65; text-wrap: pretty; white-space: pre-line">{{ cq.sv }}</div>
           <div style="font-weight:600;font-size:17px">{{ cq.q }}</div>
           <div style="display:flex;flex-direction:column;gap:8px">
@@ -1020,16 +1070,24 @@ class Component extends DCLogic {
       const y = window.scrollY || 0, d = y - this.lastY;
       if (Math.abs(d) < 6) return;
       const hide = y > 120 && d > 0;
-      if (hide !== !!this.state.subHide) this.setState({ subHide: hide });
+      if (hide !== !!this.state.subHide) this.setState(hide && window.innerWidth <= 760 ? { subHide: hide, statOpen: false } : { subHide: hide });
       this.lastY = y;
     };
     window.addEventListener('scroll', this.onScroll, { passive: true });
+    try { const hd = document.querySelector('header'); if (hd && window.ResizeObserver) { this.ro = new ResizeObserver(() => { const st = document.documentElement.style; st.setProperty('--wpr-hdr-h', hd.offsetHeight + 'px'); if (!this.state.subHide) st.setProperty('--wpr-hdr-full', hd.offsetHeight + 'px'); }); this.ro.observe(hd); } } catch (e) {}
+    // Statistik-Übersicht: schließen bei Klick daneben oder Esc
+    this.onDocClick = ev => { if (!this.state.statOpen) return; const w = document.getElementById('wpr-stat'); if (w && !w.contains(ev.target)) this.setState({ statOpen: false }); };
+    this.onKey = ev => { if (ev.key === 'Escape' && this.state.statOpen) this.setState({ statOpen: false }); };
+    document.addEventListener('click', this.onDocClick); document.addEventListener('keydown', this.onKey);
+    try { this.qt = JSON.parse(localStorage.getItem('wpr-qtimer-v1') || '{}') || {}; } catch (e) { this.qt = {}; }
+    Object.values(this.qt).forEach(t => { if (t && t.since) { t.since = null; } });
     this.tm = setInterval(() => {
+      const ct = this.curQ && this.qt[this.curQ]; if (ct && ct.since && this.state.tab === 'ueben') this.setState({ now: Date.now() });
       const e = this.state.exam; if (!e || e.done) return;
       if (Date.now() - e.start >= this.mins() * 60000) this.submit(); else this.setState({ now: Date.now() });
     }, 1000);
   }
-  componentWillUnmount() { clearInterval(this.tm); window.removeEventListener('wpr-data', this.onData); window.removeEventListener('scroll', this.onScroll); }
+  componentWillUnmount() { clearInterval(this.tm); window.removeEventListener('wpr-data', this.onData); window.removeEventListener('scroll', this.onScroll); if (this.ro) this.ro.disconnect(); document.removeEventListener('click', this.onDocClick); document.removeEventListener('keydown', this.onKey); }
   mins() { return this.props.examMinutes ?? 60; }
   size() { return this.props.examSize ?? 20; }
   persist(p) {
@@ -1052,9 +1110,8 @@ class Component extends DCLogic {
     let base = '', bsem = '';
     alt.forEach((c, i) => { const sem = String(c.n).split('·')[0].trim(); const follow = /^(wie zuvor|abwandlung|wie oben|fortsetzung|gleicher sachverhalt|wie in aufgabe)/i.test((c.sv || '').trim()); let sv = c.sv; if (follow && base && sem === bsem) sv = 'Ausgangsfall: ' + base + '\n\nDann: ' + c.sv; else if (!follow) { base = c.sv; bsem = sem; } pool.push({ id: (c.o.length === 6 ? 'a6-' : 'a') + i, src: 'alt', tag: 'Altklausur ' + c.n, topic: this.cls(c), sv, q: c.q, c: c.c, o: c.o }); });
     if (this.props.shuffle ?? true) { const h = s => { let x = 7; for (const ch of s) x = (x * 31 + ch.charCodeAt(0)) % 100003; return x; }; pool.sort((a, b) => h(a.id + 'x') - h(b.id + 'x')); }
-    // „Noch offen“: Themen aus Holztrattner VL 7–9 (noch kein Skript) – Näherung über Thema und Stichworte
-    const v7 = /zurück(zu)?tret|rücktritt|minder(n|ung)|schadensersatz|aufwendungs(ersatz)?|garantie|verjähr|regress|rückgriff|§\s*(437 Nr\. ?[23]|438|440|441|443|445a|445b|475d|475e|479)\b/i;
-    pool.forEach(q => { q.open = ['agb', 'del', 'sach'].includes(q.topic) || (q.topic === 'kauf' && v7.test((q.q || '') + ' ' + (q.sv || '') + ' ' + ((q.o[q.c] || [])[0] || ''))); });
+    // „Noch offen“: Themen aus Holztrattner VL 8–9 (noch kein Skript) – Näherung über das Thema
+    pool.forEach(q => { q.open = ['agb', 'del', 'sach'].includes(q.topic); });
     this.pool = pool; this.tmap = {}; K.topics.forEach(t => this.tmap[t.id] = t);
   }
   doneSet() { const d = {}; Object.keys(this.state.ans || {}).forEach(k => { if (this.state.ans[k] != null) d[k] = 1; }); return d; }
@@ -1081,7 +1138,8 @@ class Component extends DCLogic {
       return { l: 'abcdef'[i], text: o[0], expl: o[1], verdict: mm ? mm[1] + '.' : '', reason: rs || (mm ? mm[2] : o[1]), norms, show: reveal, ec: isC ? 'oklch(0.8 0.1 150)' : '#b6b1a7', bg, bd, lc, on: () => onPick(i) };
     });
   }
-  submit() { const e = this.state.exam; if (!e || e.done) return; this.setState({ exam: { ...e, done: true, end: Date.now() } }); }
+  // Beim Abgeben zählen die Antworten der Probeklausur in die Statistik oben rechts (neueste Antwort gilt)
+  submit() { const e = this.state.exam; if (!e || e.done) return; this.persist({ exam: { ...e, done: true, end: Date.now() }, ans: { ...(this.state.ans || {}), ...(e.sel || {}) } }); }
   vorlesungen() {
     const s = this.state, ALL = window.WPRK_VL || [];
     const i = Math.min(Math.max(0, s.vlI || 0), Math.max(0, ALL.length - 1)), c = ALL[i];
@@ -1274,12 +1332,35 @@ class Component extends DCLogic {
     }) }));
     const answered = pool.filter(q => s.ans[q.id] != null), right = answered.filter(q => s.ans[q.id] === q.c);
     const cnt = id => pool.filter(q => q.topic === id).length;
+    // Statistik nach Thema (Klick auf die Statistik oben rechts)
+    const statRows = [...K.topics.map(t => [t.id, t.t]), ['mix', 'Gemischt']].map(([id, t]) => {
+      const all = pool.filter(x => x.topic === id); if (!all.length) return null;
+      const a = all.filter(x => s.ans[x.id] != null), r = a.filter(x => s.ans[x.id] === x.c).length, w = a.length - r;
+      const pct = a.length ? Math.round(r / a.length * 100) : -1;
+      const toUeben = st => { this.setState({ ft: id, src: 'all', idx: 0, statOpen: false, ...st }); setTab('ueben'); };
+      return { t, pct, pctLabel: pct < 0 ? '–' : pct + ' %', pctFg: pct < 0 ? '#aba69c' : pct >= 70 ? 'oklch(0.78 0.13 150)' : pct >= 50 ? '#e8c547' : 'oklch(0.75 0.13 25)',
+        sub: a.length ? `${r} von ${a.length} richtig · ${a.length} / ${all.length} Fragen bearbeitet` : `noch nicht bearbeitet · ${all.length} Fragen`,
+        wRight: (r / all.length * 100) + '%', wWrong: (w / all.length * 100) + '%',
+        on: () => toUeben({ wrong: false }), hasWrong: w > 0, wrongLabel: `${w} Fehler wiederholen`,
+        onWrong: () => { const ws = {}; a.forEach(x => { if (s.ans[x.id] !== x.c) ws[x.id] = 1; }); toUeben({ wrong: true, wset: ws }); } };
+    }).filter(Boolean).sort((x, y) => ((x.pct < 0) - (y.pct < 0)) || (x.pct - y.pct));
+    const allWrong = answered.filter(x => s.ans[x.id] !== x.c);
+    const statAllWrong = () => { const ws = {}; allWrong.forEach(x => { ws[x.id] = 1; }); this.setState({ ft: 'all', src: 'all', idx: 0, statOpen: false, wrong: true, wset: ws }); setTab('ueben'); };
     const fcol = f => f === 'sehr oft' ? 'oklch(0.74 0.12 45)' : f === 'oft' ? '#e8c547' : '#aba69c';
     const tIdx = Math.max(0, K.topics.findIndex(t => t.id === s.topic)), T = K.topics[tIdx] || { norms: [], kern: [], schema: [], fallen: [] };
     const chip = (act, t, on) => ({ t, on, bd: act ? 'oklch(0.74 0.12 45)' : '#555d69', bg: act ? 'oklch(0.74 0.12 45)' : '#2a2e36', fg: act ? '#141518' : '#e8e4dc' });
     // practice
     const L = this.list(), idx = Math.min(s.idx, Math.max(0, L.length - 1)), q = L[idx];
     let cq = { opts: [] };
+    const QT = 4 * 60000, qtSave = () => { try { localStorage.setItem('wpr-qtimer-v1', JSON.stringify(this.qt)); } catch (e) {} };
+    if (!this.qt) this.qt = {};
+    const qtFreeze = t => { if (t && t.since) { t.used = Math.min(QT, t.used + Date.now() - t.since); t.since = null; } };
+    const qid = s.tab === 'ueben' && q ? q.id : null;
+    if (this.curQ !== qid) { qtFreeze(this.qt[this.curQ]); this.curQ = qid; if (qid) { const t = this.qt[qid] || (this.qt[qid] = { used: 0, since: null, paused: false }); if (!t.paused && t.used < QT) t.since = Date.now(); } qtSave(); }
+    const qtCur = qid ? this.qt[qid] : null;
+    let qtLeft = qtCur ? QT - qtCur.used - (qtCur.since ? Date.now() - qtCur.since : 0) : QT;
+    if (qtCur && qtLeft <= 0) { qtLeft = 0; if (qtCur.since) { qtCur.used = QT; qtCur.since = null; qtSave(); } }
+    const qtSec = Math.ceil(qtLeft / 1000), qtLabel = Math.floor(qtSec / 60) + ':' + String(qtSec % 60).padStart(2, '0');
     if (q) { const ch = s.ans[q.id]; cq = { ...q, topicT: (tmap[q.topic] || { t: 'Gemischt' }).t, lw: this.lw(q, ch != null), hasLw: this.lw(q, ch != null).length > 0, opts: this.opts(q, ch, ch != null, i => { if (s.ans[q.id] == null) this.persist({ ans: { ...s.ans, [q.id]: i } }); }) }; }
     // marks
     let mTot = 0, mDone = 0;
@@ -1304,13 +1385,18 @@ class Component extends DCLogic {
       ...this.pauken(),
       ...this.fallbuch(),
       ...this.vorlesungen(),
-      tabs, subTabs, hasSub: subTabs.length > 0, showSub: subTabs.length > 0 && !s.subHide, hdrTf: s.subHide && window.innerWidth <= 760 ? 'translateY(-100%)' : 'none', stickyTop: s.subHide && window.innerWidth <= 760 ? '8px' : '104px',isPlan: s.tab === 'plan', phases, planLabel: `${pDone} / ${pn} Schritte`, planPct: (pn ? pDone / pn * 100 : 0) + '%',
+      tabs, subTabs, hasSub: subTabs.length > 0, showSub: subTabs.length > 0 && !s.subHide, hdrTf: s.subHide ? 'translateY(-100%)' : 'none', stickyTop: s.subHide ? '8px' : 'calc(var(--wpr-hdr-h, 96px) + 8px)',isPlan: s.tab === 'plan', phases, planLabel: `${pDone} / ${pn} Schritte`, planPct: (pn ? pDone / pn * 100 : 0) + '%',
       planNext: () => { const el = firstOpen && document.getElementById(firstOpen); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 140, behavior: 'smooth' }); },
       isSchema: s.tab === 'schema', stages: STAGES, schGroups, schLabel: `${schDone} / ${schN} Schemata aus dem Kopf`, schPct: (schN ? schDone / schN * 100 : 0) + '%',
       recallLabel: recall ? 'Abrufmodus an – Schritte verdeckt' : 'Abrufmodus: Schritte verdecken', recallBg: recall ? 'oklch(0.74 0.12 45)' : 'transparent', recallFg: recall ? '#141518' : '#e8e4dc',
       toggleRecall: () => this.setState({ schRecall: !recall, schRev: {} }), goUeben: () => setTab('ueben'),
+      qtLabel, qtOver: !!qtCur && qtLeft === 0, qtColor: qtLeft === 0 ? 'oklch(0.75 0.14 25)' : qtLeft <= 30000 ? 'oklch(0.8 0.14 70)' : '#e8e4dc', qtBtn: qtCur && qtCur.since ? '⏸ Pause' : '▶ Fortsetzen', qtToggle: () => { const t = qtCur; if (!t) return; if (t.since) { qtFreeze(t); t.paused = true; } else if (t.used < QT) { t.since = Date.now(); t.paused = false; } qtSave(); this.setState({ now: Date.now() }); }, qtReset: () => { const t = qtCur; if (!t) return; t.used = 0; t.since = Date.now(); t.paused = false; qtSave(); this.setState({ now: Date.now() }); },
       isStart: s.tab === 'start', isMark: s.tab === 'mark', isWissen: s.tab === 'wissen', isUeben: s.tab === 'ueben', isProbe: s.tab === 'probe', isNf: s.tab === 'nf',
       statLabel: `${right.length} / ${answered.length} richtig · ${pool.length} Fragen`, statPct: (pool.length ? answered.length / pool.length * 100 : 0) + '%',
+      statOpen: !!s.statOpen, statExpanded: s.statOpen ? 'true' : 'false', statCaret: s.statOpen ? '▴' : '▾', statBtnBg: s.statOpen ? '#343a44' : 'transparent', statBtnBd: s.statOpen ? 'oklch(0.74 0.12 45)' : '#555d69',
+      statToggle: () => this.setState({ statOpen: !this.state.statOpen }), statClose: () => this.setState({ statOpen: false }), statRows,
+      statHasWrong: allWrong.length > 0, statAllWrong, statAllWrongLabel: `Alle ${allWrong.length} Fehler wiederholen`,
+      statSum: answered.length ? `${right.length} von ${answered.length} richtig · ${Math.round(right.length / answered.length * 100)} %` : 'Noch keine Fragen beantwortet',
       poolLabel: `${pool.length} MC-Fragen: ${pool.filter(x => x.src === 'rh').length} Übungsfälle von Holztrattner, ${pool.filter(x => x.src === 'schwer').length} lange Klausurfälle mit je 6 Antworten, ${pool.filter(x => x.src === 'alt').length} aus Altklausuren.`,
       goMark: () => setTab('mark'), goWissen: () => setTab('vl'), goUeben: () => setTab('ueben'), goProbe: () => setTab('probe'),
       topicRows: K.topics.map(t => ({ t: t.t, freq: t.freq, fc: fcol(t.freq), n: cnt(t.id), on: () => { this.setState({ topic: t.id }); setTab('wissen'); } })),
@@ -1320,7 +1406,7 @@ class Component extends DCLogic {
       tp: { ...T, n: cnt(T.id), kern: T.kern.map(k => { const [a, b] = k.split(' :: '); return { a, b }; }), schema: T.schema.map((t, i) => ({ i: i + 1, t })) },
       practiceTopic: () => { this.setState({ ft: T.id, src: 'all', wrong: false, idx: 0 }); setTab('ueben'); },
       nextTopic: () => { this.setState({ topic: K.topics[(tIdx + 1) % K.topics.length].id }); window.scrollTo(0, 0); },
-      filterChips: [chip(s.ft === 'all', `Alle (${pool.length})`, () => this.setState({ ft: 'all', idx: 0 })), ...K.topics.map(t => chip(s.ft === t.id, `${t.t} (${cnt(t.id)})`, () => this.setState({ ft: t.id, idx: 0 }))), ...(cnt('mix') ? [chip(s.ft === 'mix', `Gemischt (${cnt('mix')})`, () => this.setState({ ft: 'mix', idx: 0 }))] : []), chip(s.ft === 'open', `Noch offen · VL 7–9 (${pool.filter(x => x.open).length})`, () => this.setState({ ft: 'open', idx: 0 }))],
+      filterChips: [chip(s.ft === 'all', `Alle (${pool.length})`, () => this.setState({ ft: 'all', idx: 0 })), ...K.topics.map(t => chip(s.ft === t.id, `${t.t} (${cnt(t.id)})`, () => this.setState({ ft: t.id, idx: 0 }))), ...(cnt('mix') ? [chip(s.ft === 'mix', `Gemischt (${cnt('mix')})`, () => this.setState({ ft: 'mix', idx: 0 }))] : []), chip(s.ft === 'open', `Noch offen · VL 8–9 (${pool.filter(x => x.open).length})`, () => this.setState({ ft: 'open', idx: 0 }))],
       srcChips: [['all', 'Alle Quellen'], ['rh', `Übungsfälle Holztrattner (${pool.filter(x => x.src === 'rh').length})`], ['schwer', 'Klausurfälle (lang, 6 Optionen)'], ['fb', `Fallbuch-Fälle (${pool.filter(x => x.src === 'fb').length})`], ['alt', 'Altklausuren'], ['neu', `Neue Transferfälle (${pool.filter(x => x.neu).length})`]].map(([id, t]) => chip(s.src === id, t, () => this.setState({ src: id, idx: 0 }))),
       toggleWrong: () => { const w = {}; pool.forEach(x => { if (s.ans[x.id] != null && s.ans[x.id] !== x.c) w[x.id] = 1; }); this.setState({ wrong: !s.wrong, wset: w, idx: 0 }); },
       wrongLabel: s.wrong ? 'Nur falsche ✓' : 'Nur falsche wiederholen', wrongBd: s.wrong ? 'oklch(0.65 0.15 25)' : '#555d69', wrongFg: s.wrong ? 'oklch(0.75 0.13 25)' : '#e8e4dc',
